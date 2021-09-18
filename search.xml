@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>[ Snmp ] 安裝與設定 for Centos</title>
+    <url>/tomlin84/hexo.git/2021/09/02/20210901/</url>
+    <content><![CDATA[<p>安裝 snmp套件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-utils</span><br></pre></td></tr></table></figure>
+
+<p>編輯snmp設定檔</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/snmp/snmpd.conf</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+
+<p>修改config</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">####</span></span><br><span class="line"><span class="comment"># First, map the community name &quot;public&quot; into a &quot;security name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#       sec.name  source          community</span></span><br><span class="line">com2sec notConfigUser  default       public         //通關密碼</span><br><span class="line"></span><br><span class="line"><span class="comment">####</span></span><br><span class="line"><span class="comment"># Second, map the security name into a group name:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#       groupName      securityModel securityName</span></span><br><span class="line">group   notConfigGroup v1           notConfigUser</span><br><span class="line">group   notConfigGroup v2c           notConfigUser</span><br><span class="line"></span><br><span class="line"><span class="comment">####</span></span><br><span class="line"><span class="comment"># Third, create a view for us to let the group have rights to:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Make at least  snmpwalk -v 1 localhost -c public system fast again.</span></span><br><span class="line"><span class="comment">#       name           incl/excl     subtree         mask(optional)</span></span><br><span class="line">view    systemview    included   .1.3.6.1.2.1.1</span><br><span class="line">view    systemview    included   .1.3.6.1.2.1.25.1.1</span><br><span class="line">view    systemview    included   .1                          //獲得所有的資訊</span><br><span class="line"></span><br><span class="line"><span class="comment">####</span></span><br><span class="line"><span class="comment"># Finally, grant the group read-only access to the systemview view.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#       group          context sec.model sec.level prefix read   write  notif</span></span><br><span class="line">access  notConfigGroup <span class="string">&quot;&quot;</span>      any       noauth    exact  systemview none none</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
+
+<p>啟動snmp+預設開機啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> snmpd.service</span><br><span class="line">systemctl restart snmpd.service</span><br></pre></td></tr></table></figure>
+
+<p>防火牆放行udp161允許snmpd服務存取</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --add-port=161/udp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Snmp ] 安裝與設定 for ESXI</title>
+    <url>/tomlin84/hexo.git/2021/09/02/20210902/</url>
+    <content><![CDATA[<p>1.在esxi 上打開 ssh功能</p>
+<p>2.以 ssh client 登入 ESXi shell</p>
+<p>3.執行 snmp 相關設定</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">esxcli system snmp set -c public</span><br><span class="line">esxcli system snmp set -e yes</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>退出 ESXi shell （記得要 logout ，因為 VMWare ESXi 的 Shell 不會因為關閉了 SSH 而強制被離線，會持續連線著…..個人覺得這是個漏洞）</p>
+</li>
+<li><p>以 vsphere client 登入 esxi 然後 關閉 SSH 服務</p>
+</li>
+<li><p>以 vsphere client 登入 esxi 然後 開啟 SNMP 服務</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Snmp ] 安裝與設定 for Windows </title>
+    <url>/tomlin84/hexo.git/2021/09/03/20210903/</url>
+    <content><![CDATA[<p>1.伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service </p>
+<p>2.安裝完，前往”服務”設定  snmp service<br>        備註:安裝完不用重新開機<br>        沒有看到這個服務代表安裝失敗</p>
+<p>3.在安全性新增通關密碼與選擇所有主機接受snmp封包        </p>
+]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 檢查服務是否執行 </title>
+    <url>/tomlin84/hexo.git/2021/09/04/20210904/</url>
+    <content><![CDATA[<br>
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;0&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<p>TEST.bat -&gt; 呼叫服務啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 使用指令登出、關機 </title>
+    <url>/tomlin84/hexo.git/2021/09/05/20210905/</url>
+    <content><![CDATA[<br>
+登出
+<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">logoff</span><br></pre></td></tr></table></figure>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shutdown -l</span><br></pre></td></tr></table></figure>
+<br>
+關機 會跳出視窗
+<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SHUTDOWN -r -T 30 -C <span class="string">&quot;你的電腦將在30秒後重啟&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 時間變數 </title>
+    <url>/tomlin84/hexo.git/2021/09/06/20210906/</url>
+    <content><![CDATA[<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 網路卡的 mac address 匯出</title>
+    <url>/tomlin84/hexo.git/2021/09/07/20210908/</url>
+    <content><![CDATA[<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-7 delims=- &quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;getmac ^| find &quot;-&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i:%%j:%%k:%%l:%%m:%%n &gt;&gt;e:\mac.txt</span><br><span class="line">REM 匯出到E槽mac.txt 文件</span><br></pre></td></tr></table></figure>
+<br>
+備註:該指令會匯出電腦全部網卡的mac，依序排列
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 新增帳號 </title>
+    <url>/tomlin84/hexo.git/2021/09/13/20210913/</url>
+    <content><![CDATA[<br>
+<br>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pause</span><br><span class="line">net user [帳號] [密碼] /add  <span class="comment">#新增帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add   <span class="comment">#加入administrator群組</span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE  <span class="comment">#設定密碼永不過期</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 啟用金鑰 </title>
+    <url>/tomlin84/hexo.git/2021/09/14/20210914/</url>
+    <content><![CDATA[<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slmgr.vbs /upk    <span class="comment">#移除金鑰</span></span><br><span class="line">slmgr /ipk [金鑰] <span class="comment">#安裝產金鑰 ps:不要省略&quot;-&quot;</span></span><br><span class="line">slmgr /skms [金鑰伺服器] <span class="comment">#設定金鑰認證伺服器</span></span><br><span class="line">slmgr /ato <span class="comment">#成功啟用金鑰</span></span><br></pre></td></tr></table></figure>
+備註:一定要使用系統管理員身分執行+連上網路]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+</search>
