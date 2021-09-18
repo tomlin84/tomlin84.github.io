@@ -82,20 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 時間變數 </title>
-    <url>/2021/09/06/20210906/</url>
-    <content><![CDATA[<br>
-<br>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] 使用指令登出、關機 </title>
     <url>/2021/09/05/20210905/</url>
     <content><![CDATA[<br>
@@ -110,6 +96,20 @@
 <br>
 <br>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SHUTDOWN -r -T 30 -C <span class="string">&quot;你的電腦將在30秒後重啟&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 時間變數 </title>
+    <url>/2021/09/06/20210906/</url>
+    <content><![CDATA[<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Windows</category>
