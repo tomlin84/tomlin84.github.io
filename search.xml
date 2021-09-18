@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>[ Snmp ] 安裝與設定 for Centos</title>
-    <url>/tomlin84/hexo.git/2021/09/02/20210901/</url>
+    <url>/2021/09/02/20210901/</url>
     <content><![CDATA[<p>安裝 snmp套件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-utils</span><br></pre></td></tr></table></figure>
 
@@ -29,7 +29,7 @@
   </entry>
   <entry>
     <title>[ Snmp ] 安裝與設定 for ESXI</title>
-    <url>/tomlin84/hexo.git/2021/09/02/20210902/</url>
+    <url>/2021/09/02/20210902/</url>
     <content><![CDATA[<p>1.在esxi 上打開 ssh功能</p>
 <p>2.以 ssh client 登入 ESXi shell</p>
 <p>3.執行 snmp 相關設定</p>
@@ -52,7 +52,7 @@
   </entry>
   <entry>
     <title>[ Snmp ] 安裝與設定 for Windows </title>
-    <url>/tomlin84/hexo.git/2021/09/03/20210903/</url>
+    <url>/2021/09/03/20210903/</url>
     <content><![CDATA[<p>1.伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service </p>
 <p>2.安裝完，前往”服務”設定  snmp service<br>        備註:安裝完不用重新開機<br>        沒有看到這個服務代表安裝失敗</p>
 <p>3.在安全性新增通關密碼與選擇所有主機接受snmp封包        </p>
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 檢查服務是否執行 </title>
-    <url>/tomlin84/hexo.git/2021/09/04/20210904/</url>
+    <url>/2021/09/04/20210904/</url>
     <content><![CDATA[<br>
 
 
@@ -82,8 +82,22 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Cmd ] 時間變數 </title>
+    <url>/2021/09/06/20210906/</url>
+    <content><![CDATA[<br>
+<br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ Cmd ] 使用指令登出、關機 </title>
-    <url>/tomlin84/hexo.git/2021/09/05/20210905/</url>
+    <url>/2021/09/05/20210905/</url>
     <content><![CDATA[<br>
 登出
 <br>
@@ -105,22 +119,8 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 時間變數 </title>
-    <url>/tomlin84/hexo.git/2021/09/06/20210906/</url>
-    <content><![CDATA[<br>
-<br>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] 網路卡的 mac address 匯出</title>
-    <url>/tomlin84/hexo.git/2021/09/07/20210908/</url>
+    <url>/2021/09/07/20210908/</url>
     <content><![CDATA[<br>
 <br>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-7 delims=- &quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;getmac ^| find &quot;-&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i:%%j:%%k:%%l:%%m:%%n &gt;&gt;e:\mac.txt</span><br><span class="line">REM 匯出到E槽mac.txt 文件</span><br></pre></td></tr></table></figure>
@@ -136,7 +136,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 新增帳號 </title>
-    <url>/tomlin84/hexo.git/2021/09/13/20210913/</url>
+    <url>/2021/09/13/20210913/</url>
     <content><![CDATA[<br>
 <br>
 
@@ -150,7 +150,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 啟用金鑰 </title>
-    <url>/tomlin84/hexo.git/2021/09/14/20210914/</url>
+    <url>/2021/09/14/20210914/</url>
     <content><![CDATA[<br>
 <br>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slmgr.vbs /upk    <span class="comment">#移除金鑰</span></span><br><span class="line">slmgr /ipk [金鑰] <span class="comment">#安裝產金鑰 ps:不要省略&quot;-&quot;</span></span><br><span class="line">slmgr /skms [金鑰伺服器] <span class="comment">#設定金鑰認證伺服器</span></span><br><span class="line">slmgr /ato <span class="comment">#成功啟用金鑰</span></span><br></pre></td></tr></table></figure>
