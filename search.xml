@@ -130,8 +130,10 @@
   <entry>
     <title>[ Cmd ] 時間變數 </title>
     <url>/2021/09/06/20210906/</url>
-    <content><![CDATA[<br>
-<br>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>紀錄cmd中時間變數</p>
+</blockquote>
+<span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
@@ -186,7 +188,7 @@
       </tags>
   </entry>
   <entry>
-    <title>mac 連接 switch console port</title>
+    <title>[Network] mac 連接 switch console port</title>
     <url>/2021/09/20/20210920/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>紀錄如何使用mac來連接 switch console</p>
@@ -204,6 +206,134 @@
       </categories>
       <tags>
         <tag>switch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title> [系統部署] Gitlab 架設 </title>
+    <url>/2021/09/21/20210921/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何安裝 Gitlab Server</p>
+</blockquote>
+<span id="more"></span>
+<p>安裝ssh指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install -y curl policycoreutils openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
+<p>防火牆規則開通</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
+<p>寄信套件安裝</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install postfix</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure>
+<p>安裝gitlab<br>備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br><span class="line">sudo EXTERNAL_URL=<span class="string">&quot;https://gitlab.example.com&quot;</span> dnf install -y gitlab-ee</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後，要去修改gitlab.rb內容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.(第十五行)</span><br><span class="line">external_url <span class="string">&#x27;https://gitlab.example.com&#x27;</span>  (改成你要的網址)</span><br><span class="line">external_url <span class="string">&#x27;http://1.1.1.1:8888&#x27;</span>         (改成ip)</span><br></pre></td></tr></table></figure>
+<p>參考資料</p>
+<ul>
+<li><a href="https://docs.gitlab.com/ee/install/">https://docs.gitlab.com/ee/install/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title> [系統部署] 使用 AD 帳號登入 Gitlab </title>
+    <url>/2021/09/23/20210923/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用 AD 帳號來登入 Gitlab Server</p>
+</blockquote>
+<span id="more"></span>
+<blockquote>
+<p>CN屬性</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>屬性名稱</th>
+<th align="center">全名</th>
+<th align="right">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CN</td>
+<td align="center">Common Name</td>
+<td align="right">用戶名稱、單位名稱</td>
+</tr>
+<tr>
+<td>DN</td>
+<td align="center">Distinguished Name</td>
+<td align="right">識別名稱，絕對位置</td>
+</tr>
+<tr>
+<td>OU</td>
+<td align="center">Organizational Unit Name</td>
+<td align="right">組織單位名稱</td>
+</tr>
+<tr>
+<td>DC</td>
+<td align="center">Domain Componet</td>
+<td align="right">網域元件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>設定方法</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab_rails[<span class="string">&#x27;ldap_enabled&#x27;</span>] = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###! **remember to close this block with &#x27;EOS&#x27; below**</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;ldap_servers&#x27;</span>] = YAML.load &lt;&lt;-<span class="string">&#x27;EOS&#x27;</span></span><br><span class="line">   main: <span class="comment"># &#x27;main&#x27; is the GitLab &#x27;provider ID&#x27; of this LDAP server</span></span><br><span class="line">     label: <span class="string">&#x27;LDAP&#x27;</span></span><br><span class="line">     host: <span class="string">&#x27;IP&#x27;</span></span><br><span class="line">     port: 389</span><br><span class="line">     uid: <span class="string">&#x27;sAMAccountName&#x27;</span></span><br><span class="line">     bind_dn: <span class="string">&#x27;CN=Administrator,CN=Users,DC=test,DC=com&#x27;</span></span><br><span class="line">     password: <span class="string">&#x27;password&#x27;</span></span><br><span class="line">     encryption: <span class="string">&#x27;plain&#x27;</span> <span class="comment"># &quot;start_tls&quot; or &quot;simple_tls&quot; or &quot;plain&quot;</span></span><br><span class="line">     verify_certificates: <span class="literal">true</span></span><br><span class="line">     smartcard_auth: <span class="literal">false</span></span><br><span class="line">     active_directory: <span class="literal">true</span> </span><br><span class="line">     allow_username_or_email_login: <span class="literal">false</span> <span class="comment">#可以讓使用者使用 名稱 或 email 帳號登入</span></span><br><span class="line">     lowercase_usernames: <span class="literal">true</span></span><br><span class="line">     block_auto_created_users: <span class="literal">true</span>  <span class="comment"># 如果 true ，就會讓第一次登入的</span></span><br><span class="line">                                     <span class="comment"># 使用者看到 Your account is blocked.</span></span><br><span class="line">                                     <span class="comment"># Retry when an admin has unblocked it.</span></span><br><span class="line">                                     <span class="comment"># 它需要管理者解除才行</span></span><br><span class="line">     base: <span class="string">&#x27;OU=PRD,OU=TW,DC=test,DC=com &#x27;</span></span><br><span class="line">EOS</span><br></pre></td></tr></table></figure>
+<p>ps:設定的帳號只需要一般的user權限，不需要很高的權限</p>
+<blockquote>
+<p>設定與LDAP同步時間 預設為早上1點30分</p>
+</blockquote>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb  </span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">gitlab_rails[<span class="string">&#x27;ldap_sync_worker_cron&#x27;</span>] = <span class="string">&quot;0 */12(2) * * *&quot;</span></span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">config/gitlab.yaml</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">cron_jobs: </span><br><span class="line">ldap_sync_worker_cron</span><br><span class="line">: <span class="string">&quot;0 */12(30) * * *&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>  參考資料<br>  <a href="https://docs.gitlab.com/ee/administration/auth/ldap-ee.html">https://docs.gitlab.com/ee/administration/auth/ldap-ee.html</a></p>
+]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title> [系統部署]  Gitlab 常用指令 </title>
+    <url>/2021/10/03/20211003/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Gitlab Server 常用的指令</p>
+</blockquote>
+<span id="more"></span>
+<p>重製設定</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<p>啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+<p>關閉</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop</span><br></pre></td></tr></table></figure>
+<p>升級</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>升級12版最新版號</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>手動備份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<p>要自行手動備份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb         <span class="comment">#配置文件須備份</span></span><br><span class="line">/var/opt/gitlab/nginx/conf    <span class="comment">#nginx配置文件</span></span><br><span class="line">/etc/postfix/main.cfpostfix   <span class="comment">#郵件配置備份</span></span><br></pre></td></tr></table></figure>
+<p>更換備份資料夾[刷新檔案權限為git]</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br></pre></td></tr></table></figure>
+<p>還原</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-ctl status</span><br><span class="line"></span><br><span class="line">gitlab-rake gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)(還原最後一版可以不加這段</span><br><span class="line">gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)</span><br><span class="line"></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+
+<p>502錯誤排解</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">unicorn[<span class="string">&#x27;port&#x27;</span>] = 9090(更換端口)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
