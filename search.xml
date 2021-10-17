@@ -336,4 +336,25 @@
         <tag>Git</tag>
       </tags>
   </entry>
+  <entry>
+    <title>[ Cmd ] 遠端桌面指令 </title>
+    <url>/2021/10/04/20211004/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
+
+<p>查詢遠端的憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
+
+<p>刪除憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
 </search>
