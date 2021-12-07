@@ -3,7 +3,7 @@
   <entry>
     <title>[ Snmp ] 安裝與設定 for Centos</title>
     <url>/2021/09/02/20210901/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
 </blockquote>
 <span id="more"></span>
@@ -34,7 +34,7 @@
   <entry>
     <title>[ Snmp ] 安裝與設定 for ESXI</title>
     <url>/2021/09/02/20210902/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄要如何在Esxi安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
 </blockquote>
 <span id="more"></span>
@@ -62,7 +62,7 @@
   <entry>
     <title>[ Snmp ] 安裝與設定 for Windows </title>
     <url>/2021/09/03/20210903/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
 </blockquote>
 <span id="more"></span>
@@ -82,14 +82,14 @@
   <entry>
     <title>[ Cmd ] 檢查服務是否執行 </title>
     <url>/2021/09/04/20210904/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄如何使用cmd來檢查服務是否正常運作的排程</p>
 </blockquote>
 <span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;0&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;1&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 
 <p>TEST.bat -&gt; 呼叫服務啟動</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br><span class="line"><span class="built_in">echo</span> %date% %time% &gt;&gt;C:\log.txt  <span class="comment">#紀錄啟用這個指令的時間</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> nowtime= %date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2% </span><br><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br><span class="line"><span class="built_in">echo</span> %nowtime% &gt;&gt;C:\log.txt  <span class="comment">#紀錄啟用這個指令的時間</span></span><br></pre></td></tr></table></figure>
 
 
 ]]></content>
@@ -103,7 +103,7 @@
   <entry>
     <title>[ Cmd ] 使用指令登出、關機 </title>
     <url>/2021/09/05/20210905/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄常用的cmd的相關指令</p>
 </blockquote>
 <span id="more"></span>
@@ -130,7 +130,7 @@
   <entry>
     <title>[ Cmd ] 時間變數 </title>
     <url>/2021/09/06/20210906/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄cmd中時間變數</p>
 </blockquote>
 <span id="more"></span>
@@ -146,8 +146,11 @@
   <entry>
     <title>[ Cmd ] 網路卡的 mac address 匯出</title>
     <url>/2021/09/07/20210908/</url>
-    <content><![CDATA[<br>
-<br>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用Cmd匯出網卡的 mac 資訊</p>
+</blockquote>
+<span id="more"></span>
+
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-7 delims=- &quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;getmac ^| find &quot;-&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i:%%j:%%k:%%l:%%m:%%n &gt;&gt;e:\mac.txt</span><br><span class="line">REM 匯出到E槽mac.txt 文件</span><br></pre></td></tr></table></figure>
 <br>
 備註:該指令會匯出電腦全部網卡的mac，依序排列
@@ -160,12 +163,15 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 新增帳號 </title>
+    <title>[ Cmd ] Net user 使用方法 </title>
     <url>/2021/09/13/20210913/</url>
-    <content><![CDATA[<br>
-<br>
+    <content><![CDATA[<blockquote>
+<p>紀錄Cmd的 net user 使用方法</p>
+</blockquote>
+<span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pause</span><br><span class="line">net user [帳號] [密碼] /add  <span class="comment">#新增帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add   <span class="comment">#加入administrator群組</span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE  <span class="comment">#設定密碼永不過期</span></span><br></pre></td></tr></table></figure>]]></content>
+<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:yes </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:yes</span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -176,10 +182,13 @@
   <entry>
     <title>[ Cmd ] 啟用金鑰 </title>
     <url>/2021/09/14/20210914/</url>
-    <content><![CDATA[<br>
-<br>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用Cmd來安裝 windows 序號</p>
+</blockquote>
+<span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slmgr.vbs /upk    <span class="comment">#移除金鑰</span></span><br><span class="line">slmgr /ipk [金鑰] <span class="comment">#安裝產金鑰 ps:不要省略&quot;-&quot;</span></span><br><span class="line">slmgr /skms [金鑰伺服器] <span class="comment">#設定金鑰認證伺服器</span></span><br><span class="line">slmgr /ato <span class="comment">#成功啟用金鑰</span></span><br></pre></td></tr></table></figure>
-備註:一定要使用系統管理員身分執行+連上網路]]></content>
+<p>備註:一定要使用系統管理員身分執行+連上網路</p>
+]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -190,7 +199,7 @@
   <entry>
     <title>[Network] mac 連接 switch console port</title>
     <url>/2021/09/20/20210920/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>紀錄如何使用mac來連接 switch console</p>
 </blockquote>
 <span id="more"></span>
@@ -350,6 +359,118 @@
 
 <p>刪除憑證</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ PowerShell] Send-MailMessage 命令 </title>
+    <url>/2021/11/23/20211123/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用PowerShell 寄信</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+        <tag>通知</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ cmd ] 使用指令刪除過期的檔案</title>
+    <url>/2021/11/23/20211124/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Cmd</tag>
+        <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] Net use 使用方法 </title>
+    <url>/2021/12/04/20211204/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄 net use 在 cmd 的使用方法 </p>
+</blockquote>
+<span id="more"></span>
+
+<p>net  use  是用來掛載、 刪除網路磁碟機或是建立ipc$連線</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net use</span><br><span class="line"><span class="comment">#查看目前的遠端連線 </span></span><br><span class="line">net use \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#直接登錄到對方的C槽 </span></span><br><span class="line">net use h: \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#掛載對方的C 槽 再本機的 H槽 </span></span><br><span class="line">net use * /d /y</span><br><span class="line"><span class="comment">#刪除所有掛載的連線 </span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] sc 使用方法 </title>
+    <url>/2021/12/05/20211205/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄 sc 在 cmd 的使用方法 </p>
+</blockquote>
+<span id="more"></span>
+
+<p>SC (Service Control 的縮寫 ) 是用來查詢、啟動、停止，甚至刪除服務的指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"> <span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line"> sc start [服務]</span><br><span class="line"> <span class="comment">#啟動某服務</span></span><br><span class="line"> sc stop [服務]</span><br><span class="line"> <span class="comment">#關閉某服務</span></span><br><span class="line"> sc delete [服務]</span><br><span class="line"> <span class="comment">#刪除某服務</span></span><br><span class="line"> sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"> <span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"> <span class="comment">#demand=手動 </span></span><br><span class="line"> <span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 關於 net use 與  sc 差異 </title>
+    <url>/2021/12/06/20211206/</url>
+    <content><![CDATA[<blockquote>
+<p>net use 與 sc 的指令都可以管理服務， 那究竟有什麼差異 ? </p>
+</blockquote>
+<span id="more"></span>
+
+<p>以下為net use 與 sc 的指令的差異整理<br>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Net Use</th>
+<th align="center">sc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最早出現的時代</td>
+<td align="center">MS-Dos</td>
+<td align="center">Windows NT</td>
+</tr>
+<tr>
+<td>功能</td>
+<td align="center">啟動、 停止、 暫停</td>
+<td align="center">查詢狀態、新增刪除、更改配置與安全性</td>
+</tr>
+<tr>
+<td>是否可以透過網路操作</td>
+<td align="center">不行</td>
+<td align="center">可以</td>
+</tr>
+<tr>
+<td>服務的值</td>
+<td align="center">顯示名稱、 服務名稱</td>
+<td align="center">服務名稱</td>
+</tr>
+</tbody></table>
+<p>&nbsp;<br>參考資料:<br><a href="https://superuser.com/questions/315166/">https://superuser.com/questions/315166/</a></p>
+]]></content>
       <categories>
         <category>Windows</category>
       </categories>
