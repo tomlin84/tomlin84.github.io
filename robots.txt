@@ -7,5 +7,5 @@ Disallow: /vendors/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://tomlin84.github.io//sitemap.xml
+Sitemap: https://tomlin84.github.io/sitemap.xml
 

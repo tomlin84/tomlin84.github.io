@@ -256,20 +256,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Cmd/</loc>
-    <lastmod>2022-01-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/log/</loc>
-    <lastmod>2022-01-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/PowerShell/</loc>
     <lastmod>2022-01-03</lastmod>
     <changefreq>daily</changefreq>
@@ -278,6 +264,20 @@
   
   <url>
     <loc>http://example.com/tags/%E9%80%9A%E7%9F%A5/</loc>
+    <lastmod>2022-01-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Cmd/</loc>
+    <lastmod>2022-01-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/log/</loc>
     <lastmod>2022-01-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
