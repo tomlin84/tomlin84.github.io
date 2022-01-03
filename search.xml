@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>[ Snmp ] 安裝與設定 for Centos</title>
-    <url>/2021/09/02/20210901/</url>
+    <url>/2021/09/01/20210901/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
 </blockquote>
@@ -346,43 +346,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 遠端桌面指令 </title>
-    <url>/2021/10/04/20211004/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
-
-<p>查詢遠端的憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
-
-<p>刪除憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ PowerShell] Send-MailMessage 命令 </title>
-    <url>/2021/11/23/20211123/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用PowerShell 寄信</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>PowerShell</tag>
-        <tag>通知</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ cmd ] 使用指令刪除過期的檔案</title>
     <url>/2021/11/23/20211124/</url>
     <content><![CDATA[<blockquote>
@@ -415,15 +378,35 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] sc 使用方法 </title>
-    <url>/2021/12/05/20211205/</url>
+    <title>[ PowerShell] Send-MailMessage 命令 </title>
+    <url>/2021/11/23/20211123/</url>
     <content><![CDATA[<blockquote>
-<p>紀錄 sc 在 cmd 的使用方法 </p>
+<p>紀錄如何使用PowerShell 寄信</p>
 </blockquote>
 <span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+        <tag>通知</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 遠端桌面指令 </title>
+    <url>/2021/10/04/20211004/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
 
-<p>SC (Service Control 的縮寫 ) 是用來查詢、啟動、停止，甚至刪除服務的指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"> <span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line"> sc start [服務]</span><br><span class="line"> <span class="comment">#啟動某服務</span></span><br><span class="line"> sc stop [服務]</span><br><span class="line"> <span class="comment">#關閉某服務</span></span><br><span class="line"> sc delete [服務]</span><br><span class="line"> <span class="comment">#刪除某服務</span></span><br><span class="line"> sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"> <span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"> <span class="comment">#demand=手動 </span></span><br><span class="line"> <span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
+<p>查詢遠端的憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
+
+<p>刪除憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -477,5 +460,105 @@
       <tags>
         <tag>CMD</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] sc 使用方法 </title>
+    <url>/2021/12/05/20211205/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄 sc 在 cmd 的使用方法 </p>
+</blockquote>
+<span id="more"></span>
+
+<p>SC (Service Control 的縮寫 ) 是用來查詢、啟動、停止，甚至刪除服務的指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"> <span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line"> sc start [服務]</span><br><span class="line"> <span class="comment">#啟動某服務</span></span><br><span class="line"> sc stop [服務]</span><br><span class="line"> <span class="comment">#關閉某服務</span></span><br><span class="line"> sc delete [服務]</span><br><span class="line"> <span class="comment">#刪除某服務</span></span><br><span class="line"> sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"> <span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"> <span class="comment">#demand=手動 </span></span><br><span class="line"> <span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Liunx ] Centos 8 時間問題</title>
+    <url>/2021/12/13/20211213/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單說明要如何修正 Centos 8 時間</p>
+</blockquote>
+<span id="more"></span>
+
+<p> ps. 雖然Centos 8 2021/12/31 就停止更新了，但還是記錄一下當初是如何修正時間的問題 </p>
+<p>Centos 上用了很久的NTP，在這次的升級的時候被放棄，由Chrony取代NTP</p>
+<p>這邊會說要如何使用Chrony來設定Centos 時間</p>
+<p>安裝套件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install chrony</span><br></pre></td></tr></table></figure>
+
+<p>安裝後啟動</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start chronyd.service</span><br></pre></td></tr></table></figure>
+<p>開機後自動啟動</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable chronyd.service</span><br></pre></td></tr></table></figure>
+
+<p>設定檔修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/chrony.conf</span><br></pre></td></tr></table></figure>
+<p>預設裡面就有設定校時server ，是由centos 維護<br>如果想用台灣自己的校時server 可以改成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server tock.stdtime.gov.tw prefer</span><br><span class="line">server tick.stdtime.gov.tw</span><br><span class="line">server time.stdtime.gov.tw</span><br></pre></td></tr></table></figure>
+<p>使用 chronyd 來檢查服務有沒有正常</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status chronyd.service</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Liunx</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>[ Snmp ] librenms 設定應用-badif</title>
+    <url>/2022/01/01/20220101/</url>
+    <content><![CDATA[<blockquote>
+<p>好不容易把機器燈加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
+</blockquote>
+<span id="more"></span>
+<p>修改設定檔</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;allow_unauth_grahps&#x27;</span>] = 1;</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (L2TP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IKEv2).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (GRE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (SSTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPPOE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IPv6).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (Network Monitor).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IP).&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>這些圖表就會被自動隱藏，就看不到了。</p>
+<blockquote>
+<p>每台機器所自動產生的網路圖表名稱，都會有所不同，可以使用下面指令去查詢，再進行設定</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+        <tag>librenms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Liunx ] 如何使用gnome shell Extensions </title>
+    <url>/2021/12/12/20211212/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="gnome-shell-Extensions-是什麼"><a href="#gnome-shell-Extensions-是什麼" class="headerlink" title="gnome shell Extensions 是什麼?"></a>gnome shell Extensions 是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
+<p>類似瀏覽器的插件。例如:你可以在瀏覽器安裝附件來下載影片。這個附件是由第三方開發人員。<br>隨然web瀏覽器預設不提供，但是透過安裝附件可以強化瀏覽器的功能</p>
+<h4 id="要如何安裝gnome-shell-Extensions"><a href="#要如何安裝gnome-shell-Extensions" class="headerlink" title="要如何安裝gnome shell Extensions"></a>要如何安裝gnome shell Extensions</h4><p>已經知道 gnome shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
+<ul>
+<li>使用liunx發行版本的安裝包</li>
+<li>在瀏覽器查找並安裝擴充程式</li>
+<li>下載並手動安裝擴充程式</li>
+</ul>
+<p>在安裝 gnome shell 擴充程式前 ，要先安裝 gnome tweak tool</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<p>有些擴充程式會有版本得限制，可以透過下面指令來知道目前的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gnome-shell --version</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用gnome-shell-extensins-安裝包-最簡單的方法"><a href="#使用gnome-shell-extensins-安裝包-最簡單的方法" class="headerlink" title="使用gnome-shell -extensins 安裝包 (最簡單的方法)"></a>使用gnome-shell -extensins 安裝包 (最簡單的方法)</h4><p>Liunx發行版(例如:ubuntu.Fedora)有提供一組安裝包，這個安裝版是有經過測試的，不需要擔心兼容性等問題</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install-shell-extensins</span><br></pre></td></tr></table></figure>
+
+<p>你需要重新啟動系統，看到開始功能表“調教”，就會發現已經幫你自動安裝一些擴充程式了。 </p>
+<h6 id="ps-這個翻譯真奇怪"><a href="#ps-這個翻譯真奇怪" class="headerlink" title="ps:這個翻譯真奇怪"></a>ps:這個翻譯真奇怪</h6><p>&lt;圖片&gt;</p>
+]]></content>
+      <categories>
+        <category>Liunx</category>
+      </categories>
   </entry>
 </search>
