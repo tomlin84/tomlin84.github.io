@@ -367,6 +367,21 @@
       </tags>
   </entry>
   <entry>
+    <title>[ cmd ] 使用指令刪除過期的檔案</title>
+    <url>/2021/11/23/20211124/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Cmd</tag>
+        <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ PowerShell] Send-MailMessage 命令 </title>
     <url>/2021/11/23/20211123/</url>
     <content><![CDATA[<blockquote>
@@ -380,21 +395,6 @@
       <tags>
         <tag>PowerShell</tag>
         <tag>通知</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ cmd ] 使用指令刪除過期的檔案</title>
-    <url>/2021/11/23/20211124/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Cmd</tag>
-        <tag>log</tag>
       </tags>
   </entry>
   <entry>
@@ -430,6 +430,37 @@
       <tags>
         <tag>CMD</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>[ Liunx ] 如何使用gnome shell Extensions </title>
+    <url>/2021/12/12/20211212/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="gnome-shell-Extensions-是什麼"><a href="#gnome-shell-Extensions-是什麼" class="headerlink" title="gnome shell Extensions 是什麼?"></a>gnome shell Extensions 是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
+<p>類似瀏覽器的插件。例如:你可以在瀏覽器安裝附件來下載影片。這個附件是由第三方開發人員。<br>隨然web瀏覽器預設不提供，但是透過安裝附件可以強化瀏覽器的功能</p>
+<h4 id="要如何安裝gnome-shell-Extensions"><a href="#要如何安裝gnome-shell-Extensions" class="headerlink" title="要如何安裝gnome shell Extensions"></a>要如何安裝gnome shell Extensions</h4><p>已經知道 gnome shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
+<ul>
+<li>使用liunx發行版本的安裝包</li>
+<li>在瀏覽器查找並安裝擴充程式</li>
+<li>下載並手動安裝擴充程式</li>
+</ul>
+<p>在安裝 gnome shell 擴充程式前 ，要先安裝 gnome tweak tool</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<p>有些擴充程式會有版本得限制，可以透過下面指令來知道目前的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gnome-shell --version</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用gnome-shell-extensins-安裝包-最簡單的方法"><a href="#使用gnome-shell-extensins-安裝包-最簡單的方法" class="headerlink" title="使用gnome-shell -extensins 安裝包 (最簡單的方法)"></a>使用gnome-shell -extensins 安裝包 (最簡單的方法)</h4><p>Liunx發行版(例如:ubuntu.Fedora)有提供一組安裝包，這個安裝版是有經過測試的，不需要擔心兼容性等問題</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install-shell-extensins</span><br></pre></td></tr></table></figure>
+
+<p>你需要重新啟動系統，看到開始功能表“調教”，就會發現已經幫你自動安裝一些擴充程式了。 </p>
+<h6 id="ps-這個翻譯真奇怪"><a href="#ps-這個翻譯真奇怪" class="headerlink" title="ps:這個翻譯真奇怪"></a>ps:這個翻譯真奇怪</h6><p>&lt;圖片&gt;</p>
+]]></content>
+      <categories>
+        <category>Liunx</category>
+      </categories>
   </entry>
   <entry>
     <title>[ Cmd ] 關於 net use 與  sc 差異 </title>
@@ -479,37 +510,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Liunx ] 如何使用gnome shell Extensions </title>
-    <url>/2021/12/12/20211212/</url>
-    <content><![CDATA[<blockquote>
-<p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
-</blockquote>
-<span id="more"></span>
-
-<h4 id="gnome-shell-Extensions-是什麼"><a href="#gnome-shell-Extensions-是什麼" class="headerlink" title="gnome shell Extensions 是什麼?"></a>gnome shell Extensions 是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
-<p>類似瀏覽器的插件。例如:你可以在瀏覽器安裝附件來下載影片。這個附件是由第三方開發人員。<br>隨然web瀏覽器預設不提供，但是透過安裝附件可以強化瀏覽器的功能</p>
-<h4 id="要如何安裝gnome-shell-Extensions"><a href="#要如何安裝gnome-shell-Extensions" class="headerlink" title="要如何安裝gnome shell Extensions"></a>要如何安裝gnome shell Extensions</h4><p>已經知道 gnome shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
-<ul>
-<li>使用liunx發行版本的安裝包</li>
-<li>在瀏覽器查找並安裝擴充程式</li>
-<li>下載並手動安裝擴充程式</li>
-</ul>
-<p>在安裝 gnome shell 擴充程式前 ，要先安裝 gnome tweak tool</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
-<p>有些擴充程式會有版本得限制，可以透過下面指令來知道目前的版本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gnome-shell --version</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用gnome-shell-extensins-安裝包-最簡單的方法"><a href="#使用gnome-shell-extensins-安裝包-最簡單的方法" class="headerlink" title="使用gnome-shell -extensins 安裝包 (最簡單的方法)"></a>使用gnome-shell -extensins 安裝包 (最簡單的方法)</h4><p>Liunx發行版(例如:ubuntu.Fedora)有提供一組安裝包，這個安裝版是有經過測試的，不需要擔心兼容性等問題</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install-shell-extensins</span><br></pre></td></tr></table></figure>
-
-<p>你需要重新啟動系統，看到開始功能表“調教”，就會發現已經幫你自動安裝一些擴充程式了。 </p>
-<h6 id="ps-這個翻譯真奇怪"><a href="#ps-這個翻譯真奇怪" class="headerlink" title="ps:這個翻譯真奇怪"></a>ps:這個翻譯真奇怪</h6><p>&lt;圖片&gt;</p>
-]]></content>
-      <categories>
-        <category>Liunx</category>
-      </categories>
-  </entry>
-  <entry>
     <title>[ Liunx ] Centos 8 時間問題</title>
     <url>/2021/12/13/20211213/</url>
     <content><![CDATA[<blockquote>
@@ -553,6 +553,48 @@
 <p>每台機器所自動產生的網路圖表名稱，都會有所不同，可以使用下面指令去查詢，再進行設定</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+        <tag>librenms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title> [ Snmp ] librenms 設定應用-nagios </title>
+    <url>/2022/12/05/20220103/</url>
+    <content><![CDATA[<blockquote>
+<p>librenms 有支援nagios Plugin 的擴充檢測功能，讓librenns有更強大的應用能力，在搭配上librenms的預警系統，可以快速知道問題發生，更迅速的處理。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="安裝nagios套件"><a href="#安裝nagios套件" class="headerlink" title="安裝nagios套件"></a>安裝nagios套件</h3><p>安裝 EPEL 套件庫</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf install epel-release</span><br></pre></td></tr></table></figure>
+<p>搜尋可以安裝的套件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf search nagios-plugins-</span><br></pre></td></tr></table></figure>
+<p>下圖搜尋後的結果</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1641395301/librenms_nagios_euhzml.png" width="80%" />
+
+<p> [備註:nagios-plugins-mysql 會與maroadb互衝導致無法安裝]</p>
+<h3 id="安裝套件-使用nagios-dns-示範"><a href="#安裝套件-使用nagios-dns-示範" class="headerlink" title="安裝套件 [使用nagios-dns 示範]"></a>安裝套件 [使用nagios-dns 示範]</h3><p>安裝指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf install nagios-plugins-dns</span><br></pre></td></tr></table></figure>
+<p>修改設定檔</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># nagios-plugins-all</span><br><span class="line">$config[‘show_services’] = 1;</span><br><span class="line">$config[‘nagios_plugins’] = “/usr/lib64/nagios/plugins”;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/lib64/nagios/plugins/*</span><br></pre></td></tr></table></figure>
+<p>設定排程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/cron.d/librenms</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:</span><br><span class="line">*/5  *    * * *   librenms    /opt/librenms/services-wrapper.py 1</span><br><span class="line"># Daily maintenance script. DO NOT DISABLE!</span><br><span class="line">:</span><br></pre></td></tr></table></figure>
+
+
+<p>重啟排程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service crond restart</span><br></pre></td></tr></table></figure>
+
+<p>安裝設定完成，點擊首頁的service→add service，進入畫面進行設定。</p>
+]]></content>
       <categories>
         <category>設備監控</category>
       </categories>
