@@ -237,7 +237,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.(第十五行)</span><br><span class="line">external_url <span class="string">&#x27;https://gitlab.example.com&#x27;</span>  (改成你要的網址)</span><br><span class="line">external_url <span class="string">&#x27;http://1.1.1.1:8888&#x27;</span>         (改成ip)</span><br></pre></td></tr></table></figure>
 <p>參考資料</p>
 <ul>
-<li><a href="https://docs.gitlab.com/ee/install/">https://docs.gitlab.com/ee/install/</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGxhYi5jb20vZWUvaW5zdGFsbC8=">https://docs.gitlab.com/ee/install/<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
@@ -299,7 +299,7 @@
 
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">config/gitlab.yaml</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">cron_jobs: </span><br><span class="line">ldap_sync_worker_cron</span><br><span class="line">: <span class="string">&quot;0 */12(30) * * *&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>  參考資料<br>  <a href="https://docs.gitlab.com/ee/administration/auth/ldap-ee.html">https://docs.gitlab.com/ee/administration/auth/ldap-ee.html</a></p>
+<p>  參考資料<br>  <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGxhYi5jb20vZWUvYWRtaW5pc3RyYXRpb24vYXV0aC9sZGFwLWVlLmh0bWw=">https://docs.gitlab.com/ee/administration/auth/ldap-ee.html<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>系統部署</category>
@@ -367,21 +367,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ cmd ] 使用指令刪除過期的檔案</title>
-    <url>/2021/11/23/20211124/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Cmd</tag>
-        <tag>log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ PowerShell] Send-MailMessage 命令 </title>
     <url>/2021/11/23/20211123/</url>
     <content><![CDATA[<blockquote>
@@ -395,6 +380,21 @@
       <tags>
         <tag>PowerShell</tag>
         <tag>通知</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ cmd ] 使用指令刪除過期的檔案</title>
+    <url>/2021/11/23/20211124/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Cmd</tag>
+        <tag>log</tag>
       </tags>
   </entry>
   <entry>
@@ -430,37 +430,6 @@
       <tags>
         <tag>CMD</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>[ Liunx ] 如何使用gnome shell Extensions </title>
-    <url>/2021/12/12/20211212/</url>
-    <content><![CDATA[<blockquote>
-<p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
-</blockquote>
-<span id="more"></span>
-
-<h4 id="gnome-shell-Extensions-是什麼"><a href="#gnome-shell-Extensions-是什麼" class="headerlink" title="gnome shell Extensions 是什麼?"></a>gnome shell Extensions 是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
-<p>類似瀏覽器的插件。例如:你可以在瀏覽器安裝附件來下載影片。這個附件是由第三方開發人員。<br>隨然web瀏覽器預設不提供，但是透過安裝附件可以強化瀏覽器的功能</p>
-<h4 id="要如何安裝gnome-shell-Extensions"><a href="#要如何安裝gnome-shell-Extensions" class="headerlink" title="要如何安裝gnome shell Extensions"></a>要如何安裝gnome shell Extensions</h4><p>已經知道 gnome shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
-<ul>
-<li>使用liunx發行版本的安裝包</li>
-<li>在瀏覽器查找並安裝擴充程式</li>
-<li>下載並手動安裝擴充程式</li>
-</ul>
-<p>在安裝 gnome shell 擴充程式前 ，要先安裝 gnome tweak tool</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
-<p>有些擴充程式會有版本得限制，可以透過下面指令來知道目前的版本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gnome-shell --version</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用gnome-shell-extensins-安裝包-最簡單的方法"><a href="#使用gnome-shell-extensins-安裝包-最簡單的方法" class="headerlink" title="使用gnome-shell -extensins 安裝包 (最簡單的方法)"></a>使用gnome-shell -extensins 安裝包 (最簡單的方法)</h4><p>Liunx發行版(例如:ubuntu.Fedora)有提供一組安裝包，這個安裝版是有經過測試的，不需要擔心兼容性等問題</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install-shell-extensins</span><br></pre></td></tr></table></figure>
-
-<p>你需要重新啟動系統，看到開始功能表“調教”，就會發現已經幫你自動安裝一些擴充程式了。 </p>
-<h6 id="ps-這個翻譯真奇怪"><a href="#ps-這個翻譯真奇怪" class="headerlink" title="ps:這個翻譯真奇怪"></a>ps:這個翻譯真奇怪</h6><p>&lt;圖片&gt;</p>
-]]></content>
-      <categories>
-        <category>Liunx</category>
-      </categories>
   </entry>
   <entry>
     <title>[ Cmd ] 關於 net use 與  sc 差異 </title>
@@ -500,7 +469,7 @@
 <td align="center">服務名稱</td>
 </tr>
 </tbody></table>
-<p>&nbsp;<br>參考資料:<br><a href="https://superuser.com/questions/315166/">https://superuser.com/questions/315166/</a></p>
+<p>&nbsp;<br>參考資料:<br><span class="exturl" data-url="aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8zMTUxNjYv">https://superuser.com/questions/315166/<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>Windows</category>
@@ -508,6 +477,37 @@
       <tags>
         <tag>CMD</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>[ Liunx ] 如何使用gnome shell Extensions </title>
+    <url>/2021/12/12/20211212/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
+</blockquote>
+<span id="more"></span>
+
+<h4 id="gnome-shell-Extensions-是什麼"><a href="#gnome-shell-Extensions-是什麼" class="headerlink" title="gnome shell Extensions 是什麼?"></a>gnome shell Extensions 是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
+<p>類似瀏覽器的插件。例如:你可以在瀏覽器安裝附件來下載影片。這個附件是由第三方開發人員。<br>隨然web瀏覽器預設不提供，但是透過安裝附件可以強化瀏覽器的功能</p>
+<h4 id="要如何安裝gnome-shell-Extensions"><a href="#要如何安裝gnome-shell-Extensions" class="headerlink" title="要如何安裝gnome shell Extensions"></a>要如何安裝gnome shell Extensions</h4><p>已經知道 gnome shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
+<ul>
+<li>使用liunx發行版本的安裝包</li>
+<li>在瀏覽器查找並安裝擴充程式</li>
+<li>下載並手動安裝擴充程式</li>
+</ul>
+<p>在安裝 gnome shell 擴充程式前 ，要先安裝 gnome tweak tool</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<p>有些擴充程式會有版本得限制，可以透過下面指令來知道目前的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gnome-shell --version</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用gnome-shell-extensins-安裝包-最簡單的方法"><a href="#使用gnome-shell-extensins-安裝包-最簡單的方法" class="headerlink" title="使用gnome-shell -extensins 安裝包 (最簡單的方法)"></a>使用gnome-shell -extensins 安裝包 (最簡單的方法)</h4><p>Liunx發行版(例如:ubuntu.Fedora)有提供一組安裝包，這個安裝版是有經過測試的，不需要擔心兼容性等問題</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install-shell-extensins</span><br></pre></td></tr></table></figure>
+
+<p>你需要重新啟動系統，看到開始功能表“調教”，就會發現已經幫你自動安裝一些擴充程式了。 </p>
+<h6 id="ps-這個翻譯真奇怪"><a href="#ps-這個翻譯真奇怪" class="headerlink" title="ps:這個翻譯真奇怪"></a>ps:這個翻譯真奇怪</h6><p>&lt;圖片&gt;</p>
+]]></content>
+      <categories>
+        <category>Liunx</category>
+      </categories>
   </entry>
   <entry>
     <title>[ Liunx ] Centos 8 時間問題</title>
