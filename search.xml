@@ -1,8 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[ Snmp ] 安裝與設定 for ESXI</title>
+    <url>/20210902/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄要如何在Esxi安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
+</blockquote>
+<span id="more"></span>
+<p>1.在esxi 上打開 ssh功能</p>
+<p>2.以 ssh client 登入 ESXi shell</p>
+<p>3.執行 snmp 相關設定</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">esxcli system snmp set -c public</span><br><span class="line">esxcli system snmp set -e yes</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>退出 ESXi shell （記得要 logout ，因為 VMWare ESXi 的 Shell 不會因為關閉了 SSH 而強制被離線，會持續連線著…..個人覺得這是個漏洞）</p>
+</li>
+<li><p>以 vsphere client 登入 esxi 然後 關閉 SSH 服務</p>
+</li>
+<li><p>以 vsphere client 登入 esxi 然後 開啟 SNMP 服務</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+        <tag>Esxi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 檢查服務是否執行 </title>
+    <url>/20210904/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd來檢查服務是否正常運作的排程</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;1&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<p>TEST.bat -&gt; 呼叫服務啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> nowtime= %date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2% </span><br><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br><span class="line"><span class="built_in">echo</span> %nowtime% &gt;&gt;C:\log.txt  <span class="comment">#紀錄啟用這個指令的時間</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Snmp ] 安裝與設定 for Windows </title>
+    <url>/20210903/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service"><a href="#伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/snmp-1_lm50ho.png" width="80%" />
+
+<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/snmp-2_hhmr34.png" width="80%" />
+
+<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/snmp-3_o0gkmo.png" width="80%" />]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ Snmp ] 安裝與設定 for Centos</title>
-    <url>/2021/09/01/20210901/</url>
+    <url>/20210901/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
 </blockquote>
@@ -32,77 +101,8 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Snmp ] 安裝與設定 for ESXI</title>
-    <url>/2021/09/02/20210902/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄要如何在Esxi安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
-<span id="more"></span>
-<p>1.在esxi 上打開 ssh功能</p>
-<p>2.以 ssh client 登入 ESXi shell</p>
-<p>3.執行 snmp 相關設定</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">esxcli system snmp set -c public</span><br><span class="line">esxcli system snmp set -e yes</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><p>退出 ESXi shell （記得要 logout ，因為 VMWare ESXi 的 Shell 不會因為關閉了 SSH 而強制被離線，會持續連線著…..個人覺得這是個漏洞）</p>
-</li>
-<li><p>以 vsphere client 登入 esxi 然後 關閉 SSH 服務</p>
-</li>
-<li><p>以 vsphere client 登入 esxi 然後 開啟 SNMP 服務</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>設備監控</category>
-      </categories>
-      <tags>
-        <tag>SNMP</tag>
-        <tag>Esxi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Snmp ] 安裝與設定 for Windows </title>
-    <url>/2021/09/03/20210903/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service"><a href="#伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/snmp-1_lm50ho.png" width="80%" />
-
-<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
-<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/snmp-2_hhmr34.png" width="80%" />
-
-<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/snmp-3_o0gkmo.png" width="80%" />]]></content>
-      <categories>
-        <category>設備監控</category>
-      </categories>
-      <tags>
-        <tag>SNMP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] 檢查服務是否執行 </title>
-    <url>/2021/09/04/20210904/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd來檢查服務是否正常運作的排程</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;1&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
-
-<p>TEST.bat -&gt; 呼叫服務啟動</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> nowtime= %date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2% </span><br><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br><span class="line"><span class="built_in">echo</span> %nowtime% &gt;&gt;C:\log.txt  <span class="comment">#紀錄啟用這個指令的時間</span></span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] 使用指令登出、關機 </title>
-    <url>/2021/09/05/20210905/</url>
+    <url>/20210905/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄常用的cmd的相關指令</p>
 </blockquote>
@@ -129,7 +129,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 時間變數 </title>
-    <url>/2021/09/06/20210906/</url>
+    <url>/20210906/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄cmd中時間變數</p>
 </blockquote>
@@ -145,7 +145,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 網路卡的 mac address 匯出</title>
-    <url>/2021/09/07/20210908/</url>
+    <url>/20210907/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄如何使用Cmd匯出網卡的 mac 資訊</p>
 </blockquote>
@@ -164,7 +164,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] Net user 使用方法 </title>
-    <url>/2021/09/13/20210913/</url>
+    <url>/20210913/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄Cmd的 net user 使用方法</p>
 </blockquote>
@@ -181,7 +181,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 啟用金鑰 </title>
-    <url>/2021/09/14/20210914/</url>
+    <url>/20210914/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄如何使用Cmd來安裝 windows 序號</p>
 </blockquote>
@@ -197,60 +197,8 @@
       </tags>
   </entry>
   <entry>
-    <title>[Network] mac 連接 switch console port</title>
-    <url>/2021/09/20/20210920/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用mac來連接 switch console</p>
-</blockquote>
-<span id="more"></span>
-<p>將 console 線接上mac<br>註:上色部分需要購買專用線材<br>[ switch console port →<font color=#0000FF> RJ45 →RS232 母 → RS232 公 → usb </font>→mac ] </p>
-<p>使用 terminal 輸入下列指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls /dev/ | grep -i usb</span><br></pre></td></tr></table></figure>
-<p>使用screen 指令連接 console</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen /dev/tty.usbserial-120 38400</span><br></pre></td></tr></table></figure>
-<p>註:38400是為 HPE 1620S Switch 的 baud rate，每台設備都不一樣，務必要去參閱說明書<br><br><br>這樣就成功連接到 switch console 介面</p>
-]]></content>
-      <categories>
-        <category>Network</category>
-      </categories>
-      <tags>
-        <tag>switch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title> [系統部署] Gitlab 架設 </title>
-    <url>/2021/09/21/20210921/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何安裝 Gitlab Server</p>
-</blockquote>
-<span id="more"></span>
-<p>安裝ssh指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install -y curl policycoreutils openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
-<p>防火牆規則開通</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
-<p>寄信套件安裝</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install postfix</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure>
-<p>安裝gitlab<br>備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br><span class="line">sudo EXTERNAL_URL=<span class="string">&quot;https://gitlab.example.com&quot;</span> dnf install -y gitlab-ee</span><br></pre></td></tr></table></figure>
-
-<p>安裝完成後，要去修改gitlab.rb內容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.(第十五行)</span><br><span class="line">external_url <span class="string">&#x27;https://gitlab.example.com&#x27;</span>  (改成你要的網址)</span><br><span class="line">external_url <span class="string">&#x27;http://1.1.1.1:8888&#x27;</span>         (改成ip)</span><br></pre></td></tr></table></figure>
-<p>參考資料</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGxhYi5jb20vZWUvaW5zdGFsbC8=">https://docs.gitlab.com/ee/install/<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>系統部署</category>
-        <category>Gitlab</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title> [系統部署] 使用 AD 帳號登入 Gitlab </title>
-    <url>/2021/09/23/20210923/</url>
+    <url>/20210923/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄如何使用 AD 帳號來登入 Gitlab Server</p>
 </blockquote>
@@ -310,8 +258,81 @@
       </tags>
   </entry>
   <entry>
+    <title> [系統部署] Gitlab 架設 </title>
+    <url>/20210921/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何安裝 Gitlab Server</p>
+</blockquote>
+<span id="more"></span>
+<p>安裝ssh指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install -y curl policycoreutils openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
+<p>防火牆規則開通</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
+<p>寄信套件安裝</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install postfix</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure>
+<p>安裝gitlab<br>備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br><span class="line">sudo EXTERNAL_URL=<span class="string">&quot;https://gitlab.example.com&quot;</span> dnf install -y gitlab-ee</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後，要去修改gitlab.rb內容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.(第十五行)</span><br><span class="line">external_url <span class="string">&#x27;https://gitlab.example.com&#x27;</span>  (改成你要的網址)</span><br><span class="line">external_url <span class="string">&#x27;http://1.1.1.1:8888&#x27;</span>         (改成ip)</span><br></pre></td></tr></table></figure>
+<p>參考資料</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGxhYi5jb20vZWUvaW5zdGFsbC8=">https://docs.gitlab.com/ee/install/<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Network] mac 連接 switch console port</title>
+    <url>/20210920/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用mac來連接 switch console</p>
+</blockquote>
+<span id="more"></span>
+<p>將 console 線接上mac<br>註:上色部分需要購買專用線材<br>[ switch console port →<font color=#0000FF> RJ45 →RS232 母 → RS232 公 → usb </font>→mac ] </p>
+<p>使用 terminal 輸入下列指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls /dev/ | grep -i usb</span><br></pre></td></tr></table></figure>
+<p>使用screen 指令連接 console</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen /dev/tty.usbserial-120 38400</span><br></pre></td></tr></table></figure>
+<p>註:38400是為 HPE 1620S Switch 的 baud rate，每台設備都不一樣，務必要去參閱說明書<br><br><br>這樣就成功連接到 switch console 介面</p>
+]]></content>
+      <categories>
+        <category>Network</category>
+      </categories>
+      <tags>
+        <tag>switch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 遠端桌面指令 </title>
+    <url>/20211004/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
+
+<p>查詢遠端的憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
+
+<p>刪除憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title> [系統部署]  Gitlab 常用指令 </title>
-    <url>/2021/10/03/20211003/</url>
+    <url>/20211003/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄Gitlab Server 常用的指令</p>
 </blockquote>
@@ -346,29 +367,23 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 遠端桌面指令 </title>
-    <url>/2021/10/04/20211004/</url>
+    <title>[ cmd ] 使用指令刪除過期的檔案</title>
+    <url>/20211123/</url>
     <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
+<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
 </blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
-
-<p>查詢遠端的憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
-
-<p>刪除憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
+]]></content>
       <categories>
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>CMD</tag>
+        <tag>Cmd</tag>
+        <tag>log</tag>
       </tags>
   </entry>
   <entry>
     <title>[ PowerShell] Send-MailMessage 命令 </title>
-    <url>/2021/11/23/20211123/</url>
+    <url>/20211123/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄如何使用PowerShell 寄信</p>
 </blockquote>
@@ -383,23 +398,8 @@
       </tags>
   </entry>
   <entry>
-    <title>[ cmd ] 使用指令刪除過期的檔案</title>
-    <url>/2021/11/23/20211124/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Cmd</tag>
-        <tag>log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] Net use 使用方法 </title>
-    <url>/2021/12/04/20211204/</url>
+    <url>/20211204/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄 net use 在 cmd 的使用方法 </p>
 </blockquote>
@@ -416,7 +416,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] sc 使用方法 </title>
-    <url>/2021/12/05/20211205/</url>
+    <url>/20211205/</url>
     <content><![CDATA[<blockquote>
 <p>紀錄 sc 在 cmd 的使用方法 </p>
 </blockquote>
@@ -433,7 +433,7 @@
   </entry>
   <entry>
     <title>[ Cmd ] 關於 net use 與  sc 差異 </title>
-    <url>/2021/12/06/20211206/</url>
+    <url>/20211206/</url>
     <content><![CDATA[<blockquote>
 <p>net use 與 sc 的指令都可以管理服務， 那究竟有什麼差異 ? </p>
 </blockquote>
@@ -479,8 +479,37 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Liunx ] Centos 8 時間問題</title>
+    <url>/20211213/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單說明要如何修正 Centos 8 時間</p>
+</blockquote>
+<span id="more"></span>
+
+<p> ps. 雖然Centos 8 2021/12/31 就停止更新了，但還是記錄一下當初是如何修正時間的問題 </p>
+<p>Centos 上用了很久的NTP，在這次的升級的時候被放棄，由Chrony取代NTP</p>
+<p>這邊會說要如何使用Chrony來設定Centos 時間</p>
+<p>安裝套件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install chrony</span><br></pre></td></tr></table></figure>
+
+<p>安裝後啟動</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start chronyd.service</span><br></pre></td></tr></table></figure>
+<p>開機後自動啟動</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable chronyd.service</span><br></pre></td></tr></table></figure>
+
+<p>設定檔修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/chrony.conf</span><br></pre></td></tr></table></figure>
+<p>預設裡面就有設定校時server ，是由centos 維護<br>如果想用台灣自己的校時server 可以改成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server tock.stdtime.gov.tw prefer</span><br><span class="line">server tick.stdtime.gov.tw</span><br><span class="line">server time.stdtime.gov.tw</span><br></pre></td></tr></table></figure>
+<p>使用 chronyd 來檢查服務有沒有正常</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status chronyd.service</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Liunx</category>
+      </categories>
+  </entry>
+  <entry>
     <title>[ Liunx ] 如何使用gnome shell Extensions </title>
-    <url>/2021/12/12/20211212/</url>
+    <url>/20211212/</url>
     <content><![CDATA[<blockquote>
 <p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
 </blockquote>
@@ -510,37 +539,8 @@
       </categories>
   </entry>
   <entry>
-    <title>[ Liunx ] Centos 8 時間問題</title>
-    <url>/2021/12/13/20211213/</url>
-    <content><![CDATA[<blockquote>
-<p>簡單說明要如何修正 Centos 8 時間</p>
-</blockquote>
-<span id="more"></span>
-
-<p> ps. 雖然Centos 8 2021/12/31 就停止更新了，但還是記錄一下當初是如何修正時間的問題 </p>
-<p>Centos 上用了很久的NTP，在這次的升級的時候被放棄，由Chrony取代NTP</p>
-<p>這邊會說要如何使用Chrony來設定Centos 時間</p>
-<p>安裝套件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install chrony</span><br></pre></td></tr></table></figure>
-
-<p>安裝後啟動</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start chronyd.service</span><br></pre></td></tr></table></figure>
-<p>開機後自動啟動</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable chronyd.service</span><br></pre></td></tr></table></figure>
-
-<p>設定檔修改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/chrony.conf</span><br></pre></td></tr></table></figure>
-<p>預設裡面就有設定校時server ，是由centos 維護<br>如果想用台灣自己的校時server 可以改成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server tock.stdtime.gov.tw prefer</span><br><span class="line">server tick.stdtime.gov.tw</span><br><span class="line">server time.stdtime.gov.tw</span><br></pre></td></tr></table></figure>
-<p>使用 chronyd 來檢查服務有沒有正常</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status chronyd.service</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Liunx</category>
-      </categories>
-  </entry>
-  <entry>
     <title>[ Snmp ] librenms 設定應用-badif</title>
-    <url>/2022/01/01/20220101/</url>
+    <url>/20220101/</url>
     <content><![CDATA[<blockquote>
 <p>好不容易把機器燈加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
 </blockquote>
@@ -563,7 +563,7 @@
   </entry>
   <entry>
     <title> [ Snmp ] librenms 設定應用-nagios </title>
-    <url>/2022/12/05/20220103/</url>
+    <url>/20221205/</url>
     <content><![CDATA[<blockquote>
 <p>librenms 有支援nagios Plugin 的擴充檢測功能，讓librenns有更強大的應用能力，在搭配上librenms的預警系統，可以快速知道問題發生，更迅速的處理。</p>
 </blockquote>
