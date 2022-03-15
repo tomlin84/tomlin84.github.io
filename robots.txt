@@ -5,6 +5,7 @@ Allow: /categories/
 Allow: /tags/
 Disallow: /vendors/
 Disallow: /fonts/
+Disallow: /lib/
 Disallow: /vendors/
 Disallow: /fancybox/
 Sitemap: https://tomlin84.github.io/sitemap.xml
