@@ -101,6 +101,22 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Cmd ] 時間變數 </title>
+    <url>/20210906/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄cmd中時間變數</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ Cmd ] 使用指令登出、關機 </title>
     <url>/20210905/</url>
     <content><![CDATA[<blockquote>
@@ -119,22 +135,6 @@
 <br>
 <br>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SHUTDOWN -r -T 30 -C <span class="string">&quot;你的電腦將在30秒後重啟&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] 時間變數 </title>
-    <url>/20210906/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄cmd中時間變數</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Windows</category>
@@ -180,23 +180,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 啟用金鑰 </title>
-    <url>/20210914/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用Cmd來安裝 windows 序號</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slmgr.vbs /upk    <span class="comment">#移除金鑰</span></span><br><span class="line">slmgr /ipk [金鑰] <span class="comment">#安裝產金鑰 ps:不要省略&quot;-&quot;</span></span><br><span class="line">slmgr /skms [金鑰伺服器] <span class="comment">#設定金鑰認證伺服器</span></span><br><span class="line">slmgr /ato <span class="comment">#成功啟用金鑰</span></span><br></pre></td></tr></table></figure>
-<p>備註:一定要使用系統管理員身分執行+連上網路</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Network] mac 連接 switch console port</title>
     <url>/20210920/</url>
     <content><![CDATA[<blockquote>
@@ -215,37 +198,6 @@
       </categories>
       <tags>
         <tag>switch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title> [系統部署] Gitlab 架設 </title>
-    <url>/20210921/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何安裝 Gitlab Server</p>
-</blockquote>
-<span id="more"></span>
-<p>安裝ssh指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install -y curl policycoreutils openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
-<p>防火牆規則開通</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
-<p>寄信套件安裝</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install postfix</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure>
-<p>安裝gitlab<br>備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br><span class="line">sudo EXTERNAL_URL=<span class="string">&quot;https://gitlab.example.com&quot;</span> dnf install -y gitlab-ee</span><br></pre></td></tr></table></figure>
-
-<p>安裝完成後，要去修改gitlab.rb內容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.(第十五行)</span><br><span class="line">external_url <span class="string">&#x27;https://gitlab.example.com&#x27;</span>  (改成你要的網址)</span><br><span class="line">external_url <span class="string">&#x27;http://1.1.1.1:8888&#x27;</span>         (改成ip)</span><br></pre></td></tr></table></figure>
-<p>參考資料</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGxhYi5jb20vZWUvaW5zdGFsbC8=">https://docs.gitlab.com/ee/install/<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>系統部署</category>
-        <category>Gitlab</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -310,6 +262,23 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Cmd ] 啟用金鑰 </title>
+    <url>/20210914/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用Cmd來安裝 windows 序號</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slmgr.vbs /upk    <span class="comment">#移除金鑰</span></span><br><span class="line">slmgr /ipk [金鑰] <span class="comment">#安裝產金鑰 ps:不要省略&quot;-&quot;</span></span><br><span class="line">slmgr /skms [金鑰伺服器] <span class="comment">#設定金鑰認證伺服器</span></span><br><span class="line">slmgr /ato <span class="comment">#成功啟用金鑰</span></span><br></pre></td></tr></table></figure>
+<p>備註:一定要使用系統管理員身分執行+連上網路</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title> [系統部署]  Gitlab 常用指令 </title>
     <url>/20211003/</url>
     <content><![CDATA[<blockquote>
@@ -346,6 +315,53 @@
       </tags>
   </entry>
   <entry>
+    <title> [系統部署] Gitlab 架設 </title>
+    <url>/20210921/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何安裝 Gitlab Server</p>
+</blockquote>
+<span id="more"></span>
+<p>安裝ssh指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install -y curl policycoreutils openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
+<p>防火牆規則開通</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
+<p>寄信套件安裝</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install postfix</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure>
+<p>安裝gitlab<br>備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br><span class="line">sudo EXTERNAL_URL=<span class="string">&quot;https://gitlab.example.com&quot;</span> dnf install -y gitlab-ee</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後，要去修改gitlab.rb內容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.(第十五行)</span><br><span class="line">external_url <span class="string">&#x27;https://gitlab.example.com&#x27;</span>  (改成你要的網址)</span><br><span class="line">external_url <span class="string">&#x27;http://1.1.1.1:8888&#x27;</span>         (改成ip)</span><br></pre></td></tr></table></figure>
+<p>參考資料</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGxhYi5jb20vZWUvaW5zdGFsbC8=">https://docs.gitlab.com/ee/install/<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ PowerShell] Send-MailMessage 命令 </title>
+    <url>/20211123/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用PowerShell 寄信</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+        <tag>通知</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ Cmd ] 遠端桌面指令 </title>
     <url>/20211004/</url>
     <content><![CDATA[<blockquote>
@@ -367,19 +383,20 @@
       </tags>
   </entry>
   <entry>
-    <title>[ PowerShell] Send-MailMessage 命令 </title>
-    <url>/20211123/</url>
+    <title>[ Cmd ] Net use 使用方法 </title>
+    <url>/20211204/</url>
     <content><![CDATA[<blockquote>
-<p>紀錄如何使用PowerShell 寄信</p>
+<p>紀錄 net use 在 cmd 的使用方法 </p>
 </blockquote>
 <span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
+
+<p>net  use  是用來掛載、 刪除網路磁碟機或是建立ipc$連線</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net use</span><br><span class="line"><span class="comment">#查看目前的遠端連線 </span></span><br><span class="line">net use \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#直接登錄到對方的C槽 </span></span><br><span class="line">net use h: \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#掛載對方的C 槽 再本機的 H槽 </span></span><br><span class="line">net use * /d /y</span><br><span class="line"><span class="comment">#刪除所有掛載的連線 </span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>PowerShell</tag>
-        <tag>通知</tag>
+        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
@@ -395,23 +412,6 @@
       <tags>
         <tag>Cmd</tag>
         <tag>log</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] Net use 使用方法 </title>
-    <url>/20211204/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 net use 在 cmd 的使用方法 </p>
-</blockquote>
-<span id="more"></span>
-
-<p>net  use  是用來掛載、 刪除網路磁碟機或是建立ipc$連線</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net use</span><br><span class="line"><span class="comment">#查看目前的遠端連線 </span></span><br><span class="line">net use \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#直接登錄到對方的C槽 </span></span><br><span class="line">net use h: \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#掛載對方的C 槽 再本機的 H槽 </span></span><br><span class="line">net use * /d /y</span><br><span class="line"><span class="comment">#刪除所有掛載的連線 </span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
@@ -479,6 +479,35 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Liunx ] Centos 8 時間問題</title>
+    <url>/20211213/</url>
+    <content><![CDATA[<blockquote>
+<p>簡單說明要如何修正 Centos 8 時間</p>
+</blockquote>
+<span id="more"></span>
+
+<p> ps. 雖然Centos 8 2021/12/31 就停止更新了，但還是記錄一下當初是如何修正時間的問題 </p>
+<p>Centos 上用了很久的NTP，在這次的升級的時候被放棄，由Chrony取代NTP</p>
+<p>這邊會說要如何使用Chrony來設定Centos 時間</p>
+<p>安裝套件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install chrony</span><br></pre></td></tr></table></figure>
+
+<p>安裝後啟動</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start chronyd.service</span><br></pre></td></tr></table></figure>
+<p>開機後自動啟動</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable chronyd.service</span><br></pre></td></tr></table></figure>
+
+<p>設定檔修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/chrony.conf</span><br></pre></td></tr></table></figure>
+<p>預設裡面就有設定校時server ，是由centos 維護<br>如果想用台灣自己的校時server 可以改成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server tock.stdtime.gov.tw prefer</span><br><span class="line">server tick.stdtime.gov.tw</span><br><span class="line">server time.stdtime.gov.tw</span><br></pre></td></tr></table></figure>
+<p>使用 chronyd 來檢查服務有沒有正常</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status chronyd.service</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Liunx</category>
+      </categories>
+  </entry>
+  <entry>
     <title>[ Liunx ] 如何使用gnome shell Extensions </title>
     <url>/20211212/</url>
     <content><![CDATA[<blockquote>
@@ -505,35 +534,6 @@
 <p>你需要重新啟動系統，看到開始功能表“調教”，就會發現已經幫你自動安裝一些擴充程式了。 </p>
 <h6 id="ps-這個翻譯真奇怪"><a href="#ps-這個翻譯真奇怪" class="headerlink" title="ps:這個翻譯真奇怪"></a>ps:這個翻譯真奇怪</h6><p>&lt;圖片&gt;</p>
 ]]></content>
-      <categories>
-        <category>Liunx</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>[ Liunx ] Centos 8 時間問題</title>
-    <url>/20211213/</url>
-    <content><![CDATA[<blockquote>
-<p>簡單說明要如何修正 Centos 8 時間</p>
-</blockquote>
-<span id="more"></span>
-
-<p> ps. 雖然Centos 8 2021/12/31 就停止更新了，但還是記錄一下當初是如何修正時間的問題 </p>
-<p>Centos 上用了很久的NTP，在這次的升級的時候被放棄，由Chrony取代NTP</p>
-<p>這邊會說要如何使用Chrony來設定Centos 時間</p>
-<p>安裝套件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install chrony</span><br></pre></td></tr></table></figure>
-
-<p>安裝後啟動</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start chronyd.service</span><br></pre></td></tr></table></figure>
-<p>開機後自動啟動</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable chronyd.service</span><br></pre></td></tr></table></figure>
-
-<p>設定檔修改</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/chrony.conf</span><br></pre></td></tr></table></figure>
-<p>預設裡面就有設定校時server ，是由centos 維護<br>如果想用台灣自己的校時server 可以改成</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server tock.stdtime.gov.tw prefer</span><br><span class="line">server tick.stdtime.gov.tw</span><br><span class="line">server time.stdtime.gov.tw</span><br></pre></td></tr></table></figure>
-<p>使用 chronyd 來檢查服務有沒有正常</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status chronyd.service</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Liunx</category>
       </categories>
