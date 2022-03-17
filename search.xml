@@ -218,6 +218,42 @@
       </tags>
   </entry>
   <entry>
+    <title> [系統部署]  Gitlab 常用指令 </title>
+    <url>/20211003/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Gitlab Server 常用的指令</p>
+</blockquote>
+<span id="more"></span>
+<p>重製設定</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<p>啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+<p>關閉</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop</span><br></pre></td></tr></table></figure>
+<p>升級</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>升級12版最新版號</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>手動備份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<p>要自行手動備份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb         <span class="comment">#配置文件須備份</span></span><br><span class="line">/var/opt/gitlab/nginx/conf    <span class="comment">#nginx配置文件</span></span><br><span class="line">/etc/postfix/main.cfpostfix   <span class="comment">#郵件配置備份</span></span><br></pre></td></tr></table></figure>
+<p>更換備份資料夾[刷新檔案權限為git]</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br></pre></td></tr></table></figure>
+<p>還原</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-ctl status</span><br><span class="line"></span><br><span class="line">gitlab-rake gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)(還原最後一版可以不加這段</span><br><span class="line">gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)</span><br><span class="line"></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+
+<p>502錯誤排解</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">unicorn[<span class="string">&#x27;port&#x27;</span>] = 9090(更換端口)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title> [系統部署] Gitlab 架設 </title>
     <url>/20210921/</url>
     <content><![CDATA[<blockquote>
@@ -310,39 +346,19 @@
       </tags>
   </entry>
   <entry>
-    <title> [系統部署]  Gitlab 常用指令 </title>
-    <url>/20211003/</url>
+    <title>[ PowerShell] Send-MailMessage 命令 </title>
+    <url>/20211123/</url>
     <content><![CDATA[<blockquote>
-<p>紀錄Gitlab Server 常用的指令</p>
+<p>紀錄如何使用PowerShell 寄信</p>
 </blockquote>
 <span id="more"></span>
-<p>重製設定</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
-<p>啟動</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
-<p>關閉</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop</span><br></pre></td></tr></table></figure>
-<p>升級</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
-<p>升級12版最新版號</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
-<p>手動備份</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
-<p>要自行手動備份</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb         <span class="comment">#配置文件須備份</span></span><br><span class="line">/var/opt/gitlab/nginx/conf    <span class="comment">#nginx配置文件</span></span><br><span class="line">/etc/postfix/main.cfpostfix   <span class="comment">#郵件配置備份</span></span><br></pre></td></tr></table></figure>
-<p>更換備份資料夾[刷新檔案權限為git]</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br></pre></td></tr></table></figure>
-<p>還原</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-ctl status</span><br><span class="line"></span><br><span class="line">gitlab-rake gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)(還原最後一版可以不加這段</span><br><span class="line">gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)</span><br><span class="line"></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
-
-<p>502錯誤排解</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">unicorn[<span class="string">&#x27;port&#x27;</span>] = 9090(更換端口)</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>系統部署</category>
-        <category>Gitlab</category>
+        <category>Windows</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>PowerShell</tag>
+        <tag>通知</tag>
       </tags>
   </entry>
   <entry>
@@ -364,22 +380,6 @@
       </categories>
       <tags>
         <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ PowerShell] Send-MailMessage 命令 </title>
-    <url>/20211123/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用PowerShell 寄信</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>PowerShell</tag>
-        <tag>通知</tag>
       </tags>
   </entry>
   <entry>
