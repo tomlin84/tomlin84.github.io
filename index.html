@@ -209,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20221205/">
+    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20220402/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
@@ -223,7 +223,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/20221205/" class="post-title-link" itemprop="url"> [ Snmp ] librenms 設定應用-nagios </a>
+            <a href="/20220402/" class="post-title-link" itemprop="url">[ PowerShell] Send-MailMessage 命令 </a>
         </h2>
 
         <div class="post-meta">
@@ -233,14 +233,199 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2022-12-05 00:45:07" itemprop="dateCreated datePublished" datetime="2022-12-05T00:45:07+08:00">2022-12-05</time>
+              <time title="創建時間：2022-04-02 00:44:07" itemprop="dateCreated datePublished" datetime="2022-04-02T00:44:07+08:00">2022-04-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2022-01-05 23:10:42" itemprop="dateModified" datetime="2022-01-05T23:10:42+08:00">2022-01-05</time>
+                <time title="修改時間：2022-04-03 19:01:58" itemprop="dateModified" datetime="2022-04-03T19:01:58+08:00">2022-04-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>543</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>紀錄如何使用PowerShell 寄信</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20220401/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
+      <meta itemprop="name" content="tomlin84">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="it's Note">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20220401/" class="post-title-link" itemprop="url"> 2022 AZ-900 Microsoft Azure Fundamentals 考試心得 </a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-04-01 00:45:07" itemprop="dateCreated datePublished" datetime="2022-04-01T00:45:07+08:00">2022-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-04-03 18:54:11" itemprop="dateModified" datetime="2022-04-03T18:54:11+08:00">2022-04-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AD%89%E7%85%A7/" itemprop="url" rel="index"><span itemprop="name">證照</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>753</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1648983061/AZ-900-1_mimzrc.jpg" width="80%" />
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/20220401/" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20220103/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
+      <meta itemprop="name" content="tomlin84">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="it's Note">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/20220103/" class="post-title-link" itemprop="url"> [ Snmp ] librenms 設定應用-nagios </a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-01-03 00:45:07" itemprop="dateCreated datePublished" datetime="2022-01-03T00:45:07+08:00">2022-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-04-03 18:56:11" itemprop="dateModified" datetime="2022-04-03T18:56:11+08:00">2022-04-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +467,7 @@
 </blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/20221205/" rel="contents">
+              <a class="btn" href="/20220103/" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -434,7 +619,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-12-15 00:12:08" itemprop="dateModified" datetime="2021-12-15T00:12:08+08:00">2021-12-15</time>
+                <time title="修改時間：2022-04-03 18:58:06" itemprop="dateModified" datetime="2022-04-03T18:58:06+08:00">2022-04-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -452,7 +637,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>433</span>
+              <span>431</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -472,7 +657,7 @@
 
       
           <blockquote>
-<p>簡單說明要如何修正 Centos 8 時間</p>
+<p>講解要如何修正 Centos 8 時間</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -531,7 +716,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-12-15 00:12:07" itemprop="dateModified" datetime="2021-12-15T00:12:07+08:00">2021-12-15</time>
+                <time title="修改時間：2022-04-03 18:59:12" itemprop="dateModified" datetime="2022-04-03T18:59:12+08:00">2022-04-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -549,7 +734,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>600</span>
+              <span>580</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -888,7 +1073,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20211123/">
+    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20211121/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
@@ -902,7 +1087,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/20211123/" class="post-title-link" itemprop="url">[ PowerShell] Send-MailMessage 命令 </a>
+            <a href="/20211121/" class="post-title-link" itemprop="url">[ cmd ] 使用指令刪除過期的檔案</a>
         </h2>
 
         <div class="post-meta">
@@ -911,101 +1096,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-11-23 00:44:07 / 修改時間：23:46:03" itemprop="dateCreated datePublished" datetime="2021-11-23T00:44:07+08:00">2021-11-23</time>
+              <time title="創建時間：2021-11-21 00:44:07" itemprop="dateCreated datePublished" datetime="2021-11-21T00:44:07+08:00">2021-11-21</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-04-15 20:48:43" itemprop="dateModified" datetime="2022-04-15T20:48:43+08:00">2022-04-15</time>
               </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>543</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>紀錄如何使用PowerShell 寄信</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/20211123/" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20211123/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
-      <meta itemprop="name" content="tomlin84">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="it's Note">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20211123/" class="post-title-link" itemprop="url">[ cmd ] 使用指令刪除過期的檔案</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2021-11-23 00:44:07 / 修改時間：23:47:28" itemprop="dateCreated datePublished" datetime="2021-11-23T00:44:07+08:00">2021-11-23</time>
-            </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1045,103 +1145,6 @@
 <p>紀錄如何使用forfiles指令來進行群找&amp;刪除過期的檔案</p>
 </blockquote>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20211004/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
-      <meta itemprop="name" content="tomlin84">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="it's Note">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/20211004/" class="post-title-link" itemprop="url">[ Cmd ] 遠端桌面指令 </a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-10-04 00:44:07" itemprop="dateCreated datePublished" datetime="2021-10-04T00:44:07+08:00">2021-10-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-10-11 23:32:44" itemprop="dateModified" datetime="2021-10-11T23:32:44+08:00">2021-10-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>180</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/20211004/" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1226,13 +1229,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1273,12 +1276,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">10k</span>
+    <span title="總字數">11k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">19 分鐘</span>
+    <span title="所需總閱讀時間">20 分鐘</span>
 </div>
 <!--
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 強力驅動
