@@ -60,26 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Snmp ] 安裝與設定 for Windows </title>
-    <url>/20210903/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service"><a href="#伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/snmp-1_lm50ho.png" width="80%" />
-
-<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
-<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/snmp-2_hhmr34.png" width="80%" />
-
-<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/snmp-3_o0gkmo.png" width="80%" />]]></content>
-      <categories>
-        <category>設備監控</category>
-      </categories>
-      <tags>
-        <tag>SNMP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] 檢查服務是否執行 </title>
     <url>/20210904/</url>
     <content><![CDATA[<blockquote>
@@ -144,42 +124,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 網路卡的 mac address 匯出</title>
-    <url>/20210907/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用Cmd匯出網卡的 mac 資訊</p>
-</blockquote>
-<span id="more"></span>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-7 delims=- &quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;getmac ^| find &quot;-&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i:%%j:%%k:%%l:%%m:%%n &gt;&gt;e:\mac.txt</span><br><span class="line">REM 匯出到E槽mac.txt 文件</span><br></pre></td></tr></table></figure>
-<br>
-備註:該指令會匯出電腦全部網卡的mac，依序排列
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] Net user 使用方法 </title>
-    <url>/20210913/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Cmd的 net user 使用方法</p>
-</blockquote>
-<span id="more"></span>
-
-<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:yes </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:yes</span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] 啟用金鑰 </title>
     <url>/20210914/</url>
     <content><![CDATA[<blockquote>
@@ -215,6 +159,23 @@
       </categories>
       <tags>
         <tag>switch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] Net user 使用方法 </title>
+    <url>/20210913/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Cmd的 net user 使用方法</p>
+</blockquote>
+<span id="more"></span>
+
+<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:yes </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:yes</span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
@@ -346,6 +307,27 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Cmd ] 遠端桌面指令 </title>
+    <url>/20211004/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
+
+<p>查詢遠端的憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
+
+<p>刪除憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ cmd ] 使用指令刪除過期的檔案</title>
     <url>/20211121/</url>
     <content><![CDATA[<blockquote>
@@ -358,6 +340,23 @@
       <tags>
         <tag>Cmd</tag>
         <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] Net use 使用方法 </title>
+    <url>/20211204/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄 net use 在 cmd 的使用方法 </p>
+</blockquote>
+<span id="more"></span>
+
+<p>net  use  是用來掛載、 刪除網路磁碟機或是建立ipc$連線</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net use</span><br><span class="line"><span class="comment">#查看目前的遠端連線 </span></span><br><span class="line">net use \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#直接登錄到對方的C槽 </span></span><br><span class="line">net use h: \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#掛載對方的C 槽 再本機的 H槽 </span></span><br><span class="line">net use * /d /y</span><br><span class="line"><span class="comment">#刪除所有掛載的連線 </span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
@@ -594,44 +593,6 @@
       </categories>
   </entry>
   <entry>
-    <title>[ Cmd ] Net use 使用方法 </title>
-    <url>/20211204/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 net use 在 cmd 的使用方法 </p>
-</blockquote>
-<span id="more"></span>
-
-<p>net  use  是用來掛載、 刪除網路磁碟機或是建立ipc$連線</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net use</span><br><span class="line"><span class="comment">#查看目前的遠端連線 </span></span><br><span class="line">net use \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#直接登錄到對方的C槽 </span></span><br><span class="line">net use h: \\ip\c$ [密碼]  /user:[帳號]</span><br><span class="line"><span class="comment">#掛載對方的C 槽 再本機的 H槽 </span></span><br><span class="line">net use * /d /y</span><br><span class="line"><span class="comment">#刪除所有掛載的連線 </span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] 遠端桌面指令 </title>
-    <url>/20211004/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
-
-<p>查詢遠端的憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
-
-<p>刪除憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ PowerShell] Send-MailMessage 命令 </title>
     <url>/20220402/</url>
     <content><![CDATA[<blockquote>
@@ -644,6 +605,45 @@
       <tags>
         <tag>PowerShell</tag>
         <tag>通知</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 網路卡的 mac address 匯出</title>
+    <url>/20210907/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用Cmd匯出網卡的 mac 資訊</p>
+</blockquote>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-7 delims=- &quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;getmac ^| find &quot;-&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i:%%j:%%k:%%l:%%m:%%n &gt;&gt;e:\mac.txt</span><br><span class="line">REM 匯出到E槽mac.txt 文件</span><br></pre></td></tr></table></figure>
+<br>
+備註:該指令會匯出電腦全部網卡的mac，依序排列
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Snmp ] 安裝與設定 for Windows </title>
+    <url>/20210903/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service"><a href="#伺服器管理員-gt-新增角色與功能-gt-功能-gt-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/snmp-1_lm50ho.png" width="80%" />
+
+<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/snmp-2_hhmr34.png" width="80%" />
+
+<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/snmp-3_o0gkmo.png" width="80%" />]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
       </tags>
   </entry>
 </search>
