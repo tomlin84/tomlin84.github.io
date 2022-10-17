@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: tomlin84.github.io
+Token: 8f776808aaccf6990db1bfff51505b9d6224b27dbf6d8e3d6b12ccf4de96ec74
