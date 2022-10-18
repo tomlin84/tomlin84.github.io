@@ -80,6 +80,27 @@
       </tags>
   </entry>
   <entry>
+    <title>[ Cmd ] 檢查服務是否執行 </title>
+    <url>/20210904/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd來檢查服務是否正常運作的排程</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;1&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<p>TEST.bat -&gt; 呼叫服務啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> nowtime= %date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2% </span><br><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br><span class="line"><span class="built_in">echo</span> %nowtime% &gt;&gt;C:\log.txt  <span class="comment">#紀錄啟用這個指令的時間</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ Cmd ] 使用指令登出、關機 </title>
     <url>/20210905/</url>
     <content><![CDATA[<blockquote>
@@ -107,27 +128,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 檢查服務是否執行 </title>
-    <url>/20210904/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd來檢查服務是否正常運作的排程</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;1&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
-
-<p>TEST.bat -&gt; 呼叫服務啟動</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> nowtime= %date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2% </span><br><span class="line">net start <span class="string">&quot;服務名稱&quot;</span></span><br><span class="line"><span class="built_in">echo</span> %nowtime% &gt;&gt;C:\log.txt  <span class="comment">#紀錄啟用這個指令的時間</span></span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ Cmd ] 時間變數 </title>
     <url>/20210906/</url>
     <content><![CDATA[<blockquote>
@@ -136,23 +136,6 @@
 <span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%date:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%date:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%date:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] Net user 使用方法 </title>
-    <url>/20210913/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Cmd的 net user 使用方法</p>
-</blockquote>
-<span id="more"></span>
-
-<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:yes </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:yes</span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -172,6 +155,23 @@
 <br>
 備註:該指令會匯出電腦全部網卡的mac，依序排列
 ]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] Net user 使用方法 </title>
+    <url>/20210913/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Cmd的 net user 使用方法</p>
+</blockquote>
+<span id="more"></span>
+
+<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:yes </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:yes</span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -249,27 +249,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[ Cmd ] 遠端桌面指令 </title>
-    <url>/20211004/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
-
-<p>查詢遠端的憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
-
-<p>刪除憑證</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title> [系統部署] 使用 AD 帳號登入 Gitlab </title>
     <url>/20210923/</url>
     <content><![CDATA[<blockquote>
@@ -331,6 +310,63 @@
       </tags>
   </entry>
   <entry>
+    <title> [系統部署]  Gitlab 常用指令 </title>
+    <url>/20211003/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Gitlab Server 常用的指令</p>
+</blockquote>
+<span id="more"></span>
+<p>重製設定</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<p>啟動</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+<p>關閉</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop</span><br></pre></td></tr></table></figure>
+<p>升級</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>升級12版最新版號</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
+<p>手動備份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+<p>要自行手動備份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb         <span class="comment">#配置文件須備份</span></span><br><span class="line">/var/opt/gitlab/nginx/conf    <span class="comment">#nginx配置文件</span></span><br><span class="line">/etc/postfix/main.cfpostfix   <span class="comment">#郵件配置備份</span></span><br></pre></td></tr></table></figure>
+<p>更換備份資料夾[刷新檔案權限為git]</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br></pre></td></tr></table></figure>
+<p>還原</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-ctl status</span><br><span class="line"></span><br><span class="line">gitlab-rake gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)(還原最後一版可以不加這段</span><br><span class="line">gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)</span><br><span class="line"></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+
+<p>502錯誤排解</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">unicorn[<span class="string">&#x27;port&#x27;</span>] = 9090(更換端口)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>Gitlab</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 遠端桌面指令 </title>
+    <url>/20211004/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
+
+<p>查詢遠端的憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /list</span><br></pre></td></tr></table></figure>
+
+<p>刪除憑證</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#刪除一台的憑證</span></span><br><span class="line">ccmdkey /delete:[IP]</span><br><span class="line"><span class="comment">#刪除全部的憑證</span></span><br><span class="line">cmdkey /delete:target</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[ cmd ] 使用指令刪除過期的檔案</title>
     <url>/20211121/</url>
     <content><![CDATA[<blockquote>
@@ -343,6 +379,70 @@
       <tags>
         <tag>Cmd</tag>
         <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] sc 使用方法 </title>
+    <url>/20211205/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄 sc 在 cmd 的使用方法 </p>
+</blockquote>
+<span id="more"></span>
+
+<p>SC (Service Control 的縮寫 ) 是用來查詢、啟動、停止，甚至刪除服務的指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"> <span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line"> sc start [服務]</span><br><span class="line"> <span class="comment">#啟動某服務</span></span><br><span class="line"> sc stop [服務]</span><br><span class="line"> <span class="comment">#關閉某服務</span></span><br><span class="line"> sc delete [服務]</span><br><span class="line"> <span class="comment">#刪除某服務</span></span><br><span class="line"> sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"> <span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"> <span class="comment">#demand=手動 </span></span><br><span class="line"> <span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[ Cmd ] 關於 net use 與  sc 差異 </title>
+    <url>/20211206/</url>
+    <content><![CDATA[<blockquote>
+<p>net use 與 sc 的指令都可以管理服務， 那究竟有什麼差異 ? </p>
+</blockquote>
+<span id="more"></span>
+
+<p>以下為net use 與 sc 的指令的差異整理<br>&nbsp;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Net Use</th>
+<th align="center">sc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最早出現的時代</td>
+<td align="center">MS-Dos</td>
+<td align="center">Windows NT</td>
+</tr>
+<tr>
+<td>功能</td>
+<td align="center">啟動、 停止、 暫停</td>
+<td align="center">查詢狀態、新增刪除、更改配置與安全性</td>
+</tr>
+<tr>
+<td>是否可以透過網路操作</td>
+<td align="center">不行</td>
+<td align="center">可以</td>
+</tr>
+<tr>
+<td>服務的值</td>
+<td align="center">顯示名稱、 服務名稱</td>
+<td align="center">服務名稱</td>
+</tr>
+</tbody></table>
+<p>&nbsp;<br>參考資料:<br><span class="exturl" data-url="aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8zMTUxNjYv">https://superuser.com/questions/315166/<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
@@ -423,53 +523,6 @@
       <categories>
         <category>Liunx</category>
       </categories>
-  </entry>
-  <entry>
-    <title>[ Cmd ] 關於 net use 與  sc 差異 </title>
-    <url>/20211206/</url>
-    <content><![CDATA[<blockquote>
-<p>net use 與 sc 的指令都可以管理服務， 那究竟有什麼差異 ? </p>
-</blockquote>
-<span id="more"></span>
-
-<p>以下為net use 與 sc 的指令的差異整理<br>&nbsp;</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">Net Use</th>
-<th align="center">sc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>最早出現的時代</td>
-<td align="center">MS-Dos</td>
-<td align="center">Windows NT</td>
-</tr>
-<tr>
-<td>功能</td>
-<td align="center">啟動、 停止、 暫停</td>
-<td align="center">查詢狀態、新增刪除、更改配置與安全性</td>
-</tr>
-<tr>
-<td>是否可以透過網路操作</td>
-<td align="center">不行</td>
-<td align="center">可以</td>
-</tr>
-<tr>
-<td>服務的值</td>
-<td align="center">顯示名稱、 服務名稱</td>
-<td align="center">服務名稱</td>
-</tr>
-</tbody></table>
-<p>&nbsp;<br>參考資料:<br><span class="exturl" data-url="aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8zMTUxNjYv">https://superuser.com/questions/315166/<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
   </entry>
   <entry>
     <title>[ Snmp ] librenms 設定應用-badif</title>
@@ -579,42 +632,6 @@
       </categories>
   </entry>
   <entry>
-    <title> [系統部署]  Gitlab 常用指令 </title>
-    <url>/20211003/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Gitlab Server 常用的指令</p>
-</blockquote>
-<span id="more"></span>
-<p>重製設定</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
-<p>啟動</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
-<p>關閉</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop</span><br></pre></td></tr></table></figure>
-<p>升級</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
-<p>升級12版最新版號</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
-<p>手動備份</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
-<p>要自行手動備份</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb         <span class="comment">#配置文件須備份</span></span><br><span class="line">/var/opt/gitlab/nginx/conf    <span class="comment">#nginx配置文件</span></span><br><span class="line">/etc/postfix/main.cfpostfix   <span class="comment">#郵件配置備份</span></span><br></pre></td></tr></table></figure>
-<p>更換備份資料夾[刷新檔案權限為git]</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br><span class="line">chown -R git.git /mnt/gitlab/backups</span><br></pre></td></tr></table></figure>
-<p>還原</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-ctl status</span><br><span class="line"></span><br><span class="line">gitlab-rake gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)(還原最後一版可以不加這段</span><br><span class="line">gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)</span><br><span class="line"></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
-
-<p>502錯誤排解</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">unicorn[<span class="string">&#x27;port&#x27;</span>] = 9090(更換端口)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>系統部署</category>
-        <category>Gitlab</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[ PowerShell] Send-MailMessage 命令 </title>
     <url>/20220402/</url>
     <content><![CDATA[<blockquote>
@@ -627,23 +644,6 @@
       <tags>
         <tag>PowerShell</tag>
         <tag>通知</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[ Cmd ] sc 使用方法 </title>
-    <url>/20211205/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 sc 在 cmd 的使用方法 </p>
-</blockquote>
-<span id="more"></span>
-
-<p>SC (Service Control 的縮寫 ) 是用來查詢、啟動、停止，甚至刪除服務的指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"> <span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line"> sc start [服務]</span><br><span class="line"> <span class="comment">#啟動某服務</span></span><br><span class="line"> sc stop [服務]</span><br><span class="line"> <span class="comment">#關閉某服務</span></span><br><span class="line"> sc delete [服務]</span><br><span class="line"> <span class="comment">#刪除某服務</span></span><br><span class="line"> sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"> <span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"> <span class="comment">#demand=手動 </span></span><br><span class="line"> <span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
       </tags>
   </entry>
 </search>

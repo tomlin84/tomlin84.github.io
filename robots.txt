@@ -3,6 +3,7 @@ Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
+Allow: .well-known
 Disallow: /vendors/
 Disallow: /fonts/
 Disallow: /lib/
