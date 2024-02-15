@@ -31,24 +31,24 @@
 </script>
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"tomlin84.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"tomlintw.cc","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="紀錄要如何在Esxi安裝與設定snmp 服務，以便於監控軟體後續的設定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ Snmp ] 安裝與設定 for ESXI">
-<meta property="og:url" content="https://tomlin84.github.io/20210902/index.html">
+<meta property="og:url" content="https://tomlintw.cc/20210902/index.html">
 <meta property="og:site_name" content="it&#39;s Note">
 <meta property="og:description" content="紀錄要如何在Esxi安裝與設定snmp 服務，以便於監控軟體後續的設定">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-09-02T13:44:07.000Z">
-<meta property="article:modified_time" content="2021-11-23T15:25:01.962Z">
-<meta property="article:author" content="tomlin84">
+<meta property="article:modified_time" content="2024-02-13T12:50:00.321Z">
+<meta property="article:author" content="tomlin">
 <meta property="article:tag" content="SNMP">
 <meta property="article:tag" content="Esxi">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://tomlin84.github.io/20210902/">
+<link rel="canonical" href="https://tomlintw.cc/20210902/">
 
 
 <script id="page-configurations">
@@ -144,11 +144,6 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
 
   </li>
-        <li class="menu-item menu-item-關於我">
-
-    <a href="/aboutme/" rel="section"><i class="fa fa-user fa-fw"></i>關於我</a>
-
-  </li>
         <li class="menu-item menu-item-標籤">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
@@ -215,11 +210,11 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://tomlin84.github.io/20210902/">
+    <link itemprop="mainEntityOfPage" href="https://tomlintw.cc/20210902/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
-      <meta itemprop="name" content="tomlin84">
+      <meta itemprop="name" content="tomlin">
       <meta itemprop="description" content="">
     </span>
 
@@ -245,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-11-23 23:25:01" itemprop="dateModified" datetime="2021-11-23T23:25:01+08:00">2021-11-23</time>
+                <time title="修改時間：2024-02-13 20:50:00" itemprop="dateModified" datetime="2024-02-13T20:50:00+08:00">2024-02-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +265,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>272</span>
+              <span>207</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -298,7 +293,7 @@
 <p>3.執行 snmp 相關設定</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">esxcli system snmp set -c public</span><br><span class="line">esxcli system snmp set -e yes</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li><p>退出 ESXi shell （記得要 logout ，因為 VMWare ESXi 的 Shell 不會因為關閉了 SSH 而強制被離線，會持續連線著…..個人覺得這是個漏洞）</p>
+<li><p>退出 ESXi shell </p>
 </li>
 <li><p>以 vsphere client 登入 esxi 然後 關閉 SSH 服務</p>
 </li>
@@ -394,27 +389,27 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="tomlin84"
+    <img class="site-author-image" itemprop="image" alt="tomlin"
       src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
-  <p class="site-author-name" itemprop="name">tomlin84</p>
+  <p class="site-author-name" itemprop="name">tomlin</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -441,21 +436,21 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-star"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">tomlin84</span>
+  <span class="author" itemprop="copyrightHolder">tomlin</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="總字數">11k</span>
+    <span title="總字數">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">10 分鐘</span>
+    <span title="所需總閱讀時間">15 分鐘</span>
 </div>
 <!--
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 強力驅動
