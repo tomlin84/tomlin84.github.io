@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon16.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tomlintw.cc","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[SNMP] 安裝與設定 for Windows ">
+<meta property="og:url" content="https://tomlintw.cc/20210903/index.html">
+<meta property="og:site_name" content="it&#39;s Note">
+<meta property="og:description" content="紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png">
+<meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/2021-09-03/snmp-2_hhmr34.png">
+<meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png">
+<meta property="article:published_time" content="2021-09-02T16:11:01.000Z">
+<meta property="article:modified_time" content="2024-06-30T12:02:55.446Z">
+<meta property="article:author" content="tomlin">
+<meta property="article:tag" content="SNMP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png">
+
+
+<link rel="canonical" href="https://tomlintw.cc/20210903/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://tomlintw.cc/20210903/","path":"20210903/","title":"[SNMP] 安裝與設定 for Windows "}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[SNMP] 安裝與設定 for Windows  | it's Note</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">it's Note</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一個存放學習筆記的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-首頁"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-標籤"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li><li class="menu-item menu-item-分類"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AE%A1%E7%90%86%E5%93%A1-%E6%96%B0%E5%A2%9E%E8%A7%92%E8%89%B2%E8%88%87%E5%8A%9F%E8%83%BD-%E5%8A%9F%E8%83%BD-%E5%AE%89%E8%A3%9DSNMP-Service"><span class="nav-number">1.</span> <span class="nav-text">伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%AE%8C%E6%88%90%EF%BC%8C%E5%89%8D%E5%BE%80%E2%80%9D%E6%9C%8D%E5%8B%99%E2%80%9D%E8%A8%AD%E5%AE%9A-snmp-service"><span class="nav-number">2.</span> <span class="nav-text">安裝完成，前往”服務”設定  snmp service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%AE%89%E5%85%A8%E6%80%A7%E6%96%B0%E5%A2%9E%E9%80%9A%E9%97%9C%E5%AF%86%E7%A2%BC%E8%88%87%E9%81%B8%E6%93%87%E6%89%80%E6%9C%89%E4%B8%BB%E6%A9%9F%E6%8E%A5%E5%8F%97snmp%E5%B0%81%E5%8C%85%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">在安全性新增通關密碼與選擇所有主機接受snmp封包。</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="tomlin"
+      src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
+  <p class="site-author-name" itemprop="name">tomlin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="回到頂端">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://tomlintw.cc/20210903/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
+      <meta itemprop="name" content="tomlin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="it's Note">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[SNMP] 安裝與設定 for Windows  | it's Note">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [SNMP] 安裝與設定 for Windows 
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-09-03 00:11:01" itemprop="dateCreated datePublished" datetime="2021-09-03T00:11:01+08:00">2021-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2024-06-30 20:02:55" itemprop="dateModified" datetime="2024-06-30T20:02:55+08:00">2024-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%A8%AD%E5%82%99%E7%9B%A3%E6%8E%A7/" itemprop="url" rel="index"><span itemprop="name">設備監控</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>154</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>1 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="伺服器管理員-新增角色與功能-功能-安裝SNMP-Service"><a href="#伺服器管理員-新增角色與功能-功能-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png" width="70%" />
+
+<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/2021-09-03/snmp-2_hhmr34.png" width="70%" />
+
+<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png" width="70%" />
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SNMP/" rel="tag"># SNMP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/20210902/" rel="prev" title="[SNMP] 安裝與設定 for ESXI">
+                  <i class="fa fa-angle-left"></i> [SNMP] 安裝與設定 for ESXI
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/20210904/" rel="next" title="[CMD] 檢查服務是否執行 ">
+                  [CMD] 檢查服務是否執行  <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">tomlin</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="總字數">16k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">15 分鐘</span>
+  </span>
+</div>
+<!-- 删除 “由 Hexo & NexT.Gemini 强力驱动” -->
+ <!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div> -->
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>
