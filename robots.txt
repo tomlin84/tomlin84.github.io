@@ -3,10 +3,8 @@ Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
+Allow: /images/
+Allow: /page/
 Allow: .well-known
-Disallow: /vendors/
-Disallow: /fonts/
-Disallow: /lib/
-Disallow: /vendors/
-Disallow: /fancybox/
+
 Sitemap: https://tomlin84.github.io/sitemap.xml

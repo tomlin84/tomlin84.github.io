@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tomlintw.cc/aboutme/index.html</loc>
+    
+    <lastmod>2024-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tomlintw.cc/20220103/</loc>
     
     <lastmod>2024-06-30</lastmod>
@@ -254,15 +263,6 @@
   </url>
   
   <url>
-    <loc>https://tomlintw.cc/aboutme/index.html</loc>
-    
-    <lastmod>2022-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tomlintw.cc/20210920/</loc>
     
     <lastmod>2021-11-23</lastmod>
@@ -459,14 +459,14 @@
   </url>
   
   <url>
-    <loc>https://tomlintw.cc/categories/%E7%B3%BB%E7%B5%B1%E9%83%A8%E7%BD%B2/Gitlab/</loc>
+    <loc>https://tomlintw.cc/categories/DB/</loc>
     <lastmod>2024-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://tomlintw.cc/categories/DB/</loc>
+    <loc>https://tomlintw.cc/categories/%E7%B3%BB%E7%B5%B1%E9%83%A8%E7%BD%B2/Gitlab/</loc>
     <lastmod>2024-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
