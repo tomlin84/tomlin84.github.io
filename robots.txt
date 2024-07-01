@@ -6,5 +6,4 @@ Allow: /tags/
 Allow: /images/
 Allow: /page/
 Allow: .well-known
-
-Sitemap: https://tomlin84.github.io/sitemap.xml
+Sitemap: https://tomlintw.cc//sitemap.xml
