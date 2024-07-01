@@ -163,23 +163,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[CMD] Net user 使用方法 </title>
-    <url>/20210913/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Cmd的 net user 使用方法</p>
-</blockquote>
-<span id="more"></span>
-
-<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:<span class="built_in">yes</span> </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:<span class="built_in">yes</span></span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[CMD] 啟用金鑰 </title>
     <url>/20210914/</url>
     <content><![CDATA[<blockquote>
@@ -215,6 +198,23 @@
       </categories>
       <tags>
         <tag>switch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[CMD] Net user 使用方法 </title>
+    <url>/20210913/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Cmd的 net user 使用方法</p>
+</blockquote>
+<span id="more"></span>
+
+<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:<span class="built_in">yes</span> </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:<span class="built_in">yes</span></span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
@@ -508,29 +508,6 @@
       </categories>
   </entry>
   <entry>
-    <title>[SNMP] librenms 設定應用-badif</title>
-    <url>/20220101/</url>
-    <content><![CDATA[<blockquote>
-<p>好不容易把機器燈加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
-</blockquote>
-<span id="more"></span>
-<p>修改設定檔</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;allow_unauth_grahps&#x27;</span>] = 1;</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (L2TP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IKEv2).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (GRE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (SSTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPPOE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IPv6).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (Network Monitor).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IP).&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>這些圖表就會被自動隱藏，就看不到了。</p>
-<blockquote>
-<p>每台機器所自動產生的網路圖表名稱，都會有所不同，可以使用下面指令去查詢，再進行設定</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>設備監控</category>
-      </categories>
-      <tags>
-        <tag>SNMP</tag>
-        <tag>librenms</tag>
-      </tags>
-  </entry>
-  <entry>
     <title> [SNMP] librenms 設定應用-nagios </title>
     <url>/20220103/</url>
     <content><![CDATA[<blockquote>
@@ -564,6 +541,29 @@
 
 <p>安裝設定完成，點擊首頁的 service → add service，進入畫面進行設定。</p>
 ]]></content>
+      <categories>
+        <category>設備監控</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+        <tag>librenms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[SNMP] librenms 設定應用-badif</title>
+    <url>/20220101/</url>
+    <content><![CDATA[<blockquote>
+<p>好不容易把機器燈加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
+</blockquote>
+<span id="more"></span>
+<p>修改設定檔</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;allow_unauth_grahps&#x27;</span>] = 1;</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (L2TP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IKEv2).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (GRE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (SSTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPPOE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IPv6).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (Network Monitor).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IP).&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>這些圖表就會被自動隱藏，就看不到了。</p>
+<blockquote>
+<p>每台機器所自動產生的網路圖表名稱，都會有所不同，可以使用下面指令去查詢，再進行設定</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>設備監控</category>
       </categories>
