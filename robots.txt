@@ -6,4 +6,4 @@ Allow: /tags/
 Allow: /images/
 Allow: /page/
 Allow: .well-known
-Sitemap: https://tomlintw.cc//sitemap.xml
+Sitemap: https://tomlintw.cc/sitemap.xml
