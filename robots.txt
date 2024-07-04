@@ -3,7 +3,10 @@ Allow: /
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/
-Allow: /images/
 Allow: /page/
 Allow: .well-known
+Disallow: /images/
+Sitemap: https://tomlintw.cc/sitemap
 Sitemap: https://tomlintw.cc/sitemap.xml
+Sitemap: https://tomlin84.github.io/sitemap
+Sitemap: https://tomlin84.github.io/sitemap.xml
