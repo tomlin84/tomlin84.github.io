@@ -485,8 +485,9 @@
 <p>講解要如何修正 Centos 8 時間</p>
 </blockquote>
 <span id="more"></span>
+<div class="note info"><p>Centos 8 於 2021&#x2F;12&#x2F;31 停止更新了</p>
+</div>
 
-<p> 備註:雖然Centos 8 於 2021&#x2F;12&#x2F;31 就停止更新了，還是記錄一下當初是如何修正時間的問題 </p>
 <p>Centos 上用了很久的NTP，在這次的升級的時候被放棄，由Chrony取代NTP</p>
 <p>這邊會說要如何使用Chrony來設定Centos 時間</p>
 <p>安裝套件</p>
@@ -803,7 +804,29 @@
 <h3 id="AZ-104-主要測驗的項目如下"><a href="#AZ-104-主要測驗的項目如下" class="headerlink" title="AZ-104  主要測驗的項目如下"></a>AZ-104  主要測驗的項目如下</h3><p>-管理 Azure 身分識別和治理 (20–25%)<br>-實作和管理儲存體 (15-20%)<br>-部署和管理 Azure 計算資源 (20–25%)<br>-實作和管理虛擬網路 (15–20%)<br>-監視和維護 Azure 資源 (10–15%)</p>
 <h3 id="考試經驗分享與感想"><a href="#考試經驗分享與感想" class="headerlink" title="考試經驗分享與感想"></a>考試經驗分享與感想</h3><p>滿分是1000分，及格線為700分，這次考了710分<br>身份識別的區塊真的沒有很熟，畢竟帳號權限不夠就拿最大的什麼事情都可以搞定<br>儲存體與網路的部分，考得還不錯，畢竟跟錢有關西還是不能亂搞的</p>
 <p>要特別注意的是微軟的證照效期只有<code>一年</code><br>每年都要記得上官網去換證照</p>
-<p>下一篇 出師不順的的 2023 Microsoft 認證：Azure 解決方案架構師專家考照-下 (AZ-305)</p>
+<p>下一篇 出師不順的  <a href="https://tomlintw.cc/20230829/">2023 Microsoft 認證：Azure 解決方案架構師專家考照-下 (AZ-305)</a></p>
+]]></content>
+      <categories>
+        <category>證照</category>
+      </categories>
+      <tags>
+        <tag>Azure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023 Microsoft 認證：Azure 解決方案架構師專家考照-下 (AZ-305)  </title>
+    <url>/20230829/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720023222/2023-08-29/eipkgnhlowekyvksjjkc.png" width="40%" />
+<span id="more"></span>
+
+<p>延續前一篇<a href="https://tomlintw.cc/20230820/">2023 Microsoft 認證：Azure 解決方案架構師專家考照-上 (AZ-104) </a>經驗分享<br>不免俗還是要確認一下要考什麼</p>
+<h3 id="AZ-305-主要測驗的項目如下"><a href="#AZ-305-主要測驗的項目如下" class="headerlink" title="AZ-305  主要測驗的項目如下"></a>AZ-305  主要測驗的項目如下</h3><p>-設計身分識別、治理與監視解決方案 (25-30%)<br>-設計資料儲存體解決方案 (20–25%)<br>-設計商務持續性解決方案 (15–20%)<br>-設計基礎結構解決方案 (30–35%)</p>
+<h4 id="慘遭滑鐵盧"><a href="#慘遭滑鐵盧" class="headerlink" title="慘遭滑鐵盧"></a>慘遭滑鐵盧</h4><p>順利的拿到AZ-104 覺得自己對Azure的有一定的熟悉程度了，就沒有花相對的時間去認真的去讀官方提供的學習資料，就走馬看花的看了一下覺得有滿滿的把握就去考試了</p>
+<p>一看到題目，就開始頭痛了，題目給的答案感覺都可以做到題目想要達成的事情，邊寫邊頭大，按下交卷的當天就知道差不多涼了，看到成績不到600分暈倒，發現其實有很多考試的大方向我根本沒有讀懂</p>
+<h4 id="再接再厲"><a href="#再接再厲" class="headerlink" title="再接再厲"></a>再接再厲</h4><p>針對不懂的考試項目，官方提供的學習資料重新看了一次，還爭取到了lab環境來測試，去把題目要問的答案做出來，來增加自己的印象。確認自己都不太會的地方都懂了，就再度去考試了。<br>這是可喜可賀的是，考卷的題目剛剛好都是我有讀到的地方，寫起來就很順暢沒有卡卡的狀況。按下交出考卷的當下，看到成績是PASS，整個跳起來了。</p>
+<p>成功在半年內獲得了Azure 兩張認證，可喜可賀再接再厲。</p>
 ]]></content>
       <categories>
         <category>證照</category>
