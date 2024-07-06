@@ -163,23 +163,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[CMD] Net user 使用方法 </title>
-    <url>/20210913/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Cmd的 net user 使用方法</p>
-</blockquote>
-<span id="more"></span>
-
-<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:<span class="built_in">yes</span> </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:<span class="built_in">yes</span></span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>CMD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[CMD] 啟用金鑰 </title>
     <url>/20210914/</url>
     <content><![CDATA[<blockquote>
@@ -215,6 +198,23 @@
       </categories>
       <tags>
         <tag>switch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[CMD] Net user 使用方法 </title>
+    <url>/20210913/</url>
+    <content><![CDATA[<blockquote>
+<p>紀錄Cmd的 net user 使用方法</p>
+</blockquote>
+<span id="more"></span>
+
+<p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net user  </span><br><span class="line"><span class="comment">#查看系統所有帳號</span></span><br><span class="line">net user [帳號] </span><br><span class="line"><span class="comment">#查看系統帳號</span></span><br><span class="line">net user [帳號] [密碼] /add  </span><br><span class="line"><span class="comment">#新增帳號</span></span><br><span class="line">net user [帳號] [密碼] /del</span><br><span class="line"><span class="comment">#刪除 帳號</span></span><br><span class="line">net localgroup Administrators [帳號] /add </span><br><span class="line"><span class="comment">#加入administrator群組</span></span><br><span class="line">net localgroup Administrators [帳號] /del   </span><br><span class="line"><span class="comment">#從administrator群組移除</span></span><br><span class="line">net user  [帳號]  /active:<span class="built_in">yes</span> </span><br><span class="line"><span class="comment">#啟用帳號</span></span><br><span class="line">net user  [帳號]  /active:no</span><br><span class="line"><span class="comment">#停用帳號</span></span><br><span class="line">net user [帳號] [密碼]</span><br><span class="line"><span class="comment">#修改帳號密碼， 不需要知道舊密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:<span class="built_in">yes</span></span><br><span class="line"><span class="comment">#用戶可以修改密碼 </span></span><br><span class="line">net user  [帳號] /passwordchange:no</span><br><span class="line"><span class="comment">#用戶不可以修改密碼 </span></span><br><span class="line">WMIC USERACCOUNT WHERE <span class="string">&quot;Name=&#x27;[帳號]&#x27;&quot;</span> SET PasswordExpires=FALSE </span><br><span class="line"><span class="comment">#設定密碼永不過期</span></span><br><span class="line">net user /domain</span><br><span class="line"><span class="comment">#查看網域內的所有帳號 </span></span><br><span class="line">net user [帳號] /domain</span><br><span class="line"><span class="comment">#查詢該網域帳號的資訊</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>CMD</tag>
       </tags>
   </entry>
   <entry>
