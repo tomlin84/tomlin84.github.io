@@ -512,7 +512,7 @@
     <title>[SNMP] librenms 設定應用-badif</title>
     <url>/20220101/</url>
     <content><![CDATA[<blockquote>
-<p>好不容易把機器燈加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
+<p>好不容易把機器加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
 </blockquote>
 <span id="more"></span>
 <p>修改設定檔</p>
