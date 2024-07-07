@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tomlintw.cc","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="[系統部署] Centos8+Nginx安裝librenms">
+<meta property="og:url" content="https://tomlintw.cc/20211231/index.html">
+<meta property="og:site_name" content="it&#39;s Note">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720255929/2024-07-06/zulkzed2yvidh4k7feem.webp">
+<meta property="article:published_time" content="2021-12-31T07:42:12.000Z">
+<meta property="article:modified_time" content="2024-07-06T07:42:12.000Z">
+<meta property="article:author" content="tomlin">
+<meta property="article:tag" content="SNMP">
+<meta property="article:tag" content="librenms">
+<meta property="article:tag" content="Network">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720255929/2024-07-06/zulkzed2yvidh4k7feem.webp">
+
+
+<link rel="canonical" href="https://tomlintw.cc/20211231/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://tomlintw.cc/20211231/","path":"20211231/","title":"[系統部署] Centos8+Nginx安裝librenms"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[系統部署] Centos8+Nginx安裝librenms | it's Note</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">it's Note</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一個存放學習筆記的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-首頁"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-關於我"><a href="/aboutme/" rel="section"><i class="fa fa-user fa-fw"></i>關於我</a></li><li class="menu-item menu-item-分類"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li><li class="menu-item menu-item-標籤"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜尋..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8"><span class="nav-number">2.</span> <span class="nav-text">安裝教學</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WEB%E6%9C%8D%E5%8B%99-Nginx"><span class="nav-number">2.1.</span> <span class="nav-text">WEB服務-Nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E5%BA%AB%E6%9C%8D%E5%8B%99%EF%BC%8DMariaDB"><span class="nav-number">2.2.</span> <span class="nav-text">資料庫服務－MariaDB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP-%E6%9C%8D%E5%8B%99-PHP"><span class="nav-number">2.3.</span> <span class="nav-text">PHP 服務-PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PHP-%E6%9C%8D%E5%8B%99-composer"><span class="nav-number">2.4.</span> <span class="nav-text">PHP 服務-composer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%9Dlibrenms"><span class="nav-number">2.5.</span> <span class="nav-text">安裝librenms</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E6%8E%92%E7%A8%8B"><span class="nav-number">2.5.1.</span> <span class="nav-text">設定排程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SELinux%E5%AE%89%E8%A3%9D%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.5.2.</span> <span class="nav-text">SELinux安裝設定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A-config-php-%E6%AC%8A%E9%99%90"><span class="nav-number">2.5.3.</span> <span class="nav-text">設定 config.php 權限</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%95%8F%E9%A1%8C%E6%8E%92%E9%99%A4"><span class="nav-number">2.6.</span> <span class="nav-text">問題排除</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%B0%E7%B6%B2%E9%A0%81%E4%BB%8B%E9%9D%A2%E9%80%B2%E8%A1%8C%E5%AE%89%E8%A3%9D%E6%B2%92%E9%A1%AF%E7%A4%BA%E5%AE%89%E8%A3%9D%E7%95%AB%E9%9D%A2"><span class="nav-number">2.6.1.</span> <span class="nav-text">到網頁介面進行安裝沒顯示安裝畫面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E6%9C%89%E5%95%8F%E9%A1%8C%E7%84%A1%E6%B3%95%E6%8E%92%E9%99%A4"><span class="nav-number">2.6.2.</span> <span class="nav-text">安裝有問題無法排除</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="tomlin"
+      src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
+  <p class="site-author-name" itemprop="name">tomlin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="回到頂端">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://tomlintw.cc/20211231/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1631985918/IMG_0737_ugbi1s.jpg">
+      <meta itemprop="name" content="tomlin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="it's Note">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[系統部署] Centos8+Nginx安裝librenms | it's Note">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [系統部署] Centos8+Nginx安裝librenms
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-12-31 15:42:12" itemprop="dateCreated datePublished" datetime="2021-12-31T15:42:12+08:00">2021-12-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2024-07-06 15:42:12" itemprop="dateModified" datetime="2024-07-06T15:42:12+08:00">2024-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%B3%BB%E7%B5%B1%E9%83%A8%E7%BD%B2/" itemprop="url" rel="index"><span itemprop="name">系統部署</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%B3%BB%E7%B5%B1%E9%83%A8%E7%BD%B2/librenms/" itemprop="url" rel="index"><span itemprop="name">librenms</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">閱讀次數：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>7.6k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>7 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720255929/2024-07-06/zulkzed2yvidh4k7feem.webp" width="60%" />
+<span id="more"></span>
+<div class="note info"><p>該內容為站主於2020年進行建置紀錄，與現況會有落差。</p>
+</div>
+<div class="note info"><p>Centos 8 於 2021&#x2F;12&#x2F;31 EOL ，建議使用ubuntu or docker 來建置。</p>
+</div>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>該文章會說明如何在Centos8 搭配Nginx來建置librenms這套監控軟體。<br>librenms這套軟體在增加大量主機的時候很方便還可以安裝另外的套件進行擴充，<br>個人覺得比另外一套監控軟體Cacti還符合現況的尖況軟體。</p>
+<h3 id="安裝教學"><a href="#安裝教學" class="headerlink" title="安裝教學"></a>安裝教學</h3><h4 id="WEB服務-Nginx"><a href="#WEB服務-Nginx" class="headerlink" title="WEB服務-Nginx"></a>WEB服務-Nginx<br></h4><br>
+
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf <span class="keyword">install</span> yum-utils -y</span><br></pre></td></tr></table></figure>
+<p>安裝 yum-utils 軟體包</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx-stable]</span></span><br><span class="line"><span class="attr">name</span>=nginx stable repo baseurl=http://nginx.org/packages/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span>/ gpgcheck=<span class="number">1</span> </span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span> </span><br><span class="line"><span class="attr">gpgkey</span>=https://nginx.org/keys/nginx_signing.key </span><br><span class="line"><span class="attr">module_hotfixes</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>設定 yum 存儲庫<br>在此目錄(&#x2F;etc&#x2F;yum.repos.d&#x2F;)下新增(vi&#x2F;vim) <strong>nginx.repo</strong>檔案<br>該儲存庫為官方提供</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager — <span class="keyword">enable</span> nginx-<span class="keyword">stable</span></span><br></pre></td></tr></table></figure>
+<p>安裝其他依賴套件</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum</span> <span class="literal">info</span> nginx</span><br></pre></td></tr></table></figure>
+<p>查看要安裝的 NGINX 版本資訊</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf <span class="keyword">install</span> nginx -y</span><br></pre></td></tr></table></figure>
+<p>安裝 nginx 服務</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nginx -v</span></span><br></pre></td></tr></table></figure>
+<p>查看安裝的 NGINX 版本</p>
+<h4 id="資料庫服務－MariaDB"><a href="#資料庫服務－MariaDB" class="headerlink" title="資料庫服務－MariaDB"></a>資料庫服務－MariaDB<br></h4><br>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/yum</span>.repos.d/MariaDB.repo</span><br></pre></td></tr></table></figure>
+<p>設定 yum 存儲庫</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mariadb]</span></span><br><span class="line"><span class="attr">name</span> = MariaDB</span><br><span class="line"><span class="attr">baseurl</span> = http://yum.mariadb.org/<span class="number">10.5</span>/centos8-amd64</span><br><span class="line"><span class="attr">module_hotfixes</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">gpgkey</span>=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>MariaDB.repo 填入以上內容</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dnf makecache</span><br><span class="line">dnf <span class="keyword">install </span><span class="keyword">boost-program-options</span></span><br><span class="line"><span class="keyword"></span>dnf <span class="keyword">install </span>MariaDB-server MariaDB-client --<span class="keyword">disablerepo=AppStream</span></span><br></pre></td></tr></table></figure>
+
+<p>安裝其他依賴套件</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">system</span>ctl start mariadb </span><br><span class="line"><span class="params">system</span>ctl enable mariadb</span><br></pre></td></tr></table></figure>
+<p>啟動資料庫服務&amp;開啟自動啟動資料庫服務</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql_secure_installation</span></span><br></pre></td></tr></table></figure>
+<p>設定資料庫的安全性</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">NOTE:</span> RUNNING ALL PARTS <span class="keyword">OF</span> THIS SCRIPT <span class="built_in">IS</span> RECOMMENDED <span class="keyword">FOR</span> ALL MariaDB</span><br><span class="line"></span><br><span class="line">SERVERS <span class="keyword">IN</span> PRODUCTION USE! PLEASE READ <span class="keyword">EACH</span> <span class="keyword">STEP</span> CAREFULLY!</span><br><span class="line"></span><br><span class="line"><span class="keyword">In</span> <span class="keyword">order</span> <span class="keyword">to</span> log <span class="keyword">into</span> MariaDB <span class="keyword">to</span> secure it, we<span class="comment">&#x27;ll need the current</span></span><br><span class="line"></span><br><span class="line">password <span class="keyword">for</span> the root user. <span class="keyword">If</span> you<span class="comment">&#x27;ve just installed MariaDB, and</span></span><br><span class="line"></span><br><span class="line">you haven<span class="comment">&#x27;t set the root password yet, the password will be blank,</span></span><br><span class="line"></span><br><span class="line">so you should just press enter here.</span><br><span class="line"></span><br><span class="line">Enter current password <span class="keyword">for</span> root (enter <span class="keyword">for</span> none): 第一次設定，直接按 Enter 鍵即可</span><br><span class="line"></span><br><span class="line">OK, successfully used password, moving <span class="keyword">on</span>...</span><br><span class="line"></span><br><span class="line">Setting the root password ensures that nobody can log <span class="keyword">into</span> the MariaDB</span><br><span class="line"></span><br><span class="line">root user without the proper authorisation.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Set</span> root password? [Y/n] 按 Y 設定資料庫 root 密碼</span><br><span class="line"></span><br><span class="line"><span class="built_in">New</span> password: 輸入新密碼</span><br><span class="line"></span><br><span class="line">Re-enter <span class="built_in">new</span> password: 再次輸入新密碼</span><br><span class="line"></span><br><span class="line">Password updated successfully!</span><br><span class="line"></span><br><span class="line">Reloading privilege tables..</span><br><span class="line"></span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line"><span class="keyword">By</span> <span class="keyword">default</span>, a MariaDB installation has an anonymous user, allowing anyone</span><br><span class="line"></span><br><span class="line"><span class="keyword">to</span> log <span class="keyword">into</span> MariaDB without having <span class="keyword">to</span> have a user account created <span class="keyword">for</span></span><br><span class="line"></span><br><span class="line">them. This <span class="built_in">is</span> intended only <span class="keyword">for</span> testing, <span class="built_in">and</span> <span class="keyword">to</span> make the installation</span><br><span class="line"></span><br><span class="line">go a bit smoother. You should remove them before moving <span class="keyword">into</span> a</span><br><span class="line"></span><br><span class="line">production environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? [Y/n] 按 Y 移除anonymous users</span><br><span class="line"></span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed <span class="keyword">to</span> connect <span class="keyword">from</span> <span class="comment">&#x27;localhost&#x27;. This</span></span><br><span class="line"></span><br><span class="line">ensures that someone cannot guess at the root password <span class="keyword">from</span> the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? [Y/n] 按 Y 關閉 root 遠端登入</span><br><span class="line"></span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line"><span class="keyword">By</span> <span class="keyword">default</span>, MariaDB comes <span class="keyword">with</span> a database named <span class="comment">&#x27;test&#x27; that anyone can</span></span><br><span class="line"></span><br><span class="line">access. This <span class="built_in">is</span> also intended only <span class="keyword">for</span> testing, <span class="built_in">and</span> should be removed</span><br><span class="line"></span><br><span class="line">before moving <span class="keyword">into</span> a production environment.</span><br><span class="line"></span><br><span class="line">Remove test database <span class="built_in">and</span> access <span class="keyword">to</span> it? [Y/n] 按 Y 移除資料表 test</span><br><span class="line"></span><br><span class="line">- Dropping test database...</span><br><span class="line"></span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">- Removing privileges <span class="keyword">on</span> test database...</span><br><span class="line"></span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes made so far</span><br><span class="line"></span><br><span class="line">will <span class="keyword">take</span> effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? [Y/n] 按 Y 重新載入資料表權限</span><br><span class="line"></span><br><span class="line">... Success!</span><br><span class="line"></span><br><span class="line">Cleaning up...</span><br><span class="line"></span><br><span class="line">All done! <span class="keyword">If</span> you<span class="comment">&#x27;ve completed all of the above steps, your MariaDB</span></span><br><span class="line"></span><br><span class="line">installation should now be secure.</span><br><span class="line"></span><br><span class="line">Thanks <span class="keyword">for</span> <span class="keyword">using</span> MariaDB!</span><br></pre></td></tr></table></figure>
+<p>上方這串為設定資料庫的安全性資訊</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> librenms <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;librenms&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>; </span><br><span class="line">#密碼修改成要登入的密碼</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> librenms.* <span class="keyword">TO</span> <span class="string">&#x27;librenms&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">FLUSH <span class="keyword">PRIVILEGES</span>;</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<p>登入資料庫設定表及權限</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">innodb_file_per_table</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">lower_case_table_names</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>新增設定在此檔案 <strong>&#x2F;etc&#x2F;my.cnf.d&#x2F;server.cnf</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart mariadb</span></span><br></pre></td></tr></table></figure>
+<p>重啟資料庫</p>
+<h4 id="PHP-服務-PHP"><a href="#PHP-服務-PHP" class="headerlink" title="PHP 服務-PHP"></a>PHP 服務-PHP<br></h4><br>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y epel-release</span><br></pre></td></tr></table></figure>
+安裝 epel-release 套件服務
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install https:<span class="regexp">//</span>rpms.remirepo.net<span class="regexp">/enterprise/</span>remi-release-<span class="number">8</span>.rpm -y</span><br></pre></td></tr></table></figure>
+安裝官方所提供來源庫版本
+
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf <span class="keyword">module</span> list php</span><br></pre></td></tr></table></figure>
+<p>查詢目前可安裝的版本 [備註:目前支援最低的PHP版本為7.2.5]</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">dnf</span> module reset php</span><br><span class="line"><span class="attribute">dnf</span> module enable php:remi-<span class="number">7</span>.<span class="number">4</span> -y</span><br></pre></td></tr></table></figure>
+<p>使用 PHP 7.4 版本</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dnf -<span class="keyword">y</span> install epel-release</span><br><span class="line">dnf install -<span class="keyword">y</span> bash-completion cronie fping git ImageMagick mariadb-server mtr net-snmp net-snmp-utils <span class="keyword">nmap</span> php-fpm php-cli php-common php-curl php-gd php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd <span class="keyword">python3</span> <span class="keyword">python3</span>-PyMySQL <span class="keyword">python3</span>-redis <span class="keyword">python3</span>-memcached <span class="keyword">python3</span>-pip rrdtool unzip</span><br></pre></td></tr></table></figure>
+<p>安裝必要套件</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">php -v</span></span><br></pre></td></tr></table></figure>
+<p>檢查php版本</p>
+<h4 id="PHP-服務-composer"><a href="#PHP-服務-composer" class="headerlink" title="PHP 服務-composer"></a>PHP 服務-composer<br></h4><br>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/bin</span><br></pre></td></tr></table></figure>
+<p>移動到想安裝的位置</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">curl</span> -sS https://getcomposer.org/installer | php</span><br></pre></td></tr></table></figure>
+<p>安裝 composer</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> composer.phar composer</span><br></pre></td></tr></table></figure>
+<p>重新命名 composer</p>
+<h4 id="安裝librenms"><a href="#安裝librenms" class="headerlink" title="安裝librenms"></a>安裝librenms<br></h4><br>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd librenms -d <span class="regexp">/opt/</span>librenms -M -r -s <span class="regexp">/usr/</span>bin/bash</span><br><span class="line">usermod -a -G librenms nginx</span><br></pre></td></tr></table></figure>
+新增加 librenms 使用者
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/librenms/librenms.git</span><br></pre></td></tr></table></figure>
+下載 Librenms 服務
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chown -R librenms:librenms <span class="regexp">/opt/</span>librenms</span><br><span class="line">chmod <span class="number">771</span> <span class="regexp">/opt/</span>librenms</span><br><span class="line">setfacl -d -m g::rwx <span class="regexp">/opt/</span>librenms<span class="regexp">/rrd /</span>opt<span class="regexp">/librenms/</span>logs <span class="regexp">/opt/</span>librenms<span class="regexp">/bootstrap/</span>cache<span class="regexp">/ /</span>opt<span class="regexp">/librenms/</span>storage/</span><br><span class="line">setfacl -R -m g::rwx <span class="regexp">/opt/</span>librenms<span class="regexp">/rrd /</span>opt<span class="regexp">/librenms/</span>logs <span class="regexp">/opt/</span>librenms<span class="regexp">/bootstrap/</span>cache<span class="regexp">/ /</span>opt<span class="regexp">/librenms/</span>storage/</span><br></pre></td></tr></table></figure>
+設定權限
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - librenms</span><br><span class="line">.<span class="regexp">/scripts/</span>composer_wrapper.php install --no-dev</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<p>安裝 PHP 依賴套件</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">Date</span>]</span><br><span class="line">修改前</span><br><span class="line">;<span class="built_in">date</span>.timezone = </span><br><span class="line">修改後</span><br><span class="line"><span class="built_in">date</span>.timezone = Asia/Taipei</span><br></pre></td></tr></table></figure>
+<p>修改時區 檔案位置 <strong>&#x2F;etc&#x2F;php.ini</strong><br>位置約923行附近</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">;<span class="keyword">user</span> <span class="title">= apache</span></span><br><span class="line"><span class="keyword">user</span> <span class="title">= nginx</span></span><br><span class="line"><span class="keyword">group</span> <span class="title">= apache</span>   ; keep <span class="keyword">group</span> <span class="title">as</span> apache</span><br><span class="line">;listen = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span></span><br><span class="line">listen = /run/php-fpm/php-fpm.sock</span><br><span class="line">listen.owner = nginx</span><br><span class="line">listen.<span class="keyword">group</span> <span class="title">= nginx</span></span><br><span class="line">listen.mode = <span class="number">0660</span></span><br></pre></td></tr></table></figure>
+<p>設定php-fpm<br>檔案位置 <strong>&#x2F;etc&#x2F;php-fpm.d&#x2F;<a target="_blank" rel="noopener" href="http://www.conf/">www.conf</a></strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> librenms.example.com;</span><br><span class="line">  <span class="attribute">root</span> /opt/librenms/html;</span><br><span class="line">  <span class="attribute">index</span> index.php;</span><br><span class="line"><span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line">  <span class="attribute">gzip</span> <span class="literal">on</span>;</span><br><span class="line">  <span class="attribute">gzip_types</span> text/css application/javascript text/javascript application/x-javascript image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon;</span><br><span class="line">  <span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$query_string</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="section">location</span> <span class="regexp">~ [^/]\.php(/|$)</span> &#123;</span><br><span class="line">    <span class="attribute">fastcgi_param</span> SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">    <span class="attribute">fastcgi_param</span> PATH_INFO <span class="variable">$fastcgi_path_info</span>;</span><br><span class="line">    <span class="comment">#  fastcgi_pass unix:/run/php-fpm-librenms.sock;</span></span><br><span class="line">    <span class="attribute">fastcgi_pass</span> unix:/run/php-fpm/php-fpm.sock;</span><br><span class="line">    <span class="attribute">fastcgi_split_path_info</span><span class="regexp"> ^(.+\.php)(/.+)$</span>;</span><br><span class="line">    <span class="comment">#  include fastcgi.conf;</span></span><br><span class="line">    <span class="attribute">include</span> fastcgi_params;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="section">location</span> <span class="regexp">~ /\.(?!well-known).*</span> &#123;</span><br><span class="line">    <span class="attribute">deny</span> all;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新增 NGINX 服務設定檔<br><strong>&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;librenms.conf</strong><br>設定方式如上<br>備註:<strong>librenms.example.com 要改成IP</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart nginx</span></span><br></pre></td></tr></table></figure>
+<p>重啟服務</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="regexp">/opt/</span>librenms<span class="regexp">/lnms /u</span>sr<span class="regexp">/local/</span>bin/lnms</span><br><span class="line">cp <span class="regexp">/opt/</span>librenms<span class="regexp">/misc/</span>lnms-completion.bash <span class="regexp">/etc/</span>bash_completion.d/</span><br></pre></td></tr></table></figure>
+<p>啟用 lnms</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp <span class="regexp">/opt/</span>librenms<span class="regexp">/snmpd.conf.example /</span>etc<span class="regexp">/snmp/</span>snmpd.conf</span><br><span class="line">vim <span class="regexp">/etc/</span>snmp/snmpd.conf</span><br><span class="line">curl -o <span class="regexp">/usr/</span>bin<span class="regexp">/distro https:/</span><span class="regexp">/raw.githubusercontent.com/</span>librenms<span class="regexp">/librenms-agent/m</span>aster<span class="regexp">/snmp/</span>distro</span><br><span class="line">chmod +x <span class="regexp">/usr/</span>bin/distro</span><br><span class="line">systemctl enable snmpd</span><br><span class="line">systemctl restart snmpd</span><br></pre></td></tr></table></figure>
+<p>針對 Librenms snmp設定<br><strong>備註:將 「RANDOMSTRINGGOESHERE」 修改或預設 public</strong></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vi /tmp/http_fping.tt</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="built_in">module</span> http_fping <span class="number">1.0</span>;</span><br><span class="line"><span class="built_in">require</span> &#123;</span><br><span class="line"><span class="built_in">type</span> httpd_t;</span><br><span class="line">class capability net_raw;</span><br><span class="line">class rawip_socket &#123; getopt <span class="built_in">create</span> setopt <span class="built_in">write</span> <span class="built_in">read</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line">#============= httpd_t ==============</span><br><span class="line">allow httpd_t <span class="built_in">self</span>:capability net_raw;</span><br><span class="line">allow httpd_t <span class="built_in">self</span>:rawip_socket &#123; getopt <span class="built_in">create</span> setopt <span class="built_in">write</span> <span class="built_in">read</span> &#125;;</span><br><span class="line">checkmodule -M -m -o http_fping.<span class="built_in">mod</span> /tmp/http_fping.tt semodule_package -o /tmp/http_fping.pp -m http_fping.<span class="built_in">mod</span> semodule -i /tmp/http_fping.pp</span><br></pre></td></tr></table></figure>
+<p>fping安裝</p>
+<h5 id="設定排程"><a href="#設定排程" class="headerlink" title="設定排程"></a>設定排程</h5><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp <span class="regexp">/opt/</span>librenms<span class="regexp">/librenms.nonroot.cron /</span>etc<span class="regexp">/cron.d/</span>librenms</span><br></pre></td></tr></table></figure>
+<p>從 Librenms 目錄下檔案複製到 cron.d 資料夾</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp <span class="regexp">/opt/</span>librenms<span class="regexp">/misc/</span>librenms.logrotate <span class="regexp">/etc/</span>logrotate.d/librenms</span><br></pre></td></tr></table></figure>
+<p>複製預設的設定檔</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">firewall</span><span class="literal">-</span><span class="comment">cmd</span> <span class="literal">--</span><span class="comment">zone public</span> <span class="literal">--</span><span class="comment">add</span><span class="literal">-</span><span class="comment">service http</span></span><br><span class="line"><span class="comment">firewall</span><span class="literal">-</span><span class="comment">cmd</span> <span class="literal">--</span><span class="comment">permanent</span> <span class="literal">--</span><span class="comment">zone public</span> <span class="literal">--</span><span class="comment">add</span><span class="literal">-</span><span class="comment">service http</span></span><br><span class="line"><span class="comment">firewall</span><span class="literal">-</span><span class="comment">cmd</span> <span class="literal">--</span><span class="comment">zone public</span> <span class="literal">--</span><span class="comment">add</span><span class="literal">-</span><span class="comment">service https</span></span><br><span class="line"><span class="comment">firewall</span><span class="literal">-</span><span class="comment">cmd</span> <span class="literal">--</span><span class="comment">permanent</span> <span class="literal">--</span><span class="comment">zone public</span> <span class="literal">--</span><span class="comment">add</span><span class="literal">-</span><span class="comment">service https</span></span><br></pre></td></tr></table></figure>
+<h5 id="SELinux安裝設定"><a href="#SELinux安裝設定" class="headerlink" title="SELinux安裝設定"></a>SELinux安裝設定</h5><p><strong>備註:SELinux沒開啟可以跳過此步驟</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dnf install policycoreutils<span class="operator">-</span>python<span class="operator">-</span>utils</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">semanage fcontext <span class="operator">-</span>a <span class="operator">-</span>t httpd_sys_content_t &#x27;<span class="regexp">/opt/</span>librenms<span class="regexp">/html(/</span><span class="operator">.*</span>)<span class="operator">?</span>&#x27;</span><br><span class="line">semanage fcontext <span class="operator">-</span>a <span class="operator">-</span>t httpd_sys_rw_content_t &#x27;<span class="regexp">/opt/</span>librenms<span class="regexp">/(logs|rrd|storage)(/</span><span class="operator">.*</span>)<span class="operator">?</span>&#x27;</span><br><span class="line">restorecon <span class="operator">-</span><span class="type">RFvv</span> <span class="regexp">/opt/</span>librenms</span><br><span class="line">setsebool <span class="operator">-</span><span class="type">P</span> httpd_can_sendmail<span class="operator">=</span><span class="number">1</span></span><br><span class="line">setsebool <span class="operator">-</span><span class="type">P</span> httpd_execmem <span class="number">1</span></span><br><span class="line">chcon <span class="operator">-</span>t httpd_sys_rw_content_t <span class="regexp">/opt/</span>librenms<span class="operator">/</span>.env</span><br></pre></td></tr></table></figure>
+
+<p>現在就可以再WEB上進行後續的安裝步驟，進行安裝。</p>
+<h5 id="設定-config-php-權限"><a href="#設定-config-php-權限" class="headerlink" title="設定 config.php 權限"></a>設定 config.php 權限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> librenms:librenms /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
+<p><strong>備註 :預設有可能沒有這個檔案 只有config.php.default</strong></p>
+<h4 id="問題排除"><a href="#問題排除" class="headerlink" title="問題排除"></a>問題排除</h4><h5 id="到網頁介面進行安裝沒顯示安裝畫面"><a href="#到網頁介面進行安裝沒顯示安裝畫面" class="headerlink" title="到網頁介面進行安裝沒顯示安裝畫面"></a>到網頁介面進行安裝沒顯示安裝畫面</h5><p>表示nginx default 設定沒有移除</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/nginx/nginx.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<h5 id="安裝有問題無法排除"><a href="#安裝有問題無法排除" class="headerlink" title="安裝有問題無法排除"></a>安裝有問題無法排除</h5><p>使用root帳號再librenms目錄下執行 validate.php</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/librenms</span><br><span class="line">./validate.php</span><br></pre></td></tr></table></figure>
+
+<p>該文章同步分享在個人的 <a target="_blank" rel="noopener" href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-centos8-nginx%E5%AE%89%E8%A3%9Dlibrenms-d02bf90227fe">medium</a> 上</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SNMP/" rel="tag"># SNMP</a>
+              <a href="/tags/librenms/" rel="tag"># librenms</a>
+              <a href="/tags/Network/" rel="tag"># Network</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/20211213/" rel="prev" title="[Liunx] Centos 8 時間問題">
+                  <i class="fa fa-angle-left"></i> [Liunx] Centos 8 時間問題
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/20220101/" rel="next" title="[SNMP] librenms 設定應用-badif">
+                  [SNMP] librenms 設定應用-badif <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">tomlin</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="總字數">25k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">22 分鐘</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<!-- 删除 “由 Hexo & NexT.Gemini 强力驱动” -->
+ <!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div> -->
+  <div id="site-runtime">
+  <span class="post-meta-item-icon">
+    <i class="fa fa-clock-o"></i>
+  </span>
+  <span id="runtime"></span>
+</div>
+
+<script language="javascript">
+  function isPC() {
+    var userAgentInfo = navigator.userAgent;
+    var agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+    for (var i = 0; i < agents.length; i++) {
+      if (userAgentInfo.indexOf(agents[i]) > 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function siteTime(openOnPC, start) {
+    window.setTimeout("siteTime(openOnPC, start)", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+      start = new Date("2024-02-18 20:31:54 +0800");
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var date = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    var diff = now - start;
+
+    var diffYears = Math.floor(diff / years);
+    var diffDays = Math.floor((diff / days) - diffYears * 365);
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+
+    if (openOnPC) {
+      document.getElementById("runtime").innerHTML = "Running: " + diffYears + " years " + diffDays + " days " + diffHours + " hours " + diffMinutes + " mins " + diffSeconds + " secs";
+    } else {
+      document.getElementById("runtime").innerHTML = "Running: " + diffYears + "y " + diffDays + "d " + diffHours + "h " + diffMinutes + "m " + diffSeconds + "s";
+    }
+  }
+
+
+  var showOnMobile = false;
+  var openOnPC = isPC();
+  var start = new Date();
+  siteTime(openOnPC, start);
+
+  if (!openOnPC && !showOnMobile) {
+    document.getElementById('site-runtime').style.display = 'none';
+  }
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"tomlin84","repo":"tomlin84.github.io","client_id":"Ov23liyQUAoMRSuZaNPp","client_secret":"f501f139c69b0cfac3b0c40ba48c06f4a64627b0","admin_user":"tomlin84","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-TW","labels":"Gitalk","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ae6b96eeaca5c19a03b34061e6e058a9"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
