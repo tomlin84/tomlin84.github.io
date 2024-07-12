@@ -968,4 +968,31 @@
         <tag>Azure</tag>
       </tags>
   </entry>
+  <entry>
+    <title>關於挑選HEXO當部落格大小事</title>
+    <url>/20240707/</url>
+    <content><![CDATA[<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720336249/No%20categories/xwk36qw83jskd6sbogl5.png" width="60%" />
+<span id="more"></span>
+<div class="note default"><p>今天來談談為何會建置部落格與為何用 Hexo 建置</p>
+</div>
+
+<h3 id="創建部落格的原因"><a href="#創建部落格的原因" class="headerlink" title="創建部落格的原因"></a>創建部落格的原因</h3><p>最主要就是三點紀錄、學習新的事物與自我提升</p>
+<h4 id="紀錄"><a href="#紀錄" class="headerlink" title="紀錄"></a>紀錄</h4><p>始終相信每個人的大腦容量與時間都是有限，時間一久就會忘記，就會需會需要記錄一些大大小小的事情，紀錄的同時也會重新思考可以如何做得更好<br>也許會為了更好的紀錄，去做了更多的嘗試</p>
+<h4 id="學習新事物"><a href="#學習新事物" class="headerlink" title="學習新事物"></a>學習新事物</h4><p>在開始寫文章的時候，會發現自己就像一隻誤闖叢林的小白兔，你會想去學很多新的事物<br>想要讓大家都可以看到你的文章，就要學習SEO（Search Engine Optimization, 搜尋引擎優化）技能<br>想要建置一個部落格，就要學習如何建置WordPress、Hexo<br>想要讓網站可以更安全，就要學習資安相關能力，例如WAF、DDOS防禦等</p>
+<p>部落格讓我對有興趣的事物，定期去看別人如何設定調整，並記錄下來，整理成自己看得懂的筆記，利用部落格來進行相關的測試，讓我對新的技術有相對應的暸解</p>
+<h4 id="自我提升"><a href="#自我提升" class="headerlink" title="自我提升"></a>自我提升</h4><p>現在人手一機的時代，距離上次拿起筆寫作都不知道何時了，導致一開始花大量時間寫的文章的文筆不太好，導致會很抗拒</p>
+<p>但是到現在，我現在寫文章也是要花很多時間，還需要麻煩ChatGPT來協助</p>
+<p>但是我還是不放棄，畢竟現在放棄就結束了。</p>
+<h3 id="挑選用-Hexo-前的選擇-medium"><a href="#挑選用-Hexo-前的選擇-medium" class="headerlink" title="挑選用 Hexo 前的選擇 - medium"></a>挑選用 Hexo 前的選擇 - medium</h3><p>在選擇使用 Hexo 前有使用過 medium 來撰寫部落格文章。但當時在 medium 寫了幾篇文章遇到了幾個困境如下</p>
+<ul>
+<li>對中文比較不友善</li>
+<li>中文社群偏小</li>
+<li>擴充性限制</li>
+</ul>
+<p>因上述這些原因就決定要停更 medium了</p>
+<h3 id="挑選-Hexo-當我的部落格"><a href="#挑選-Hexo-當我的部落格" class="headerlink" title="挑選 Hexo 當我的部落格"></a>挑選 Hexo 當我的部落格</h3><p>Hexo 是一個快速、簡單且強大的靜態網頁生成器，<br>基於使用 Node.js編寫，可以很快速的生成靜態頁面，還支持 Markdwon 標記語言來撰寫文章，透過簡單的指令就可以把網站部署上去，<br>不用煩惱網站的基礎建設( iis or Nginx 、Public IP 、NAT、Firewall等)煩惱，還支持很多第三方插件支援，不用去煩惱擴充功能的部分。</p>
+<h3 id="Hexo-與-WordPress-選擇"><a href="#Hexo-與-WordPress-選擇" class="headerlink" title="Hexo 與 WordPress 選擇"></a>Hexo 與 WordPress 選擇</h3><p>最廣為人知的部落格軟體應該還是WordPress，就算是一個不是資訊相關領域的有可以透過WordPress 輕鬆建立一個部落格或是網站。<br>Hexo 與 WordPress差異就是，Hexo 是靜態網站，WordPress是動態的網站，需要把資料存在資料庫。</p>
+<p>最直接的原因是，其實沒有多餘的時間來維護部落格，如上面所說的WordPress是有資料庫的，需要注意網站安全性時間會大於比單純託管在別人家的靜態網站 Hexo</p>
+]]></content>
+  </entry>
 </search>
