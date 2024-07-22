@@ -615,9 +615,9 @@
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/nginx/nginx.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 <h5 id="安裝有問題無法排除"><a href="#安裝有問題無法排除" class="headerlink" title="安裝有問題無法排除"></a>安裝有問題無法排除</h5><p>使用root帳號再librenms目錄下執行 validate.php</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/librenms</span><br><span class="line">./validate.php</span><br></pre></td></tr></table></figure>
-
-<p>該文章同步分享在個人的 <a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-centos8-nginx%E5%AE%89%E8%A3%9Dlibrenms-d02bf90227fe">medium</a> 上</p>
-]]></content>
+<br>
+<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-centos8-nginx%E5%AE%89%E8%A3%9Dlibrenms-d02bf90227fe">medium</a> </p>
+</div>]]></content>
       <categories>
         <category>系統部署</category>
         <category>librenms</category>
@@ -642,7 +642,10 @@
 <blockquote>
 <p>每台機器所自動產生的網路圖表名稱，都會有所不同，可以使用下面指令去查詢，再進行設定</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>
+<br>
+<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-librenms-%E8%A8%AD%E5%AE%9A%E6%87%89%E7%94%A8-badif-d2c38990ac52">medium</a> </p>
+</div>]]></content>
       <categories>
         <category>系統部署</category>
         <category>librenms</category>
@@ -684,8 +687,9 @@
 <p>重啟排程</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">service crond restart</span></span><br></pre></td></tr></table></figure>
 
-<p>安裝設定完成，點擊首頁的 service → add service，進入畫面進行設定。</p>
-]]></content>
+<p>安裝設定完成，點擊首頁的 service → add service，進入畫面進行設定。<br><br></p>
+<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-librenms-%E6%9C%8D%E5%8B%99%E6%87%89%E7%94%A8-nagios-2cdbfc45e5b4">medium</a> </p>
+</div>]]></content>
       <categories>
         <category>系統部署</category>
         <category>librenms</category>
@@ -731,8 +735,10 @@
 <h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><p>最後考了770分，一個低分飛過的成績，主要都錯核心解決方案和管理工具，網路安全這塊就特別的好，真妙。如果時間允許的話真的還是要實際操作一遍，這樣才會有印象。還有專有名詞跟用途要背起來。</p>
 <p>考卷語言的部分，建議是考英文試卷會比較，翻譯出來的有時候都看不懂他到底要問什麼</p>
 <p>有感謝網路上前輩們分享的文章。</p>
-<p>該文章同步分享在個人的 <a href="https://hanelin.medium.com/2022-az-900-microsoft-azure-fundamentals-%E8%80%83%E8%A9%A6%E5%BF%83%E5%BE%97-80842857bfa">medium</a> 上</p>
-]]></content>
+<br>
+
+<div class="note primary"><p>該文章同時發布於<a href="https://hanelin.medium.com/2022-az-900-microsoft-azure-fundamentals-%E8%80%83%E8%A9%A6%E5%BF%83%E5%BE%97-80842857bfa">medium</a> </p>
+</div>]]></content>
       <categories>
         <category>證照</category>
       </categories>
@@ -993,6 +999,44 @@
 <h3 id="挑選-Hexo-當我的部落格"><a href="#挑選-Hexo-當我的部落格" class="headerlink" title="挑選 Hexo 當我的部落格"></a>挑選 Hexo 當我的部落格</h3><p>Hexo 是一個快速、簡單且強大的靜態網頁生成器，<br>基於使用 Node.js編寫，可以很快速的生成靜態頁面，還支持 Markdwon 標記語言來撰寫文章，透過簡單的指令就可以把網站部署上去，<br>不用煩惱網站的基礎建設( iis or Nginx 、Public IP 、NAT、Firewall等)煩惱，還支持很多第三方插件支援，不用去煩惱擴充功能的部分。</p>
 <h3 id="Hexo-與-WordPress-選擇"><a href="#Hexo-與-WordPress-選擇" class="headerlink" title="Hexo 與 WordPress 選擇"></a>Hexo 與 WordPress 選擇</h3><p>最廣為人知的部落格軟體應該還是WordPress，就算是一個不是資訊相關領域的有可以透過WordPress 輕鬆建立一個部落格或是網站。<br>Hexo 與 WordPress差異就是，Hexo 是靜態網站，WordPress是動態的網站，需要把資料存在資料庫。</p>
 <p>最直接的原因是，其實沒有多餘的時間來維護部落格，如上面所說的WordPress是有資料庫的，需要注意網站安全性時間會大於比單純託管在別人家的靜態網站 Hexo</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>為何要離開Medium與搬至何處</title>
+    <url>/20240722/</url>
+    <content><![CDATA[<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1721658695/2024-07-20/j8b8doj34vlrysr5xnvn.png" width="100%" />
+<span id="more"></span>
+<br>
+之後不會在管理Medium了
+使用了HEXO架設了一個新的網站，以後可以在這邊[it's Note](https://tomlintw.cc/)
+
+
+<h3 id="為何離開-Medium"><a href="#為何離開-Medium" class="headerlink" title="為何離開 Medium"></a>為何離開 Medium</h3><p>當初選擇用Medium 來當技術 blog，主要是記錄一些遇到的問題，但寫了幾篇發現了幾個問題</p>
+<ul>
+<li>沒有codeblock </li>
+<li>字體的行距偏高</li>
+<li>對中文比較不友善</li>
+<li>中文社群偏小</li>
+<li>擴充性限制</li>
+<li>編輯器的差異</li>
+</ul>
+<br>
+沒有codeblock (程式碼區塊)這點對於要寫技術 blog真的是一個大障礙，直接複製貼上版型又會跑掉，用螢幕截圖去貼上又很麻煩且下一位使用者還不能直接複製程式碼。
+<br>
+與後續自己獲得相關的能力也想自己架設一個blog來嘗試。
+
+<h3 id="確認架設blog需求"><a href="#確認架設blog需求" class="headerlink" title="確認架設blog需求"></a>確認架設blog需求</h3><br>
+搬家前總是要確認一下，新家需要有那些基本功能
+基本需求如下
+
+<ul>
+<li>要支援markdwon語法</li>
+<li>可以的話只靜態頁面 （不想管理資料庫資安)</li>
+<li>環境部署不會太麻煩</li>
+</ul>
+<p>最後我選擇了HEXO ，支援Markdown語法，單純的靜態頁面與多種的樣式，最後是可以部署在Github page上，連後端的部分都可以省略了。</p>
+<p>最後還是要感謝Medium讓我有紀錄文件知識庫的習慣，與學習使用markdown來紀錄文件。</p>
+<p>結論，新的blog已建置完成，名字叫「it’s Note」<br>歡迎大家可以無聊來逛逛找些資訊<br>(下台一鞠躬)</p>
 ]]></content>
   </entry>
 </search>
