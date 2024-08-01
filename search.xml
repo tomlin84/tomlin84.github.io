@@ -1039,4 +1039,39 @@
 <p>結論，新的blog已建置完成，名字叫「it’s Note」<br>歡迎大家可以無聊來逛逛找些資訊<br>(下台一鞠躬)</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>要如何在windows主機建置與執行本地端大型模型(LLM)</title>
+    <url>/20240801/</url>
+    <content><![CDATA[<div class="note default"><p>簡單說明要如何建置地端本的GPT</p>
+</div>
+
+<span id="more"></span>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>大型語言模型（LLM）是一種人工智慧（AI）模型，透過自然語言處理（NLP）技術<br>能理解人類語言並產生回覆<br>例如:OpenAI的ChatGPT、谷歌的gemini與微軟的Microsoft 365 Copilot</p>
+<h3 id="收集需求"><a href="#收集需求" class="headerlink" title="收集需求"></a>收集需求</h3><p>當決定要自行部屬一套LLM(下文皆會簡稱GPT)<br>要先決定使用甚麼開源模型例如:臉書Llama 3、谷歌的Gemma與微軟的phi3<br>決定好模型後就要安裝 Ollama 這套軟體</p>
+<p>Ollama 是一款開源軟體，可以讓使用者在自己的設備上執行、建立與分享大行語言模型</p>
+<h3 id="安裝-Ollama"><a href="#安裝-Ollama" class="headerlink" title="安裝 Ollama"></a>安裝 Ollama</h3><p>Ollama 官方有提供 Windows、Liunx、Macos與docker安裝教學，可以讓大家可以很無腦的安裝</p>
+<p>下列會使用 Windows 來當作範例</p>
+<h4 id="下載安裝包"><a href="#下載安裝包" class="headerlink" title="下載安裝包"></a>下載安裝包</h4> <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521495/2024-08-01/bvizyg3dwryoncqqvgac.png" width="50%" />
+
+<h4 id="開始安裝"><a href="#開始安裝" class="headerlink" title="開始安裝"></a>開始安裝</h4><p>PS:依據主機效能安裝速度會不一樣</p>
+ <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521495/2024-08-01/bn4lpbg58zo0webicrkj.png" width="50%" />
+
+ <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521495/2024-08-01/bcovrzcru4o6frzn0seh.png" width="50%" />
+
+<h4 id="運行Ollama"><a href="#運行Ollama" class="headerlink" title="運行Ollama"></a>運行Ollama</h4><p>打開電腦CMD 執行下面的語法開始運行llama2模型</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">ollama <span class="built_in">run</span> llama2</span><br></pre></td></tr></table></figure>
+ <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521494/2024-08-01/rrhfopyeu2bslahqdsvh.png" width="50%" />
+
+ <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521495/2024-08-01/ib2wkci49v3vh5fb9ktw.png" width="80%" />
+
+
+<p>模型的安裝與網速有關，耐心等後安裝，模型安裝完成就可以開始使用了，進行下面的測試</p>
+<h4 id="使用python寫Hello-world"><a href="#使用python寫Hello-world" class="headerlink" title="使用python寫Hello world"></a>使用python寫Hello world</h4> <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722522625/2024-08-01/fax9uuzfulzaxsw64pca.png" width="80%" />
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;　使用python寫Hello world</span><br><span class="line"></span><br><span class="line">certainly! Here is <span class="keyword">an</span> example <span class="keyword">of</span> how <span class="built_in">to</span> use Python <span class="built_in">to</span> print <span class="string">&quot;Hello World&quot;</span>:</span><br><span class="line"><span class="comment">#```</span></span><br><span class="line">print(<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line"><span class="comment">#```</span></span><br><span class="line">This will output <span class="keyword">the</span> <span class="keyword">string</span> <span class="string">&quot;Hello World&quot;</span> <span class="keyword">on</span> <span class="title">the</span> <span class="title">screen</span>.</span><br><span class="line"></span><br><span class="line">Here are <span class="keyword">a</span> few more examples <span class="keyword">of</span> basic Python syntax:</span><br><span class="line"></span><br><span class="line">* `x = <span class="number">5</span>`: This sets <span class="keyword">the</span> <span class="built_in">variable</span> `x` <span class="built_in">to</span> <span class="keyword">the</span> <span class="built_in">value</span> <span class="number">5.</span></span><br><span class="line">* `print(x)`: This prints <span class="keyword">the</span> <span class="built_in">value</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="built_in">variable</span> `x` <span class="built_in">to</span> <span class="keyword">the</span> screen.</span><br><span class="line">* `<span class="keyword">if</span> x &gt; <span class="number">10</span>:`: This is <span class="keyword">an</span> <span class="keyword">if</span> statement that checks <span class="keyword">if</span> <span class="keyword">the</span> <span class="built_in">value</span> <span class="keyword">of</span> `x` is greater than <span class="number">10.</span> If <span class="keyword">it</span> is, <span class="keyword">then</span> <span class="keyword">the</span> code inside <span class="keyword">the</span> curly braces will be executed.</span><br><span class="line">* `<span class="keyword">while</span> x &lt; <span class="number">10</span>:`: This is <span class="keyword">a</span> <span class="keyword">while</span> loop that runs <span class="keyword">as</span> <span class="keyword">long</span> <span class="keyword">as</span> <span class="keyword">the</span> <span class="built_in">value</span> <span class="keyword">of</span> `x` is less than <span class="number">10.</span></span><br><span class="line">* `<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">5</span>):`: This is <span class="keyword">a</span> <span class="keyword">for</span> loop that runs <span class="number">5</span> times, <span class="keyword">each</span> <span class="built_in">time</span> printing <span class="keyword">the</span> <span class="built_in">value</span> <span class="keyword">of</span> `x` <span class="built_in">to</span> <span class="keyword">the</span> screen.</span><br><span class="line"></span><br><span class="line">I hope these examples help you <span class="built_in">get</span> started <span class="keyword">with</span> Python! Let me know <span class="keyword">if</span> you have <span class="keyword">any</span> questions <span class="keyword">or</span> need further clarification.</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h4><p>Q1.預設模型存放何處與要如何修改存放位置<br> 預設模型存放路徑C:\Users&lt;用户名&gt;.ollama\models<br> 要修改存放路徑方式如下 在系統新增環境變數 “OLLAMA_MODELS” 環境變數值指存放的目錄<br> <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521495/2024-08-01/d3xmrhkwogihjoixabfa.png" width="50%" /></p>
+<h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p> 下列網址為官方GitHub，更多的功能請參考相關文件，有問題可以進行留言<br> <a href="https://github.com/ollama/ollama">https://github.com/ollama/ollama</a></p>
+]]></content>
+  </entry>
 </search>
