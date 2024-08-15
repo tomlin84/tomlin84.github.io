@@ -1002,6 +1002,98 @@
 ]]></content>
   </entry>
   <entry>
+    <title>[Windows] Windows Update 方法</title>
+    <url>/20240708/</url>
+    <content><![CDATA[<div class="note default"><p>紀錄有幾種方式可以幫Windows 主機更新</p>
+</div>
+<span id="more"></span>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>無法使用用控制台 (control) 進行windows update的狀態下<br>還有那些辦法可以進行windows 更新</p>
+<h3 id="下載離線更新包安裝"><a href="#下載離線更新包安裝" class="headerlink" title="下載離線更新包安裝"></a>下載離線更新包安裝</h3><p>下載離線包前會需要知道OS patch號碼，可以在下面連結查詢</p>
+<p><a href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2016-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-4acfbc84-a290-1b54-536a-1c0430e9f3fd">Windows 2016</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2019-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-725fc2e1-4443-6831-a5ca-51ff5cbcb059">Windows 2019</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-server-2022-%E6%9B%B4%E6%96%B0%E6%AD%B7%E7%A8%8B%E8%A8%98%E9%8C%84-e1caa597-00c5-4ab9-9f3e-8212fe80b2ee">Windows 2022</a></p>
+<p>找到後可以需要Patch號碼後可以去下方連結下載</p>
+<p><a href="https://www.catalog.update.microsoft.com/Home.aspx">Microsoft Update Catalog</a></p>
+<h3 id="sconfig"><a href="#sconfig" class="headerlink" title="sconfig"></a>sconfig</h3><div class="note default"><p>該方法限定於伺服器版本的OS</p>
+</div>
+
+<p>伺服器設定工具 (Sconfig.cmd) 是一個很厲害的工具，可以透過此工具來設定與管理伺服器的常用功能部分<br>當然一定要有administrator的權限才可以使用此工具。</p>
+<h4 id="使用最高權限的Cmd輸入sconfig，然後按-ENTER-鍵。-伺服器設定工具介面便會開啟"><a href="#使用最高權限的Cmd輸入sconfig，然後按-ENTER-鍵。-伺服器設定工具介面便會開啟" class="headerlink" title="使用最高權限的Cmd輸入sconfig，然後按 ENTER 鍵。 伺服器設定工具介面便會開啟"></a>使用最高權限的Cmd輸入sconfig，然後按 ENTER 鍵。 伺服器設定工具介面便會開啟</h4><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720762440/2024-07-08/ctna5a2di2exqd1xey2b.webp" width="60%" />
+
+<h4 id="輸入數字”6”，然後按-ENTER-鍵。會跳出一另外一個cmd頁面可以輸入”A“尋找所有的更新-or-“R“尋找建議的更新，然後按-ENTER-鍵。"><a href="#輸入數字”6”，然後按-ENTER-鍵。會跳出一另外一個cmd頁面可以輸入”A“尋找所有的更新-or-“R“尋找建議的更新，然後按-ENTER-鍵。" class="headerlink" title="輸入數字”6”，然後按 ENTER 鍵。會跳出一另外一個cmd頁面可以輸入”A“尋找所有的更新 or “R“尋找建議的更新，然後按 ENTER 鍵。"></a>輸入數字”6”，然後按 ENTER 鍵。會跳出一另外一個cmd頁面<br>可以輸入”A“尋找所有的更新 or “R“尋找建議的更新，然後按 ENTER 鍵。</h4><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720762440/2024-07-08/v9mp0xgbvd3wvtpbgrfn.webp" width="60%" />
+
+<h4 id="可以選擇是全部更新（A-or-單一更新-S-，輸入完後就會開始更新更新完成後會跳出一個視窗，詢問你是否要重啟電腦，這樣就代表更新完成了"><a href="#可以選擇是全部更新（A-or-單一更新-S-，輸入完後就會開始更新更新完成後會跳出一個視窗，詢問你是否要重啟電腦，這樣就代表更新完成了" class="headerlink" title="可以選擇是全部更新（A) or 單一更新(S)，輸入完後就會開始更新更新完成後會跳出一個視窗，詢問你是否要重啟電腦，這樣就代表更新完成了"></a>可以選擇是全部更新（A) or 單一更新(S)，輸入完後就會開始更新<br>更新完成後會跳出一個視窗，詢問你是否要重啟電腦，這樣就代表更新完成了</h4><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720762440/2024-07-08/rxszqsjglrsnpqu80sau.webp" width="60%" />
+
+<h3 id="Powershell-PSWindowsUpdate"><a href="#Powershell-PSWindowsUpdate" class="headerlink" title="Powershell - PSWindowsUpdate"></a>Powershell - PSWindowsUpdate</h3><p>要使用 PSWindowsUpdate 套件來執行 Windows 更新 ，必須要先在 PowerShell 進行安裝套件</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">使用系統管理員的權限打開 PowerShell</span><br><span class="line">輸入指令 install-Module PSWindowsUpdate </span><br><span class="line"></span><br><span class="line">系統會詢問你下面兩個問題</span><br><span class="line"><span class="keyword">if</span> you <span class="keyword">get</span> the message “<span class="keyword">Do</span> you want Powershell <span class="keyword">to</span> install <span class="keyword">and</span> <span class="keyword">import</span> the NuGet provider now”? 輸入Y，按enter</span><br><span class="line"><span class="keyword">if</span> you are prompted again <span class="keyword">with</span> a message “Are you sure you want <span class="keyword">to</span> install the module <span class="keyword">from</span> PSGallery” 輸入Y，按enter</span><br><span class="line"></span><br><span class="line">輸入 [<span class="keyword">Get</span>-WindowsUpdate] 來檢查現在windows 更新</span><br><span class="line">輸入[ Install-WindowsUpdate] 來選擇你要安裝windows 更新</span><br><span class="line">會顯示出“Confirm Are you sure you want <span class="keyword">to</span> <span class="keyword">perform</span> this action?” 輸入Y，按enter 就會開始更新了</span><br></pre></td></tr></table></figure>
+
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>其實 Windows 主機更新有很多方式，不只有去控制台按更新鍵的那一種<br>要不是因為一些原因主機經常沒有顯示自動更新按鈕，然而主機又一定要更新才讓我知道原來Windows 主機更新有好多種方法</p>
+<br>
+
+<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%B4%80%E9%8C%84-windows-update-%E6%96%B9%E6%B3%95-1365ca69ade1">medium</a> </p>
+</div>
+
+
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+        <tag>Windows Update</tag>
+        <tag>Windows</tag>
+        <tag>Cmd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>政府組態檔(GCB)</title>
+    <url>/20240709/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<div class="note default"><p>說明GCB是什麼與講解使用方式</p>
+</div>
+<span id="more"></span>
+<h3 id="GCB是什麼"><a href="#GCB是什麼" class="headerlink" title="GCB是什麼?"></a>GCB是什麼?</h3><p>政府組態基準(Government Configuration Baseline，GCB)<br>目的在於規範資通訊設備(如個人電腦、伺服器主機及網通設備等) 的一致性安全設定(如密碼長度、更新期限等)，<br>以減少資安事件<br><del>就是增加一些電腦安全設定讓方便性下降很多但是安全性上升一些</del></p>
+<h3 id="套用後有感設定"><a href="#套用後有感設定" class="headerlink" title="套用後有感設定"></a>套用後有感設定</h3><p>密碼原則</p>
+<ul>
+<li>密碼最短使用期限：1天</li>
+<li>密碼最長使用期限：90天以下，大於0天</li>
+<li>密碼必須符合複雜性需求：啟用</li>
+<li>強制執行密碼歷程記錄：3 個以上記憶的密碼</li>
+<li>帳戶鎖定閾值(嘗試登入錯誤次數)：5 次以下不正確的登入嘗試，但須大於0次</li>
+<li>重設帳戶鎖定計數器的時間間隔(重設登入次數的計時時間)：15分鐘</li>
+<li>帳戶鎖定期間：15分鐘</li>
+</ul>
+<p>安全性選項</p>
+<ul>
+<li>帳戶：Administrator 帳戶：停用</li>
+<li>帳戶：Guest 帳戶：停用</li>
+<li>互動式登入：不要求按CTRL+ALT+DEL鍵：停用，使用者登入前需要按 CTRL+ALT+DEL</li>
+<li>互動式登入：電腦未使用時間限制：900秒(15分鐘)以下，但須大於 0 秒，(會進入鎖定畫面)</li>
+</ul>
+<p>事件記錄服務</p>
+<ul>
+<li>服務指定記錄檔大小上限(KB): 已啟用,32768KB以上</li>
+<li>系統指定記錄檔大小上限(KB): 已啟用,32768KB以上</li>
+<li>安全性指定記錄檔大小上限(KB): 已啟用,196608KB以上</li>
+</ul>
+<h3 id="如何套用GCB"><a href="#如何套用GCB" class="headerlink" title="如何套用GCB"></a>如何套用GCB</h3><h4 id="下載LGPO工具"><a href="#下載LGPO工具" class="headerlink" title="下載LGPO工具"></a>下載LGPO工具</h4><p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=55319">Microsoft Security Compliance Toolkit 1.0</a><br><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720769747/2024-07-09/vhit0k0qpwjg6z8tt5zl.png" width="80%" /></p>
+<h4 id="下載GCB規則"><a href="#下載GCB規則" class="headerlink" title="下載GCB規則"></a>下載GCB規則</h4><p><a href="https://www.nics.nat.gov.tw/core_business/cybersecurity_defense/GCB/GCB_Deployment_Resources/">GCB部署資源</a><br><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720769747/2024-07-09/rriwfwhrcgag42wcwqz3.png" width="80%" /></p>
+<h4 id="執行套用"><a href="#執行套用" class="headerlink" title="執行套用"></a>執行套用</h4><p>對下載的檔案解壓縮，並把解壓縮GCB檔案放進去LGPO資料夾<br>( 以下模擬LGPO檔案放置在c:\ )<br>使用最高權限來啟動命令命令提示字元，先進行主機設定的備份</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">LGPO<span class="selector-class">.exe</span> /<span class="selector-tag">b</span> c:\LGPO\backup</span><br></pre></td></tr></table></figure>
+
+<p>套用規則<br>ps:後面路徑為GCB檔案所放的位置</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">LGPO</span>.exe /g c:\LGPO\GCB-WindowsServer2022-gposv1.<span class="number">0</span>_112120</span><br></pre></td></tr></table></figure>
+
+<p>立刻生效可以執行該指令或是重新開機</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gpupdate /force</span><br></pre></td></tr></table></figure>
+<p>檢查項目<br>可以確認<strong>密碼原則</strong>與<strong>帳號鎖定原則</strong>有沒有成功被修改</p>
+<h3 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h3><h4 id="主機帳號部分"><a href="#主機帳號部分" class="headerlink" title="主機帳號部分"></a>主機帳號部分</h4><p>套用GCB會把系統預設的administrator帳號改名成Renamed_Admin並停用<br>務必務必套用前新增一組administrator權限的帳號再套用</p>
+<h4 id="MSS規則找不到"><a href="#MSS規則找不到" class="headerlink" title="MSS規則找不到"></a>MSS規則找不到</h4><p>可以參考該<a href="https://ithelp.ithome.com.tw/questions/10189298?sc=rss.qu">文章</a><br>下載對應的Security Baseline.zip</p>
+<h4 id="遠端桌面部分"><a href="#遠端桌面部分" class="headerlink" title="遠端桌面部分"></a>遠端桌面部分</h4><p>不允許磁碟重新導向建議例外，套用後無法使用遠端桌面複製檔案到主機上<br>若是要用VPN後遠端，要麻煩與VPN管理員確認相關規定是否可以套用<br>如:需要安全的RPC通訊、需要對遠端(RDP)連線使用特定的安全層與遠端桌面相關的設定</p>
+<h4 id="使用者權限指派"><a href="#使用者權限指派" class="headerlink" title="使用者權限指派"></a>使用者權限指派</h4><p>若主機有安裝IIS、資料庫相關服務建議套用GCB規則前先進行記錄<br>以免導致套用後無法使用</p>
+<h4 id="如何還原GCB規則"><a href="#如何還原GCB規則" class="headerlink" title="如何還原GCB規則"></a>如何還原GCB規則</h4><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">RD <span class="string">/S</span> <span class="string">/Q</span> C:\Windows\System32\GroupPolicy</span><br><span class="line">LGPO.exe <span class="string">/g</span> D:\LGPO\backup</span><br><span class="line">gpupdate <span class="string">/force</span></span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>為何要離開Medium與搬至何處</title>
     <url>/20240722/</url>
     <content><![CDATA[<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1721658695/2024-07-20/j8b8doj34vlrysr5xnvn.png" width="100%" />
