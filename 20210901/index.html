@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tomlintw.cc","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定">
+    <meta name="description" content="紀錄要如何在Centos安裝與設定SNMP 服務，以便於監控軟體後續的設定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SNMP] 安裝與設定 for Centos">
 <meta property="og:url" content="https://tomlintw.cc/20210901/index.html">
 <meta property="og:site_name" content="it&#39;s Note">
-<meta property="og:description" content="紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定">
+<meta property="og:description" content="紀錄要如何在Centos安裝與設定SNMP 服務，以便於監控軟體後續的設定">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-09-01T13:44:01.000Z">
 <meta property="article:modified_time" content="2024-07-05T16:00:00.000Z">
@@ -54,6 +54,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+  
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -77,7 +78,7 @@
       <p class="site-title">it's Note</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">一個存放學習筆記的地方</p>
+      <p class="site-subtitle" itemprop="description">一個存放筆記的地方</p>
   </div>
 
   <div class="site-nav-right">
@@ -155,13 +156,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -268,6 +269,7 @@
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
       <span>1 分鐘</span>
     </span>
+  
 </div>
 
         </div>
@@ -276,11 +278,12 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote>
-<p>紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
+    <div class="post-body" itemprop="articleBody"><div class="note default">
+紀錄要如何在Centos安裝與設定SNMP 服務，以便於監控軟體後續的設定
+</div>
 <span id="more"></span>
-<p>安裝 snmp套件</p>
+安裝 snmp套件
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-utils</span><br></pre></td></tr></table></figure>
 
 <p>編輯snmp設定檔</p>
@@ -348,13 +351,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="總字數">30k</span>
+    <span title="總字數">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">27 分鐘</span>
+    <span title="所需總閱讀時間">28 分鐘</span>
   </span>
 </div>
 <div class="busuanzi-count">

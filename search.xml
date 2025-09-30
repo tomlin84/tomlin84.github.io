@@ -3,11 +3,12 @@
   <entry>
     <title>[SNMP] 安裝與設定 for Centos</title>
     <url>/20210901/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄要如何在Centos安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄要如何在Centos安裝與設定SNMP 服務，以便於監控軟體後續的設定
+</div>
 <span id="more"></span>
-<p>安裝 snmp套件</p>
+安裝 snmp套件
+
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-utils</span><br></pre></td></tr></table></figure>
 
 <p>編輯snmp設定檔</p>
@@ -34,11 +35,12 @@
   <entry>
     <title>[SNMP] 安裝與設定 for ESXI</title>
     <url>/20210902/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄要如何在Esxi安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄要如何在Esxi安裝與設定Snmp 服務，以便於監控軟體後續的設定
+</div>
 <span id="more"></span>
-<p>1.在esxi 上打開 ssh功能</p>
+1.在esxi 上打開 ssh功能
+
 <p>2.以 ssh client 登入 ESXi shell</p>
 <p>3.執行 snmp 相關設定</p>
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">esxcli<span class="built_in"> system snmp </span><span class="built_in">set</span> -c public</span><br><span class="line">esxcli<span class="built_in"> system snmp </span><span class="built_in">set</span> -e <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
@@ -62,16 +64,18 @@
   <entry>
     <title>[SNMP] 安裝與設定 for Windows </title>
     <url>/20210903/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄要如何在windows安裝與設定SNMP 服務，以便於監控軟體後續的設定
+</div>
 <span id="more"></span>
-<h3 id="伺服器管理員-新增角色與功能-功能-安裝SNMP-Service"><a href="#伺服器管理員-新增角色與功能-功能-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png" width="70%" />
+###  伺服器管理員>新增角色與功能>功能>安裝SNMP  Service 
 
-<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png" width="70%" />
+
+<h3 id="安裝完成，前往”服務”設定-SNMP-service"><a href="#安裝完成，前往”服務”設定-SNMP-service" class="headerlink" title="安裝完成，前往”服務”設定  SNMP service"></a>安裝完成，前往”服務”設定  SNMP service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
 <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/2021-09-03/snmp-2_hhmr34.png" width="70%" />
 
-<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png" width="70%" />]]></content>
+<h3 id="在安全性新增通關密碼與選擇所有主機接受SNMP封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受SNMP封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受SNMP封包。"></a>在安全性新增通關密碼與選擇所有主機接受SNMP封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png" width="70%" />]]></content>
       <categories>
         <category>設備監控</category>
       </categories>
@@ -82,9 +86,9 @@
   <entry>
     <title>[CMD] 檢查服務是否執行 </title>
     <url>/20210904/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd來檢查服務是否正常運作的排程</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用Cmd來檢查服務是否正常運作的排程
+</div>
 <span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query <span class="string">&quot;服務名稱&quot;</span> | find <span class="string">&quot;RUNNING&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%ERRORLEVEL%&quot;</span>==<span class="string">&quot;1&quot;</span> (</span><br><span class="line">    call c:\TEST.bat  </span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> Program is not running</span><br><span class="line">)</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 
@@ -103,9 +107,9 @@
   <entry>
     <title>[CMD] 使用指令登出、關機 </title>
     <url>/20210905/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄常用的cmd的相關指令</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄常用的Cmd的相關指令
+</div>
 <span id="more"></span>
 <br>
 登出
@@ -130,9 +134,9 @@
   <entry>
     <title>[CMD] 時間變數 </title>
     <url>/20210906/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄cmd中時間變數</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄Cmd中時間變數
+</div>
 <span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%time:~0,2% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取2位字元，結果是小時欄位數值</span><br><span class="line">%time:~3,2% -&gt;表示指標從左向右偏移3位，然後從偏移處開始提取2位字元，結果是分鐘欄位數值</span><br><span class="line">%time:~6,2% -&gt;表示指標從左向右偏移6位，然後從偏移處開始提取2位字元，結果是秒欄位數值</span><br><span class="line"></span><br><span class="line">%<span class="built_in">date</span>:~0,4% -&gt;表示從左向右指標向右偏0位，然後從指標偏移到的位置開始提取4位字元，結果是（年的值）</span><br><span class="line">%<span class="built_in">date</span>:~5,2% -&gt;表示指標從左向右偏移5位，然後從偏移處開始提取2位字元，結果是（月的值）</span><br><span class="line">%<span class="built_in">date</span>:~8,2% -&gt;表示指標從左向右偏移8位，然後從偏移處開始提取2位字元，結果是（日的值）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -146,9 +150,9 @@
   <entry>
     <title>[CMD] 網路卡的 mac address 匯出</title>
     <url>/20210907/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用Cmd匯出網卡的 mac 資訊</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用Cmd匯出網卡的 mac 資訊
+</div>
 <span id="more"></span>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-7 delims=- &quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;getmac ^| find &quot;-&quot;&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i:%%j:%%k:%%l:%%m:%%n &gt;&gt;e:\mac.txt</span><br><span class="line">REM 匯出到E槽mac.txt 文件</span><br></pre></td></tr></table></figure>
@@ -165,9 +169,9 @@
   <entry>
     <title>[CMD] Net user 使用方法 </title>
     <url>/20210913/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Cmd的 net user 使用方法</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄Cmd的 net user 使用方法
+</div>
 <span id="more"></span>
 
 <p>net  user  是用來新增、 刪除、 異動使用者帳戶</p>
@@ -182,13 +186,12 @@
   <entry>
     <title>[CMD] 啟用金鑰 </title>
     <url>/20210914/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用Cmd來安裝 windows 序號</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用Cmd來安裝 windows 序號
+</div>
 <span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">slmgr.vbs /upk    <span class="comment">#移除金鑰</span></span><br><span class="line">slmgr /ipk [金鑰] <span class="comment">#安裝產金鑰 ps:不要省略&quot;-&quot;</span></span><br><span class="line">slmgr /skms [金鑰伺服器] <span class="comment">#設定金鑰認證伺服器</span></span><br><span class="line">slmgr /ato <span class="comment">#成功啟用金鑰</span></span><br></pre></td></tr></table></figure>
-<p>備註:一定要使用系統管理員身分執行+連上網路</p>
-]]></content>
+備註:一定要使用系統管理員身分執行+連上網路]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -197,13 +200,16 @@
       </tags>
   </entry>
   <entry>
-    <title>[Network] mac 連接 switch console port</title>
+    <title>[Network] Mac 連接 Switch Console Port</title>
     <url>/20210920/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用mac來連接 switch console</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用mac來連接 switch console
+</div>
 <span id="more"></span>
-<p>將 console 線接上mac<br>註:上色部分需要購買專用線材<br>[ switch console port →<font color=#0000FF> RJ45 →RS232 母 → RS232 公 → usb </font>→mac ] </p>
+將 console 線接上mac  
+註:上色部分需要購買專用線材
+[ switch console port →<font color=#0000FF> RJ45 →RS232 母 → RS232 公 → usb </font>→mac ] 
+
 <p>使用 terminal 輸入下列指令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /dev/ | grep -i usb</span><br></pre></td></tr></table></figure>
 <p>使用screen 指令連接 console</p>
@@ -220,17 +226,17 @@
   <entry>
     <title> [系統部署] Gitlab 架設 </title>
     <url>/20210921/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何安裝 Gitlab Server</p>
-</blockquote>
+    <content><![CDATA[<div class="note default ">紀錄如何安裝 Gitlab Server</div>
+<div class="note warning">本文更新時間為2021年，資訊可能有所改變</div>
 <span id="more"></span>
-<p>安裝ssh指令</p>
+安裝ssh指令
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install -y curl policycoreutils openssh-server</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
-<p>防火牆規則開通</p>
+防火牆規則開通
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo firewall-cmd --permanent --add-service=http</span><br><span class="line">sudo firewall-cmd --permanent --add-service=https</span><br><span class="line">sudo systemctl reload firewalld</span><br></pre></td></tr></table></figure>
-<p>寄信套件安裝</p>
+寄信套件安裝
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install postfix</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> postfix</span><br><span class="line">sudo systemctl start postfix</span><br></pre></td></tr></table></figure>
-<p>安裝gitlab<br>備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)</p>
+安裝gitlab
+備註:可以直接安裝EE(企業版)版本的，在沒有註冊的狀況下功能會被限縮等同於CE(社群版)
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br><span class="line">sudo EXTERNAL_URL=<span class="string">&quot;https://gitlab.example.com&quot;</span> dnf install -y gitlab-ee</span><br></pre></td></tr></table></figure>
 
 <p>安裝完成後，要去修改gitlab.rb內容</p>
@@ -251,40 +257,40 @@
   <entry>
     <title> [系統部署] 使用 AD 帳號登入 Gitlab </title>
     <url>/20210923/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用 AD 帳號來登入 Gitlab Server</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用 AD 帳號來登入 Gitlab Server
+</div>
 <span id="more"></span>
-<blockquote>
-<p>CN屬性</p>
-</blockquote>
+>CN屬性
+
+
 <table>
 <thead>
 <tr>
 <th>屬性名稱</th>
 <th align="center">全名</th>
-<th align="right">說明</th>
+<th align="center">說明</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>CN</td>
 <td align="center">Common Name</td>
-<td align="right">用戶名稱、單位名稱</td>
+<td align="center">用戶名稱、單位名稱</td>
 </tr>
 <tr>
 <td>DN</td>
 <td align="center">Distinguished Name</td>
-<td align="right">識別名稱，絕對位置</td>
+<td align="center">識別名稱，絕對位置</td>
 </tr>
 <tr>
 <td>OU</td>
 <td align="center">Organizational Unit Name</td>
-<td align="right">組織單位名稱</td>
+<td align="center">組織單位名稱</td>
 </tr>
 <tr>
 <td>DC</td>
 <td align="center">Domain Componet</td>
-<td align="right">網域元件</td>
+<td align="center">網域元件</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -312,25 +318,25 @@
   <entry>
     <title> [系統部署]  Gitlab 常用指令 </title>
     <url>/20211003/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄Gitlab Server 常用的指令</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄Gitlab Server 常用的指令
+</div>
 <span id="more"></span>
-<p>重製設定</p>
+重製設定
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
-<p>啟動</p>
+啟動
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
-<p>關閉</p>
+關閉
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop</span><br></pre></td></tr></table></figure>
-<p>升級</p>
+升級
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update gitlab-ee</span><br></pre></td></tr></table></figure>
-<p>手動備份</p>
+手動備份
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
-<p>要自行手動備份</p>
+要自行手動備份
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/gitlab/gitlab.rb         <span class="comment">#配置文件須備份</span></span><br><span class="line">/var/opt/gitlab/nginx/conf    <span class="comment">#nginx配置文件</span></span><br><span class="line">/etc/postfix/main.cfpostfix   <span class="comment">#郵件配置備份</span></span><br></pre></td></tr></table></figure>
-<p>更換備份資料夾[刷新檔案權限為git]</p>
+更換備份資料夾[刷新檔案權限為git]
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /mnt/gitlab/backups</span><br><span class="line"><span class="built_in">chown</span> -R git.git /mnt/gitlab/backups</span><br><span class="line"><span class="built_in">chown</span> -R git.git /mnt/gitlab/backups</span><br></pre></td></tr></table></figure>
-<p>還原</p>
+還原
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br><span class="line">gitlab-ctl status</span><br><span class="line"></span><br><span class="line">gitlab-rake gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)(還原最後一版可以不加這段</span><br><span class="line">gitlab:backup:restore backup=1525801521_gitlab_backup.tar(看檔案名稱)</span><br><span class="line"></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
 
 <p>502錯誤排解</p>
@@ -346,9 +352,9 @@
   <entry>
     <title>[CMD] 遠端桌面指令 </title>
     <url>/20211004/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用cmd直接遠端桌面(跳過輸入帳密的地方)</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用Cmd直接遠端桌面(跳過輸入帳密的地方)
+</div>
 <span id="more"></span>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cmdkey /generic:TERMSRV/IP /user:遠端帳號 /pass:遠端密碼 &amp;&amp; mstsc /admin /v:IP </span><br></pre></td></tr></table></figure>
 
@@ -367,9 +373,9 @@
   <entry>
     <title>[CMD] Net use 使用方法 </title>
     <url>/20211204/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 net use 在 cmd 的使用方法 </p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄 Net Use 在 Cmd 的使用方法 
+</div>
 <span id="more"></span>
 
 <p>net  use  是用來掛載、 刪除網路磁碟機或是建立ipc$連線</p>
@@ -382,15 +388,15 @@
       </tags>
   </entry>
   <entry>
-    <title>[CMD] sc 使用方法 </title>
+    <title>[CMD] Sc 使用方法 </title>
     <url>/20211205/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 sc 在 cmd 的使用方法 </p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄 Sc 在 Cmd 的使用方法
+</div>
 <span id="more"></span>
 
 <p>SC (Service Control 的縮寫 ) 是用來查詢、啟動、停止，甚至刪除服務的指令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"> <span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line"> sc start [服務]</span><br><span class="line"> <span class="comment">#啟動某服務</span></span><br><span class="line"> sc stop [服務]</span><br><span class="line"> <span class="comment">#關閉某服務</span></span><br><span class="line"> sc delete [服務]</span><br><span class="line"> <span class="comment">#刪除某服務</span></span><br><span class="line"> sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"> <span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"> <span class="comment">#demand=手動 </span></span><br><span class="line"> <span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sc query</span><br><span class="line"><span class="comment">#檢視目前所有的服務狀態</span></span><br><span class="line">sc query [服務]</span><br><span class="line"><span class="comment">#檢視某服務的狀態 </span></span><br><span class="line">sc qc [服務]</span><br><span class="line"><span class="comment">#檢視某服務的設定資訊</span></span><br><span class="line">sc start [服務]</span><br><span class="line"><span class="comment">#啟動某服務</span></span><br><span class="line">sc stop [服務]</span><br><span class="line"><span class="comment">#關閉某服務</span></span><br><span class="line">sc delete [服務]</span><br><span class="line"><span class="comment">#刪除某服務</span></span><br><span class="line">sc config [服務]名 start = auto|demand|disabled</span><br><span class="line"><span class="comment">#修改某服務的啟動類型</span></span><br><span class="line"><span class="comment">#demand=手動 </span></span><br><span class="line"><span class="comment">#disabled=禁用</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Windows</category>
       </categories>
@@ -399,20 +405,20 @@
       </tags>
   </entry>
   <entry>
-    <title>[CMD] 關於 net use 與  sc 差異 </title>
+    <title>[CMD] 關於 Net  與  Sc 管理服務差異</title>
     <url>/20211206/</url>
-    <content><![CDATA[<blockquote>
-<p>net use 與 sc 的指令都可以管理服務， 那究竟有什麼差異 ? </p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+net  與 sc 的指令都可以管理服務， 那究竟有什麼差異 ? 
+</div>
 <span id="more"></span>
 
-<p>以下為net use 與 sc 的指令的差異整理<br>&nbsp;</p>
+<p>以下為net  與 sc 的指令的差異整理<br>&nbsp;</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th align="center">Net Use</th>
-<th align="center">sc</th>
+<th align="center">Net</th>
+<th align="center">Sc</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -446,16 +452,17 @@
       </tags>
   </entry>
   <entry>
-    <title>[Liunx] 如何使用gnome shell Extensions </title>
+    <title>[Liunx] 如何使用Gnome Shell Extensions </title>
     <url>/20211212/</url>
-    <content><![CDATA[<blockquote>
-<p>簡單說明gnome shell Extensions  是什麼與要如何使用</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+說明Gnome Shell Extensions 是什麼與要如何使用
+</div>
+
 <span id="more"></span>
 
-<h4 id="gnome-shell-Extensions-是什麼"><a href="#gnome-shell-Extensions-是什麼" class="headerlink" title="gnome shell Extensions 是什麼?"></a>gnome shell Extensions 是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
+<h4 id="Gnome-Shell-Extensions-是什麼"><a href="#Gnome-Shell-Extensions-是什麼" class="headerlink" title="Gnome Shell Extensions  是什麼?"></a>Gnome Shell Extensions  是什麼?</h4><p>簡單來說它就是 gnome shell 的擴充程式，來強化gnome 桌面的功能</p>
 <p>類似瀏覽器的插件。例如:你可以在瀏覽器安裝附件來下載影片。這個附件是由第三方開發人員。<br>隨然web瀏覽器預設不提供，但是透過安裝附件可以強化瀏覽器的功能</p>
-<h4 id="要如何安裝gnome-shell-Extensions"><a href="#要如何安裝gnome-shell-Extensions" class="headerlink" title="要如何安裝gnome shell Extensions"></a>要如何安裝gnome shell Extensions</h4><p>已經知道 gnome shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
+<h4 id="要如何安裝Gnome-Shell-Extensions"><a href="#要如何安裝Gnome-Shell-Extensions" class="headerlink" title="要如何安裝Gnome Shell Extensions"></a>要如何安裝Gnome Shell Extensions</h4><p>已經知道 Gnome Shell Extensions 是什麼了，那我們該如何安裝呢?<br>有三種方法可以安裝gnome Extensions </p>
 <ul>
 <li>使用liunx發行版本的安裝包</li>
 <li>在瀏覽器查找並安裝擴充程式</li>
@@ -481,9 +488,9 @@
   <entry>
     <title>[Liunx] Centos 8 時間問題</title>
     <url>/20211213/</url>
-    <content><![CDATA[<blockquote>
-<p>講解要如何修正 Centos 8 時間</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+關於 Centos 8 時間修正解決方法
+</div>
 <span id="more"></span>
 <div class="note info"><p>Centos 8 於 2021&#x2F;12&#x2F;31 停止更新了</p>
 </div>
@@ -513,12 +520,11 @@
     <url>/20211231/</url>
     <content><![CDATA[<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720255929/2024-07-06/zulkzed2yvidh4k7feem.webp" width="60%" />
 <span id="more"></span>
-<div class="note info"><p>該內容為站主於2020年進行建置紀錄，與現況會有落差。</p>
-</div>
-<div class="note info"><p>Centos 8 於 2021&#x2F;12&#x2F;31 EOL ，建議使用ubuntu or docker 來建置。</p>
-</div>
+<div class="note warning">本文更新時間為2020年，資訊可能有所改變</div>
+<div class="note info">Centos 8 於 2021/12/31 EOL ，建議使用Ubuntu or Docker 來建置。</div>
 
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>該文章會說明如何在Centos8 搭配Nginx來建置librenms這套監控軟體。<br>librenms這套軟體在增加大量主機的時候很方便還可以安裝另外的套件進行擴充，<br>個人覺得比另外一套監控軟體Cacti還符合現況的尖況軟體。</p>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>該文章會說明如何在Centos8 搭配Nginx來建置librenms這套監控軟體。<br>librenms這套軟體在增加大量主機的時候很方便還可以安裝另外的套件進行擴充，<br>個人覺得比另外一套監控軟體Cacti還符合現況的監控軟體。</p>
 <h3 id="安裝教學"><a href="#安裝教學" class="headerlink" title="安裝教學"></a>安裝教學</h3><h4 id="WEB服務-Nginx"><a href="#WEB服務-Nginx" class="headerlink" title="WEB服務-Nginx"></a>WEB服務-Nginx<br></h4><br>
 
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">dnf <span class="keyword">install</span> yum-utils -y</span><br></pre></td></tr></table></figure>
@@ -631,12 +637,13 @@
   <entry>
     <title>[SNMP] librenms 設定應用-badif</title>
     <url>/20220101/</url>
-    <content><![CDATA[<blockquote>
-<p>好不容易把機器加入監控了，打開”ports”的頁面看到了一堆不相關的不相關的圖表，那要如何只保留自己想要看的圖表呢?這時候就是使用”badif”的時候了。</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+關於bad_if的使用方式
+</div>
 <span id="more"></span>
-<p>修改設定檔</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
+
+<h3 id="關於badif"><a href="#關於badif" class="headerlink" title="關於badif"></a>關於badif</h3><p>bad_if的設定可以幫助你監控特定的服務，並且也能夠選擇不進行某些監控。<br>這對於希望精簡監控內容的使用者來說非常有用。</p>
+<h3 id="設定方式"><a href="#設定方式" class="headerlink" title="設定方式"></a>設定方式</h3><h4 id="修改設定檔"><a href="#修改設定檔" class="headerlink" title="修改設定檔"></a>修改設定檔</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /opt/librenms/config.php</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;allow_unauth_grahps&#x27;</span>] = 1;</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (L2TP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IKEv2).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (GRE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (SSTP).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (PPPOE).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IPv6).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (Network Monitor).&#x27;</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;os&#x27;</span>][<span class="string">&#x27;windows&#x27;</span>][<span class="string">&#x27;bad_if&#x27;</span>][] = <span class="string">&#x27;WAN Miniport (IP).&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>這些圖表就會被自動隱藏，就看不到了。</p>
 <blockquote>
@@ -644,7 +651,52 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">snmpwalk -c public -v 1 192.168.50.1 IfDescr</span><br></pre></td></tr></table></figure>
 <br>
-<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-librenms-%E8%A8%AD%E5%AE%9A%E6%87%89%E7%94%A8-badif-d2c38990ac52">medium</a> </p>
+]]></content>
+      <categories>
+        <category>系統部署</category>
+        <category>librenms</category>
+      </categories>
+      <tags>
+        <tag>SNMP</tag>
+        <tag>librenms</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title> [SNMP] librenms 設定應用-Nagios</title>
+    <url>/20220103/</url>
+    <content><![CDATA[<div class="note default">
+介紹Nagios套件與如何使用
+</div>
+<span id="more"></span>
+<div class="note warning">本文更新時間為2020年，資訊可能有所改變</div>
+
+<h3 id="介紹-Nagios套件"><a href="#介紹-Nagios套件" class="headerlink" title="介紹 Nagios套件"></a>介紹 Nagios套件</h3><p>Nagios插件是一套開源監控工具，提供了多種服務監控功能，如HTTP、FTP、SSH等。透過在librenms中配置Nagios插件，使用者可以實現更細緻和全面的健康度監測</p>
+<h3 id="安裝Nagios套件"><a href="#安裝Nagios套件" class="headerlink" title="安裝Nagios套件"></a>安裝Nagios套件</h3><p>安裝 EPEL 套件庫</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">dnf install epel-release</span><br></pre></td></tr></table></figure>
+<p>搜尋可以安裝的套件</p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">dnf <span class="built_in">search</span> nagios-plugins-</span><br></pre></td></tr></table></figure>
+<p>下圖搜尋後的結果</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1641395301/2022-01-03/librenms_nagios_euhzml.png" width="80%" />
+
+<p> [備註:nagios-plugins-mysql 會與maroadb互衝導致無法安裝]</p>
+<h3 id="安裝套件-使用nagios-dns-示範"><a href="#安裝套件-使用nagios-dns-示範" class="headerlink" title="安裝套件 [使用nagios-dns 示範]"></a>安裝套件 [使用nagios-dns 示範]</h3><p>安裝指令</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">dnf <span class="keyword">install</span> nagios-plugins-dns</span><br></pre></td></tr></table></figure>
+<p>修改設定檔</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/librenms/config.php</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># nagios-plugins-all</span></span><br><span class="line"><span class="variable">$config</span>[‘show_services’] = <span class="number">1</span>;</span><br><span class="line"><span class="variable">$config</span>[‘nagios_plugins’] = “<span class="regexp">/usr/</span>lib64<span class="regexp">/nagios/</span>plugins”;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /usr/lib64/nagios/plugins/*</span><br></pre></td></tr></table></figure>
+<p>設定排程</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>cron.d/librenms</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">:</span><br><span class="line">*/<span class="number">5</span>  *    * * *   librenms    /opt/librenms/services-<span class="keyword">wrapper</span>.py <span class="number">1</span></span><br><span class="line"># Daily maintenance script. <span class="keyword">DO</span> <span class="keyword">NOT</span> <span class="keyword">DISABLE</span>!</span><br><span class="line">:</span><br></pre></td></tr></table></figure>
+
+
+<p>重啟排程</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">service crond restart</span></span><br></pre></td></tr></table></figure>
+
+<p>安裝設定完成，點擊首頁的 service → add service，進入畫面進行設定。<br><br></p>
+<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-librenms-%E6%9C%8D%E5%8B%99%E6%87%89%E7%94%A8-nagios-2cdbfc45e5b4">medium</a> </p>
 </div>]]></content>
       <categories>
         <category>系統部署</category>
@@ -703,55 +755,12 @@
       </tags>
   </entry>
   <entry>
-    <title> [SNMP] librenms 設定應用-nagios </title>
-    <url>/20220103/</url>
-    <content><![CDATA[<blockquote>
-<p>librenms 有支援nagios Plugin 的擴充檢測功能，讓librenns有更強大的應用能力，在搭配上librenms的預警系統，可以快速知道問題發生，更迅速的處理。</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="安裝nagios套件"><a href="#安裝nagios套件" class="headerlink" title="安裝nagios套件"></a>安裝nagios套件</h3><p>安裝 EPEL 套件庫</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">dnf install epel-release</span><br></pre></td></tr></table></figure>
-<p>搜尋可以安裝的套件</p>
-<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">dnf <span class="built_in">search</span> nagios-plugins-</span><br></pre></td></tr></table></figure>
-<p>下圖搜尋後的結果</p>
-<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1641395301/2022-01-03/librenms_nagios_euhzml.png" width="80%" />
-
-<p> [備註:nagios-plugins-mysql 會與maroadb互衝導致無法安裝]</p>
-<h3 id="安裝套件-使用nagios-dns-示範"><a href="#安裝套件-使用nagios-dns-示範" class="headerlink" title="安裝套件 [使用nagios-dns 示範]"></a>安裝套件 [使用nagios-dns 示範]</h3><p>安裝指令</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">dnf <span class="keyword">install</span> nagios-plugins-dns</span><br></pre></td></tr></table></figure>
-<p>修改設定檔</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/librenms/config.php</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># nagios-plugins-all</span></span><br><span class="line"><span class="variable">$config</span>[‘show_services’] = <span class="number">1</span>;</span><br><span class="line"><span class="variable">$config</span>[‘nagios_plugins’] = “<span class="regexp">/usr/</span>lib64<span class="regexp">/nagios/</span>plugins”;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /usr/lib64/nagios/plugins/*</span><br></pre></td></tr></table></figure>
-<p>設定排程</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>cron.d/librenms</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">:</span><br><span class="line">*/<span class="number">5</span>  *    * * *   librenms    /opt/librenms/services-<span class="keyword">wrapper</span>.py <span class="number">1</span></span><br><span class="line"># Daily maintenance script. <span class="keyword">DO</span> <span class="keyword">NOT</span> <span class="keyword">DISABLE</span>!</span><br><span class="line">:</span><br></pre></td></tr></table></figure>
-
-
-<p>重啟排程</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">service crond restart</span></span><br></pre></td></tr></table></figure>
-
-<p>安裝設定完成，點擊首頁的 service → add service，進入畫面進行設定。<br><br></p>
-<div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%9B%A3%E6%8E%A7%E8%BB%9F%E9%AB%94-librenms-%E6%9C%8D%E5%8B%99%E6%87%89%E7%94%A8-nagios-2cdbfc45e5b4">medium</a> </p>
-</div>]]></content>
-      <categories>
-        <category>系統部署</category>
-        <category>librenms</category>
-      </categories>
-      <tags>
-        <tag>SNMP</tag>
-        <tag>librenms</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[PowerShell] Send-MailMessage 命令 </title>
     <url>/20220402/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄如何使用PowerShell 寄信</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何使用PowerShell 寄信
+</div>
+
 <span id="more"></span>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$SmtpUser</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$smtpPassword</span> = <span class="string">&#x27;password&#x27;</span></span><br><span class="line"><span class="variable">$MailtTo</span> = <span class="string">&#x27;user@domain.com&#x27;</span></span><br><span class="line"><span class="variable">$MailFrom</span> = <span class="string">&#x27;username@outlook.com&#x27;</span></span><br><span class="line"><span class="variable">$MailSubject</span> = <span class="string">&quot;Test using <span class="variable">$SmtpServer</span>&quot;</span> </span><br><span class="line"><span class="variable">$port</span>=<span class="string">&#x27;25&#x27;</span> <span class="comment">## or 465</span></span><br><span class="line"><span class="variable">$Credentials</span> = New-Object System.Management.Automation.PSCredential -ArgumentList <span class="variable">$SmtpUser</span>, $(<span class="variable">$smtpPassword</span> | ConvertTo-SecureString -AsPlainText -Force) </span><br><span class="line">Send-MailMessage -To <span class="string">&quot;<span class="variable">$MailtTo</span>&quot;</span> -from <span class="string">&quot;<span class="variable">$MailFrom</span>&quot;</span> -Subject <span class="variable">$MailSubject</span> -SmtpServer <span class="variable">$SmtpServer</span> -UseSsl -Credential <span class="variable">$Credentials</span> -Port <span class="variable">$port</span></span><br></pre></td></tr></table></figure>]]></content>
@@ -766,9 +775,9 @@
   <entry>
     <title>[DB] MSSQL DB Schema 匯出</title>
     <url>/20220511/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 DB schmea 如何匯出</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄 DB schmea 如何匯出
+</div>
 <span id="more"></span>
 
 <p>DB schmea 為 →[表格名稱.欄位名稱.資料型別.長度.預設值.是否允許空值.欄位描述]</p>
@@ -785,10 +794,11 @@
   <entry>
     <title>[DB] 清理交易紀錄檔</title>
     <url>/20220512/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄 如何清理DB交易紀錄檔</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄如何清理DB交易紀錄檔
+</div>
 <span id="more"></span>
+
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>資料庫使用久了，LDF(交易紀錄檔)也會越來越大，如果不定時的清理，導致把硬碟空間吃滿，資料庫就會出現錯誤。這時候就要使用語法來清理交易紀錄檔，避免問題的發生。</p>
 <h3 id="語法如下"><a href="#語法如下" class="headerlink" title="語法如下"></a>語法如下</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">use [資料庫名稱]</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> [資料庫名稱] <span class="keyword">SET</span> RECOVERY SIMPLE <span class="keyword">WITH</span> NO_WAIT</span><br><span class="line">use [資料庫名稱]</span><br><span class="line">go</span><br><span class="line">dbcc shrinkfile(<span class="string">&#x27;資料庫邏輯名稱_log&#x27;</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> [資料庫名稱] <span class="keyword">SET</span> RECOVERY <span class="keyword">FULL</span> <span class="keyword">WITH</span> NO_WAIT</span><br><span class="line">Go</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -801,9 +811,9 @@
   <entry>
     <title>[DB] 一些常用的指令語法</title>
     <url>/20220513/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄一些DB的常用指令與語法</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄一些DB的常用指令與語法
+</div>
 <span id="more"></span>
 
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> #查詢語法</span><br><span class="line"><span class="keyword">select</span> [欄位] <span class="keyword">from</span> [DB] <span class="operator">-</span><span class="operator">&gt;</span>查詢該DB欄位的所有資料(會有重複的)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> [欄位] <span class="keyword">from</span> [DB] <span class="operator">-</span><span class="operator">&gt;</span>查詢該DB欄位不同的資料</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> [表] </span><br><span class="line"><span class="keyword">where</span> [欄位] <span class="operator">=</span><span class="string">&#x27;值&#x27;</span> ;</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">not</span>  [欄位] <span class="operator">=</span><span class="string">&#x27;值&#x27;</span>;<span class="operator">-</span><span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">where</span> 欄位 <span class="operator">=</span><span class="number">32</span> ; <span class="operator">-</span><span class="operator">&gt;</span>確認欄位的數值 [數字可以不用加引號</span><br><span class="line"><span class="keyword">where</span> [欄位] <span class="operator">=</span><span class="string">&#x27;值&#x27;</span> <span class="keyword">and</span>  [欄位<span class="number">2</span>] <span class="operator">=</span><span class="string">&#x27;數值2&#x27;</span> <span class="operator">-</span><span class="operator">&gt;</span>篩選符合兩個條件的資料</span><br><span class="line"><span class="keyword">where</span> [欄位] <span class="operator">=</span><span class="string">&#x27;值&#x27;</span> <span class="keyword">or</span>   [欄位<span class="number">2</span>] <span class="operator">=</span><span class="string">&#x27;數值2&#x27;</span> <span class="operator">-</span><span class="operator">&gt;</span>篩選符合條件的資料</span><br><span class="line"></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> #排列</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> [db] </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> [欄位] ;</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> [欄位] <span class="keyword">desc</span> ; 反向排列</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> [欄位],[欄位];</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> [欄位] <span class="keyword">desc</span> , [欄位] <span class="keyword">asc</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> #新增欄位</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (column1, column2, column3, ...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3, ...);</span><br><span class="line"></span><br><span class="line"><span class="keyword">Null</span> #空值</span><br><span class="line"><span class="keyword">select</span> [欄位]</span><br><span class="line"><span class="keyword">from</span> [表格]</span><br><span class="line"><span class="keyword">where</span> [表格] <span class="keyword">is</span> <span class="keyword">null</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span></span><br><span class="line"><span class="keyword">update</span> [表] <span class="keyword">set</span> [欄位] <span class="operator">=</span><span class="string">&#x27;[新值]&#x27;</span> <span class="operator">-</span><span class="operator">&gt;</span>改變所有的值</span><br><span class="line"><span class="keyword">update</span> [表] <span class="keyword">set</span> [欄位] <span class="operator">=</span><span class="string">&#x27;[新值]&#x27;</span> <span class="keyword">where</span> [欄位<span class="number">2</span>]<span class="operator">=</span><span class="string">&#x27;[欄位2值]&#x27;</span></span><br><span class="line"><span class="keyword">update</span> [表] <span class="keyword">set</span> [欄位] <span class="operator">=</span><span class="string">&#x27;[新值]&#x27;</span>,<span class="keyword">set</span> [欄位<span class="number">2</span>] <span class="operator">=</span><span class="string">&#x27;[新值2]&#x27;</span> <span class="keyword">where</span> [欄位<span class="number">3</span>]<span class="operator">=</span><span class="string">&#x27;[欄位3值]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> [表] <span class="keyword">set</span> [欄位] <span class="operator">=</span><span class="string">&#x27;[值]&#x27;</span> <span class="operator">-</span><span class="operator">&gt;</span>刪除值的所有紀錄</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> [表] <span class="operator">-</span><span class="operator">&gt;</span>刪除該<span class="keyword">table</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span></span><br><span class="line"><span class="keyword">select</span> [min<span class="operator">/</span>max<span class="operator">/</span>avg<span class="operator">/</span>sum] (欄位) <span class="keyword">from</span> [表格];  #count<span class="operator">=</span> avg<span class="operator">=</span>平均</span><br><span class="line"><span class="keyword">select</span> count <span class="keyword">from</span>  [<span class="keyword">table</span>]  <span class="keyword">where</span> [欄位] <span class="operator">=</span>[欄位的值];</span><br><span class="line"></span><br><span class="line"><span class="keyword">like</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">like</span> <span class="string">&#x27;a%&#x27;</span>   <span class="operator">-</span><span class="operator">&gt;</span>a開頭的所有欄位的值</span><br><span class="line"><span class="keyword">like</span> <span class="string">&#x27;%a&#x27;</span>   <span class="operator">-</span><span class="operator">&gt;</span>a結尾的所有欄位的值</span><br><span class="line"><span class="keyword">like</span> <span class="string">&#x27;%a%&#x27;</span>  <span class="operator">-</span><span class="operator">&gt;</span>欄位的值有a的</span><br><span class="line"><span class="keyword">like</span> <span class="string">&#x27;_a%&#x27;</span>  <span class="operator">-</span><span class="operator">&gt;</span>第二個值為a的 ex:bagg...</span><br><span class="line"><span class="keyword">like</span> <span class="string">&#x27;a__%&#x27;</span> <span class="operator">-</span><span class="operator">&gt;</span>a開頭起大於三個字元 ex:abv...</span><br><span class="line"><span class="keyword">like</span> <span class="string">&#x27;a%b&#x27;</span>  <span class="operator">-</span><span class="operator">&gt;</span>a開頭b結尾</span><br><span class="line"><span class="keyword">like</span> [bsp]<span class="operator">%</span> <span class="operator">-</span><span class="operator">&gt;</span>b.s.p開頭的所有欄位的值</span><br><span class="line"><span class="keyword">like</span> [a<span class="operator">-</span>c]<span class="operator">%</span> <span class="operator">-</span><span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">not</span> <span class="keyword">like</span> <span class="string">&#x27;a%&#x27;</span><span class="operator">-</span><span class="operator">&gt;</span>不以a開頭的所有欄位的值</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> [<span class="keyword">table</span>]</span><br><span class="line"><span class="keyword">where</span> [欄位] <span class="keyword">like</span><span class="string">&#x27;a%&#x27;</span> ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">IN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">IN</span> (value1, value2, ...);</span><br><span class="line"></span><br><span class="line"><span class="keyword">BETWEEN</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">BETWEEN</span> value1 <span class="keyword">AND</span> value2;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Aliases</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">join</span> </span><br><span class="line"><span class="comment">--匹配兩張TABLE欄位的值----</span></span><br><span class="line">(<span class="keyword">INNER</span>) <span class="keyword">JOIN</span>: 返回兩個表中具有匹配值的記錄</span><br><span class="line"><span class="keyword">LEFT</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span>: 返回左表中的所有記錄，以及右表中匹配的記錄</span><br><span class="line"><span class="keyword">RIGHT</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span>: 返回右表中的所有記錄，以及左表中匹配的記錄</span><br><span class="line"><span class="keyword">FULL</span> (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span>: 當左表或右表中存在匹配時，返回所有記錄</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> 表<span class="number">1</span>,表<span class="number">1</span>欄位<span class="number">1</span>,表<span class="number">2</span>,表<span class="number">2</span>欄位<span class="number">2</span>,表<span class="number">1</span>,表<span class="number">1</span>欄位<span class="number">2</span></span><br><span class="line"><span class="keyword">from</span> 表<span class="number">1</span></span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> 表<span class="number">2</span> <span class="keyword">on</span> 表<span class="number">1.</span>表<span class="number">1</span>欄位<span class="operator">=</span>表<span class="number">2</span>,表<span class="number">2</span>欄位;</span><br><span class="line"></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name(s)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name(s);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span>  <span class="built_in">count</span> (欄位A),(欄位B)</span><br><span class="line"><span class="keyword">from</span> [<span class="keyword">table</span>]</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> [欄位B]</span><br><span class="line"></span><br><span class="line"><span class="keyword">Having</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name(s)</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">condition</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name(s);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SQL</span>註解</span><br><span class="line">單行 <span class="comment">--</span></span><br><span class="line">多行<span class="comment">/* */</span></span><br></pre></td></tr></table></figure>]]></content>
@@ -815,14 +825,16 @@
       </tags>
   </entry>
   <entry>
-    <title>[PowerShell] 執行powershell腳本</title>
+    <title>[PowerShell] 執行PowerShell腳本</title>
     <url>/20220520/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄powershell執行時會遇到的問題</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄PowerShell執行時會遇到的問題
+</div>紀錄Powershell執行時會遇到的問題
 <span id="more"></span>
-<p>當一台新得電腦要執行ps1檔案時，會顯示下列錯誤</p>
-<p>此所以會顯示這樣子的錯誤，是因為安全性的考量，在沒有更改安全性規則不允許執行powershell執行檔<br>在預設的狀態下執行原則為Restricted<br>就是你不能執行任何powershell執行檔</p>
+當一台新得電腦要執行PowerShell執行檔時，會顯示下列錯誤
+
+<!--缺圖-->
+<p>此所以會顯示這樣子的錯誤，是因為安全性的考量，在沒有更改安全性規則不允許執行powershell執行檔<br>在預設的狀態下執行原則為Restricted<br>就是你不能執行任何Powershell執行檔</p>
 <p>我們可以先用此指令才查詢目前的執行則</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Get-ExecutionPolicy</span></span><br></pre></td></tr></table></figure>
 
@@ -830,24 +842,24 @@
 <table>
 <thead>
 <tr>
-<th>執行原則</th>
+<th align="center">執行原則</th>
 <th align="center">說明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Restricted</td>
+<td align="center">Restricted</td>
 <td align="center">預設執行原則 關閉所有ps1檔案的執行功能</td>
 </tr>
 <tr>
-<td>AllSigned</td>
+<td align="center">AllSigned</td>
 <td align="center">只允許執行經過受信任的發行者簽署ps1檔案</td>
 </tr>
 <tr>
-<td>RemoteSigned</td>
+<td align="center">RemoteSigned</td>
 <td align="center">本機撰寫的ps1檔案不需要發行者簽署，可以執行+非本機撰寫經過受信任的發行者簽署ps1檔案</td>
 </tr>
 <tr>
-<td>Unrestricted</td>
+<td align="center">Unrestricted</td>
 <td align="center">任何ps1檔案都可以簽署(<del>小朋友才選擇</del>)</td>
 </tr>
 </tbody></table>
@@ -864,9 +876,9 @@
   <entry>
     <title>[Windows]要如何接受ICMP封包</title>
     <url>/20220627/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄設定的過程</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄要如何讓電腦可以收到ICMP封包
+</div>
 <span id="more"></span>
 
 <p>在測試網路是否有問題，發現liunx的機器無法ping到windows<br>但是windows的機器卻可以ping的到windows<br>研判應該是被windows 防火牆擋住了</p>
@@ -885,9 +897,9 @@
   <entry>
     <title>[Windows] WSUS 設定</title>
     <url>/20220629/</url>
-    <content><![CDATA[<blockquote>
-<p>紀錄在WSUS的設定於regedit(登錄檔)何處</p>
-</blockquote>
+    <content><![CDATA[<div class="note default">
+紀錄在WSUS的設定於regedit(登錄檔)何處
+</div>
 <span id="more"></span>
 
 <figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]</span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]</span><br><span class="line">Windows Registry Editor Version <span class="number">5.00</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;WUServer&quot;</span>=<span class="string">&quot;http://WSUSIP位置:8530&quot;</span></span><br><span class="line"><span class="string">&quot;WUStatusServer&quot;</span>=<span class="string">&quot;http://WSUSIP位置:8530&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]</span><br><span class="line"><span class="string">&quot;NoAutoUpdate&quot;</span>=<span class="name">dword</span>:<span class="number">00000000</span></span><br><span class="line"><span class="string">&quot;AUOptions&quot;</span>=<span class="name">dword</span>:<span class="number">00000003</span></span><br><span class="line"><span class="string">&quot;UseWUServer&quot;</span>=<span class="name">dword</span>:<span class="number">00000001</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -963,8 +975,8 @@
 <li>設計基礎結構解決方案 (30–35%)</li>
 </ul>
 <h4 id="慘遭滑鐵盧"><a href="#慘遭滑鐵盧" class="headerlink" title="慘遭滑鐵盧"></a>慘遭滑鐵盧</h4><p>順利的拿到AZ-104 覺得自己對Azure的有一定的熟悉程度了，就沒有花相對的時間去認真的去讀官方提供的學習資料，就走馬看花的看了一下覺得有滿滿的把握就去考試了</p>
-<p>一看到題目，就開始頭痛了，題目給的答案感覺都可以做到題目想要達成的事情，邊寫邊頭大，按下交卷的當天就知道差不多涼了，看到成績不到600分暈倒，發現其實有很多考試的大方向我根本沒有讀懂</p>
-<h4 id="再接再厲"><a href="#再接再厲" class="headerlink" title="再接再厲"></a>再接再厲</h4><p>針對不懂的考試項目，官方提供的學習資料重新看了一次，還爭取到了lab環境來測試，去把題目要問的答案做出來，來增加自己的印象。確認自己都不太會的地方都懂了，就再度去考試了。<br>這是可喜可賀的是，考卷的題目剛剛好都是我有讀到的地方，寫起來就很順暢沒有卡卡的狀況。按下交出考卷的當下，看到成績是PASS，整個跳起來了。</p>
+<p>一看到題目，就開始頭痛了，題目給的答案感覺都可以做到題目想要達成的事情，邊寫邊頭大，按下交卷的當天就知道差不多涼了，看到成績不到600分(暈倒)，發現其實有很多考試的大方向我根本沒有讀懂</p>
+<h4 id="再接再厲"><a href="#再接再厲" class="headerlink" title="再接再厲"></a>再接再厲</h4><p>針對不懂的考試項目，官方提供的學習資料我又重新看了一次，還爭取到Lab環境來測試，去把題目要問的答案做出來，來增加自己的印象。確認自己都不太會的地方都懂了，就再度去挑戰了。<br>可喜可賀的是，考試的題目剛剛好都是我有讀到的地方，寫起來就很順暢沒有卡卡的狀況。按下交出考卷的當下，看到成績是PASS，整個跳起來了。</p>
 <p>成功在半年內獲得了Azure 兩張認證，可喜可賀再接再厲。</p>
 ]]></content>
       <categories>
@@ -979,41 +991,56 @@
     <url>/20240707/</url>
     <content><![CDATA[<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720336249/No%20categories/xwk36qw83jskd6sbogl5.png" width="60%" />
 <span id="more"></span>
-<div class="note default"><p>今天來談談為何會建置部落格與為何用 Hexo 建置</p>
-</div>
 
-<h3 id="創建部落格的原因"><a href="#創建部落格的原因" class="headerlink" title="創建部落格的原因"></a>創建部落格的原因</h3><p>最主要就是三點紀錄、學習新的事物與自我提升</p>
-<h4 id="紀錄"><a href="#紀錄" class="headerlink" title="紀錄"></a>紀錄</h4><p>始終相信每個人的大腦容量與時間都是有限，時間一久就會忘記，就會需會需要記錄一些大大小小的事情，紀錄的同時也會重新思考可以如何做得更好<br>也許會為了更好的紀錄，去做了更多的嘗試</p>
-<h4 id="學習新事物"><a href="#學習新事物" class="headerlink" title="學習新事物"></a>學習新事物</h4><p>在開始寫文章的時候，會發現自己就像一隻誤闖叢林的小白兔，你會想去學很多新的事物<br>想要讓大家都可以看到你的文章，就要學習SEO（Search Engine Optimization, 搜尋引擎優化）技能<br>想要建置一個部落格，就要學習如何建置WordPress、Hexo<br>想要讓網站可以更安全，就要學習資安相關能力，例如WAF、DDOS防禦等</p>
-<p>部落格讓我對有興趣的事物，定期去看別人如何設定調整，並記錄下來，整理成自己看得懂的筆記，利用部落格來進行相關的測試，讓我對新的技術有相對應的暸解</p>
-<h4 id="自我提升"><a href="#自我提升" class="headerlink" title="自我提升"></a>自我提升</h4><p>現在人手一機的時代，距離上次拿起筆寫作都不知道何時了，導致一開始花大量時間寫的文章的文筆不太好，導致會很抗拒</p>
+<div class="note default">今天來談談為何會建置部落格與為何用 Hexo 建置 </div>
+
+
+<h3 id="創建部落格的原因"><a href="#創建部落格的原因" class="headerlink" title="創建部落格的原因"></a>創建部落格的原因</h3><p>最重要的三點是做紀錄、學習新事物，並不斷提升自己</p>
+<h4 id="紀錄"><a href="#紀錄" class="headerlink" title="紀錄"></a>紀錄</h4><p>始終相信每個人的大腦容量與時間都是有限，時間一久就會忘記。就在紀錄的同時，也會反思有哪些地方可以做得更好。為了提升紀錄的品質，也常會進一步做出各種新的嘗試</p>
+<h4 id="學習新事物"><a href="#學習新事物" class="headerlink" title="學習新事物"></a>學習新事物</h4><p>一開始踏入寫作的世界時，我就像一隻誤闖叢林的小白兔，對什麼都感到好奇，總想學習更多新事物。<br>為了讓寫的內容能被更多人看見，我開始學習 SEO（搜尋引擎優化）的技巧；<br>為了能夠架設自己的部落格，我接觸了像 WordPress、Hexo 等網站架設工具；<br>希望網站能更安全，便開始涉獵資安相關知識，例如 WAF、防範 DDoS 攻擊等技術；<br>想知道服務是否穩定運作，也學會了架設監控工具，像是 LibreNMS、Nagios 等。</p>
+<p>寫 blog 對我來說，不只是紀錄，更成為了一個不斷學習與成長的起點。</p>
+<!--在開始寫文章的時候，會發現自己就像一隻誤闖叢林的小白兔，你會想去學很多新的事物
+想要讓大家都可以看到你的文章，就要學習SEO（Search Engine Optimization, 搜尋引擎優化）技能
+想要建置一個部落格，就要學習如何建置WordPress、Hexo
+想要讓網站可以更安全，就要學習資安相關能力，例如WAF、DDOS防禦等
+想要知道服務是否正常，就要學習架設監控的服務，例如Librnms、Nagios等
+
+
+more部落格讓我對有興趣的事物，定期去看別人如何設定調整，並記錄下來，整理成自己看得懂的筆記，利用部落格來進行相關的測試，讓我對新的技術有相對應的暸解-->
+
+<h4 id="自我提升"><a href="#自我提升" class="headerlink" title="自我提升"></a>自我提升</h4><p>現在人手一機的時代，距離上次拿起筆寫作都不知道何時了，導致一開始花大量時間寫的文章的文筆不太好，會很抗拒</p>
 <p>但是到現在，我現在寫文章也是要花很多時間，還需要麻煩ChatGPT來協助</p>
 <p>但是我還是不放棄，畢竟現在放棄就結束了。</p>
-<h3 id="挑選用-Hexo-前的選擇-medium"><a href="#挑選用-Hexo-前的選擇-medium" class="headerlink" title="挑選用 Hexo 前的選擇 - medium"></a>挑選用 Hexo 前的選擇 - medium</h3><p>在選擇使用 Hexo 前有使用過 medium 來撰寫部落格文章。但當時在 medium 寫了幾篇文章遇到了幾個困境如下</p>
+<h3 id="挑選用-Hexo-前的選擇-Medium"><a href="#挑選用-Hexo-前的選擇-Medium" class="headerlink" title="挑選用 Hexo 前的選擇 - Medium"></a>挑選用 Hexo 前的選擇 - Medium</h3><p>在選擇使用 Hexo 前有使用過 Medium 來撰寫部落格文章。但當時在 Medium 寫了幾篇文章遇到了幾個困境</p>
 <ul>
 <li>對中文比較不友善</li>
 <li>中文社群偏小</li>
 <li>擴充性限制</li>
 </ul>
-<p>因上述這些原因就決定要停更 medium了</p>
-<h3 id="挑選-Hexo-當我的部落格"><a href="#挑選-Hexo-當我的部落格" class="headerlink" title="挑選 Hexo 當我的部落格"></a>挑選 Hexo 當我的部落格</h3><p>Hexo 是一個快速、簡單且強大的靜態網頁生成器，<br>基於使用 Node.js編寫，可以很快速的生成靜態頁面，還支持 Markdwon 標記語言來撰寫文章，透過簡單的指令就可以把網站部署上去，<br>不用煩惱網站的基礎建設( iis or Nginx 、Public IP 、NAT、Firewall等)煩惱，還支持很多第三方插件支援，不用去煩惱擴充功能的部分。</p>
-<h3 id="Hexo-與-WordPress-選擇"><a href="#Hexo-與-WordPress-選擇" class="headerlink" title="Hexo 與 WordPress 選擇"></a>Hexo 與 WordPress 選擇</h3><p>最廣為人知的部落格軟體應該還是WordPress，就算是一個不是資訊相關領域的有可以透過WordPress 輕鬆建立一個部落格或是網站。<br>Hexo 與 WordPress差異就是，Hexo 是靜態網站，WordPress是動態的網站，需要把資料存在資料庫。</p>
-<p>最直接的原因是，其實沒有多餘的時間來維護部落格，如上面所說的WordPress是有資料庫的，需要注意網站安全性時間會大於比單純託管在別人家的靜態網站 Hexo</p>
+<p>因上述這些原因就決定要停更 Medium了</p>
+<h3 id="挑選-Hexo-當我的部落格"><a href="#挑選-Hexo-當我的部落格" class="headerlink" title="挑選 Hexo 當我的部落格"></a>挑選 Hexo 當我的部落格</h3><p>Hexo 是一個快速、簡單且強大的靜態網頁生成器，<br>基於使用 Node.js編寫，可以很快速的生成靜態頁面，還支持 Markdwon 標記語言來撰寫文章，透過簡單的指令就可以把網站部署上去，<br>不用煩惱網站的基礎建設( IIS or Nginx 、Public IP 、NAT、Firewall等)煩惱，還支持很多第三方插件，不用去煩惱擴充功能的部分。</p>
+<h3 id="Hexo-與-WordPress-選擇"><a href="#Hexo-與-WordPress-選擇" class="headerlink" title="Hexo 與 WordPress 選擇"></a>Hexo 與 WordPress 選擇</h3><p>最廣為人知的部落格軟體應該還是WordPress，就算是一個不是資訊相關領域的都可以透過WordPress 輕鬆建立一個部落格或是網站。<br>Hexo 與 WordPress差異就是，Hexo 是靜態網站，WordPress是動態的網站，需要把資料存在資料庫。<br>不過，以我目前的需求來說，靜態網站的功能已經足夠，因此選擇了 Hexo 作為我的部落格平台。</p>
+<!--最直接的原因是，其實沒有多餘的時間來維護部落格，如上面所說的WordPress是有資料庫的，需要注意網站安全性時間會大於比單純託管在別人家的靜態網站 Hexo-->
+
+
+
 ]]></content>
+      <categories>
+        <category>雜談</category>
+      </categories>
   </entry>
   <entry>
     <title>[Windows] Windows Update 方法</title>
     <url>/20240708/</url>
-    <content><![CDATA[<div class="note default"><p>紀錄有幾種方式可以幫Windows 主機更新</p>
-</div>
+    <content><![CDATA[<div class="note default">紀錄有幾種方式可以幫Windows </div>
 <span id="more"></span>
 
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>無法使用用控制台 (control) 進行windows update的狀態下<br>還有那些辦法可以進行windows 更新</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在無法透過控制台進行 Windows Update 的情況下，還有什麼替代方法可以完成系統更新？</p>
 <h3 id="下載離線更新包安裝"><a href="#下載離線更新包安裝" class="headerlink" title="下載離線更新包安裝"></a>下載離線更新包安裝</h3><p>下載離線包前會需要知道OS patch號碼，可以在下面連結查詢</p>
-<p><a href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2016-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-4acfbc84-a290-1b54-536a-1c0430e9f3fd">Windows 2016</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2019-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-725fc2e1-4443-6831-a5ca-51ff5cbcb059">Windows 2019</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-server-2022-%E6%9B%B4%E6%96%B0%E6%AD%B7%E7%A8%8B%E8%A8%98%E9%8C%84-e1caa597-00c5-4ab9-9f3e-8212fe80b2ee">Windows 2022</a></p>
+<p><a href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2016-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-4acfbc84-a290-1b54-536a-1c0430e9f3fd">Windows 2016</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2019-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-725fc2e1-4443-6831-a5ca-51ff5cbcb059">Windows 2019</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-server-2022-%E6%9B%B4%E6%96%B0%E6%AD%B7%E7%A8%8B%E8%A8%98%E9%8C%84-e1caa597-00c5-4ab9-9f3e-8212fe80b2ee">Windows 2022</a><br><a href="https://support.microsoft.com/zh-tw/topic/windows-server-2025-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-10f58da7-e57b-4a9d-9c16-9f1dcd72d7d7">Windows 2025</a></p>
 <p>找到後可以需要Patch號碼後可以去下方連結下載</p>
 <p><a href="https://www.catalog.update.microsoft.com/Home.aspx">Microsoft Update Catalog</a></p>
-<h3 id="sconfig"><a href="#sconfig" class="headerlink" title="sconfig"></a>sconfig</h3><div class="note default"><p>該方法限定於伺服器版本的OS</p>
+<h3 id="Sconfig"><a href="#Sconfig" class="headerlink" title="Sconfig"></a>Sconfig</h3><div class="note default"><p>該方法限定於伺服器版本的OS</p>
 </div>
 
 <p>伺服器設定工具 (Sconfig.cmd) 是一個很厲害的工具，可以透過此工具來設定與管理伺服器的常用功能部分<br>當然一定要有administrator的權限才可以使用此工具。</p>
@@ -1026,7 +1053,7 @@
 <h3 id="Powershell-PSWindowsUpdate"><a href="#Powershell-PSWindowsUpdate" class="headerlink" title="Powershell - PSWindowsUpdate"></a>Powershell - PSWindowsUpdate</h3><p>要使用 PSWindowsUpdate 套件來執行 Windows 更新 ，必須要先在 PowerShell 進行安裝套件</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">使用系統管理員的權限打開 PowerShell</span><br><span class="line">輸入指令 install-Module PSWindowsUpdate </span><br><span class="line"></span><br><span class="line">系統會詢問你下面兩個問題</span><br><span class="line"><span class="keyword">if</span> you <span class="keyword">get</span> the message “<span class="keyword">Do</span> you want Powershell <span class="keyword">to</span> install <span class="keyword">and</span> <span class="keyword">import</span> the NuGet provider now”? 輸入Y，按enter</span><br><span class="line"><span class="keyword">if</span> you are prompted again <span class="keyword">with</span> a message “Are you sure you want <span class="keyword">to</span> install the module <span class="keyword">from</span> PSGallery” 輸入Y，按enter</span><br><span class="line"></span><br><span class="line">輸入 [<span class="keyword">Get</span>-WindowsUpdate] 來檢查現在windows 更新</span><br><span class="line">輸入[ Install-WindowsUpdate] 來選擇你要安裝windows 更新</span><br><span class="line">會顯示出“Confirm Are you sure you want <span class="keyword">to</span> <span class="keyword">perform</span> this action?” 輸入Y，按enter 就會開始更新了</span><br></pre></td></tr></table></figure>
 
-<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>其實 Windows 主機更新有很多方式，不只有去控制台按更新鍵的那一種<br>要不是因為一些原因主機經常沒有顯示自動更新按鈕，然而主機又一定要更新才讓我知道原來Windows 主機更新有好多種方法</p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>事實上，Windows 主機的更新方式有很多種，不僅限於在控制台中點選更新按鈕。<br>因為某些原因，我的主機經常無法顯示自動更新選項，也因此我才了解到，原來還有其他多種方法可以完成系統更新。</p>
 <br>
 
 <div class="note primary"><p>該文章同時發布於<a href="https://medium.com/@hanelin/%E7%B4%80%E9%8C%84-windows-update-%E6%96%B9%E6%B3%95-1365ca69ade1">medium</a> </p>
@@ -1049,9 +1076,9 @@
     <url>/20240709/</url>
     <content><![CDATA[<blockquote>
 </blockquote>
-<div class="note default"><p>說明GCB是什麼與講解使用方式</p>
-</div>
+<div class="note default">說明GCB是什麼與用途 </div>
 <span id="more"></span>
+
 <h3 id="GCB是什麼"><a href="#GCB是什麼" class="headerlink" title="GCB是什麼?"></a>GCB是什麼?</h3><p>政府組態基準(Government Configuration Baseline，GCB)<br>目的在於規範資通訊設備(如個人電腦、伺服器主機及網通設備等) 的一致性安全設定(如密碼長度、更新期限等)，<br>以減少資安事件<br><del>就是增加一些電腦安全設定讓方便性下降很多但是安全性上升一些</del></p>
 <h3 id="套用後有感設定"><a href="#套用後有感設定" class="headerlink" title="套用後有感設定"></a>套用後有感設定</h3><p>密碼原則</p>
 <ul>
@@ -1092,6 +1119,12 @@
 <h4 id="遠端桌面部分"><a href="#遠端桌面部分" class="headerlink" title="遠端桌面部分"></a>遠端桌面部分</h4><p>不允許磁碟重新導向建議例外，套用後無法使用遠端桌面複製檔案到主機上<br>若是要用VPN後遠端，要麻煩與VPN管理員確認相關規定是否可以套用<br>如:需要安全的RPC通訊、需要對遠端(RDP)連線使用特定的安全層與遠端桌面相關的設定</p>
 <h4 id="使用者權限指派"><a href="#使用者權限指派" class="headerlink" title="使用者權限指派"></a>使用者權限指派</h4><p>若主機有安裝IIS、資料庫相關服務建議套用GCB規則前先進行記錄<br>以免導致套用後無法使用</p>
 <h4 id="如何還原GCB規則"><a href="#如何還原GCB規則" class="headerlink" title="如何還原GCB規則"></a>如何還原GCB規則</h4><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">RD <span class="string">/S</span> <span class="string">/Q</span> C:\Windows\System32\GroupPolicy</span><br><span class="line">LGPO.exe <span class="string">/g</span> D:\LGPO\backup</span><br><span class="line">gpupdate <span class="string">/force</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>資安</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
   </entry>
   <entry>
     <title>為何要離開Medium與搬至何處</title>
@@ -1099,11 +1132,9 @@
     <content><![CDATA[<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1721658695/2024-07-20/j8b8doj34vlrysr5xnvn.png" width="100%" />
 <span id="more"></span>
 <br>
-之後不會在管理Medium了
-使用了HEXO架設了一個新的網站，以後可以在這邊[it's Note](https://tomlintw.cc/)
+目前已停止在 Medium 上更新內容，並已透過 HEXO 架設了全新的網站，歡迎大家前往造訪。
 
-
-<h3 id="為何離開-Medium"><a href="#為何離開-Medium" class="headerlink" title="為何離開 Medium"></a>為何離開 Medium</h3><p>當初選擇用Medium 來當技術 blog，主要是記錄一些遇到的問題，但寫了幾篇發現了幾個問題</p>
+<h3 id="為何離開-Medium"><a href="#為何離開-Medium" class="headerlink" title="為何離開 Medium"></a>為何離開 Medium</h3><p>當初選擇用 Medium 作為技術部落格，是為了紀錄自己在學習中遇到的一些問題。但寫了幾篇文章之後，也發現了其中的一些限制與不便。</p>
 <ul>
 <li>沒有codeblock </li>
 <li>字體的行距偏高</li>
@@ -1113,29 +1144,36 @@
 <li>編輯器的差異</li>
 </ul>
 <br>
-沒有codeblock (程式碼區塊)這點對於要寫技術 blog真的是一個大障礙，直接複製貼上版型又會跑掉，用螢幕截圖去貼上又很麻煩且下一位使用者還不能直接複製程式碼。
-<br>
-與後續自己獲得相關的能力也想自己架設一個blog來嘗試。
+沒有支援程式碼區塊（code block）對於撰寫技術部落格來說是一大障礙。直接複製貼上的格式常常跑掉，使用螢幕截圖雖然是個替代方案，但不僅麻煩，讀者也無法直接複製程式碼使用。
+此外，隨著自己逐漸掌握相關技術，我也希望能親自架設一個部落格平台，作為實作與嘗試的機會。
+
 
 <h3 id="確認架設blog需求"><a href="#確認架設blog需求" class="headerlink" title="確認架設blog需求"></a>確認架設blog需求</h3><br>
-搬家前總是要確認一下，新家需要有那些基本功能
-基本需求如下
+搬家之前，總是得先確認一下新家需要具備哪些基本功能。
+基本功能如下
 
 <ul>
-<li>要支援markdwon語法</li>
-<li>可以的話只靜態頁面 （不想管理資料庫資安)</li>
+<li>要支援Markdwon語法</li>
+<li>可以的話只靜態頁面 </li>
 <li>環境部署不會太麻煩</li>
 </ul>
-<p>最後我選擇了HEXO ，支援Markdown語法，單純的靜態頁面與多種的樣式，最後是可以部署在Github page上，連後端的部分都可以省略了。</p>
-<p>最後還是要感謝Medium讓我有紀錄文件知識庫的習慣，與學習使用markdown來紀錄文件。</p>
-<p>結論，新的blog已建置完成，名字叫「it’s Note」<br>歡迎大家可以無聊來逛逛找些資訊<br>(下台一鞠躬)</p>
-]]></content>
+<br>
+我選擇 HEXO 作為我的部落格平台，主要是因為它支援 Markdown 語法，讓我能夠輕鬆創建簡潔的靜態頁面，並提供多種樣式選擇。而且，HEXO 還能夠輕鬆部署到 GitHub Pages，省去了我繁瑣的後端設置。
+<br>
+在這裡，我也想感謝 Medium，因為它讓我養成了記錄文件和整理知識庫的習慣，也讓我學會了使用 Markdown 撰寫內容。
+<br>
+總結來說，我的新部落格「it’s Note」已經建置完成，歡迎大家在閒暇時來這裡看看，發掘一些有趣的資訊。
+<br>
+(下台一鞠躬)]]></content>
+      <categories>
+        <category>雜談</category>
+      </categories>
   </entry>
   <entry>
-    <title>要如何在windows主機建置與執行本地端大型模型(LLM)</title>
+    <title>要如何在Windows主機建置與執行本地端大型模型(LLM)</title>
     <url>/20240801/</url>
-    <content><![CDATA[<div class="note default"><p>簡單說明要如何建置地端本地語言模型</p>
-</div>
+    <content><![CDATA[<div class="note default ">紀錄如何在windows電腦建立本地模型</div>
+
 
 <span id="more"></span>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>大型語言模型（LLM）是一種人工智慧（AI）模型，透過自然語言處理（NLP）技術<br>能理解人類語言並產生回覆<br>例如:OpenAI的ChatGPT、谷歌的gemini與微軟的Microsoft 365 Copilot</p>
@@ -1165,5 +1203,39 @@
 <h4 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h4><p>Q1.預設模型存放何處與要如何修改存放位置<br> 預設模型存放路徑C:\Users&lt;用户名&gt;.ollama\models<br> 要修改存放路徑方式如下 在系統新增環境變數 “OLLAMA_MODELS” 環境變數值指存放的目錄<br> <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1722521495/2024-08-01/d3xmrhkwogihjoixabfa.png" width="50%" /></p>
 <h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p> 下列網址為官方GitHub，更多的功能請參考相關文件，有問題可以進行留言<br> <a href="https://github.com/ollama/ollama">https://github.com/ollama/ollama</a></p>
 ]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+  </entry>
+  <entry>
+    <title> [其他]海運大亨 </title>
+    <url>/20250930/</url>
+    <content><![CDATA[<h2 id="遊戲簡介"><a href="#遊戲簡介" class="headerlink" title="遊戲簡介"></a>遊戲簡介</h2><p>&lt;海運大亨&gt;是一款海上運輸的模擬經營軟體，有點類似Transport Fever 2 海運版本，玩家將租用港口、購置船隊，透過跨港口的貨物運輸來推動經濟成長。更關鍵的是，您需要招募CMO、CTO、CFO核心管理層，擘劃您的航運帝國，一步步實現全球海運霸權的雄心。<br><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1759161630/2025-09-29/1_lbib43.png" width="80%" /></p>
+<span id="more"></span>
+
+<h2 id="遊戲玩法"><a href="#遊戲玩法" class="headerlink" title="遊戲玩法"></a>遊戲玩法</h2><p>初期營運與物流策略<br>遊戲初期，玩家必須確認各港口的供需資源，並據此租賃港口（租期可選三年、五年或十年）。接著，根據運輸貨品的性質，決定使用散裝船、貨櫃船或油船合適的船型，將貨物高效運送至目標港口，完成基礎貿易。</p>
+<p>公司發展與海運霸權<br>為了實現海運霸權的雄心，您需要延攬CMO、CTO、CFO等核心管理層，加速公司發展：</p>
+<p>CMO (行銷長)： 提升宣傳效益，以更低的成本擴大市場佔有率，掌控港口貨物資源。<br>CTO (技術長)： 以合理的費用獲取更多科技點數，用於研發更大型的船隻，提升運輸量。<br>CFO (財務長)： 增加公司的貸款額度，提供更靈活的資金調度空間。</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1759161630/2025-09-29/2_dgqbm7.png" width="40%" />
+
+<p>隨機事件與決策挑戰<br>遊戲中會不定時出現隨機任務，挑戰您的決策能力。玩家可能需要選擇是否投入資金購買科技點數、添購新船、繳納環保稅金，或進行產業收購。</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1759161629/2025-09-29/3_skjt9n.png" width="40%" />
+
+<h2 id="個人的心得"><a href="#個人的心得" class="headerlink" title="個人的心得"></a>個人的心得</h2><h3 id="優點與遊戲策略"><a href="#優點與遊戲策略" class="headerlink" title="優點與遊戲策略"></a>優點與遊戲策略</h3><p>《海運大亨》是一款入門門檻相對較低的模擬經營遊戲。遊戲初期策略清晰，玩家基本上只要從運輸石油起步，就能順利展開局面。</p>
+<p>遊戲的中期發展著重於科技樹的投資：</p>
+<p>建議玩家及早聘用 CTO，開始投入科技點數，研發大型船隻。</p>
+<p>待大型船隊建立後，便可進一步思考如何規劃高級終端產品的物流與生產，進入更高階的經營階段。</p>
+<p>此外，「劇本模式」是一項優秀的設計，它讓玩家能透過固定的時間軸，了解歷史上重要物流事件的影響，為遊戲增添了深度和教育意義。</p>
+<h2 id="建議與待改進之處"><a href="#建議與待改進之處" class="headerlink" title="建議與待改進之處"></a>建議與待改進之處</h2><p>雖然遊戲核心體驗良好，但在幾個操作和細節上仍有進步的空間：</p>
+<p>後臺運行問題： 遊戲最大的困擾是切換至後臺或視窗縮小時會自動暫停，無法持續運行，這對需要長時間累積資源的模擬經營遊戲來說，確實是一個令人頭痛的問題。</p>
+<p>航線與船隻管理優化： 隨著航線和船隻數量增加，介面容易變得眼花撩亂。目前難以直觀地確認哪些船隻在跑特定航線，使得航線調整和船隊管理變得極為困難。強烈建議優化航線&#x2F;船隻的篩選和追蹤介面。</p>
+<p>隨機任務頻率： 隨機任務彈出的頻率過高，長時間遊戲下來容易產生煩躁感。如果能將這些任務整合到一個專門的按鈕或選單中（例如一個「待辦事項」或「事件中心」），讓玩家自行決定何時處理，將會大幅提升整體遊戲體驗。</p>
+<p>地名與任務文字錯誤： 遊戲中的部分地名或任務描述出現文字錯誤，造成玩家在遊玩時產生混淆。建議開發團隊仔細校對所有文本，確保地名與任務描述的準確性。</p>
+<p>效能問題: 遊戲內度過一個月要跨到下一個月，遊戲會有高機率的卡頓，導致遊戲的流暢度有些不優。</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>《海運大亨》核心玩法引人入勝，無疑是一款極具潛力的經營遊戲。然而，目前遊戲仍存在部分體驗上的問題。我們衷心期待工程師團隊能盡快著手優化和改善，這將使其提供更流暢、更專業的遊戲體驗，讓《海運大亨》能充分發揮其市場潛力。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
   </entry>
 </search>

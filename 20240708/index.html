@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tomlintw.cc","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="紀錄有幾種方式可以幫Windows 主機更新">
+    <meta name="description" content="紀錄有幾種方式可以幫Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Windows] Windows Update 方法">
 <meta property="og:url" content="https://tomlintw.cc/20240708/index.html">
 <meta property="og:site_name" content="it&#39;s Note">
-<meta property="og:description" content="紀錄有幾種方式可以幫Windows 主機更新">
+<meta property="og:description" content="紀錄有幾種方式可以幫Windows">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720762440/2024-07-08/ctna5a2di2exqd1xey2b.webp">
 <meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1720762440/2024-07-08/v9mp0xgbvd3wvtpbgrfn.webp">
@@ -61,6 +61,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+  
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -84,7 +85,7 @@
       <p class="site-title">it's Note</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">一個存放學習筆記的地方</p>
+      <p class="site-subtitle" itemprop="description">一個存放筆記的地方</p>
   </div>
 
   <div class="site-nav-right">
@@ -148,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E9%9B%A2%E7%B7%9A%E6%9B%B4%E6%96%B0%E5%8C%85%E5%AE%89%E8%A3%9D"><span class="nav-number">2.</span> <span class="nav-text">下載離線更新包安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sconfig"><span class="nav-number">3.</span> <span class="nav-text">sconfig</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%80%E9%AB%98%E6%AC%8A%E9%99%90%E7%9A%84Cmd%E8%BC%B8%E5%85%A5sconfig%EF%BC%8C%E7%84%B6%E5%BE%8C%E6%8C%89-ENTER-%E9%8D%B5%E3%80%82-%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%A8%AD%E5%AE%9A%E5%B7%A5%E5%85%B7%E4%BB%8B%E9%9D%A2%E4%BE%BF%E6%9C%83%E9%96%8B%E5%95%9F"><span class="nav-number">3.1.</span> <span class="nav-text">使用最高權限的Cmd輸入sconfig，然後按 ENTER 鍵。 伺服器設定工具介面便會開啟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BC%B8%E5%85%A5%E6%95%B8%E5%AD%97%E2%80%9D6%E2%80%9D%EF%BC%8C%E7%84%B6%E5%BE%8C%E6%8C%89-ENTER-%E9%8D%B5%E3%80%82%E6%9C%83%E8%B7%B3%E5%87%BA%E4%B8%80%E5%8F%A6%E5%A4%96%E4%B8%80%E5%80%8Bcmd%E9%A0%81%E9%9D%A2%E5%8F%AF%E4%BB%A5%E8%BC%B8%E5%85%A5%E2%80%9DA%E2%80%9C%E5%B0%8B%E6%89%BE%E6%89%80%E6%9C%89%E7%9A%84%E6%9B%B4%E6%96%B0-or-%E2%80%9CR%E2%80%9C%E5%B0%8B%E6%89%BE%E5%BB%BA%E8%AD%B0%E7%9A%84%E6%9B%B4%E6%96%B0%EF%BC%8C%E7%84%B6%E5%BE%8C%E6%8C%89-ENTER-%E9%8D%B5%E3%80%82"><span class="nav-number">3.2.</span> <span class="nav-text">輸入數字”6”，然後按 ENTER 鍵。會跳出一另外一個cmd頁面可以輸入”A“尋找所有的更新 or “R“尋找建議的更新，然後按 ENTER 鍵。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E6%98%AF%E5%85%A8%E9%83%A8%E6%9B%B4%E6%96%B0%EF%BC%88A-or-%E5%96%AE%E4%B8%80%E6%9B%B4%E6%96%B0-S-%EF%BC%8C%E8%BC%B8%E5%85%A5%E5%AE%8C%E5%BE%8C%E5%B0%B1%E6%9C%83%E9%96%8B%E5%A7%8B%E6%9B%B4%E6%96%B0%E6%9B%B4%E6%96%B0%E5%AE%8C%E6%88%90%E5%BE%8C%E6%9C%83%E8%B7%B3%E5%87%BA%E4%B8%80%E5%80%8B%E8%A6%96%E7%AA%97%EF%BC%8C%E8%A9%A2%E5%95%8F%E4%BD%A0%E6%98%AF%E5%90%A6%E8%A6%81%E9%87%8D%E5%95%9F%E9%9B%BB%E8%85%A6%EF%BC%8C%E9%80%99%E6%A8%A3%E5%B0%B1%E4%BB%A3%E8%A1%A8%E6%9B%B4%E6%96%B0%E5%AE%8C%E6%88%90%E4%BA%86"><span class="nav-number">3.3.</span> <span class="nav-text">可以選擇是全部更新（A) or 單一更新(S)，輸入完後就會開始更新更新完成後會跳出一個視窗，詢問你是否要重啟電腦，這樣就代表更新完成了</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powershell-PSWindowsUpdate"><span class="nav-number">4.</span> <span class="nav-text">Powershell - PSWindowsUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">5.</span> <span class="nav-text">結論</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89%E9%9B%A2%E7%B7%9A%E6%9B%B4%E6%96%B0%E5%8C%85%E5%AE%89%E8%A3%9D"><span class="nav-number">2.</span> <span class="nav-text">下載離線更新包安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sconfig"><span class="nav-number">3.</span> <span class="nav-text">Sconfig</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%80%E9%AB%98%E6%AC%8A%E9%99%90%E7%9A%84Cmd%E8%BC%B8%E5%85%A5sconfig%EF%BC%8C%E7%84%B6%E5%BE%8C%E6%8C%89-ENTER-%E9%8D%B5%E3%80%82-%E4%BC%BA%E6%9C%8D%E5%99%A8%E8%A8%AD%E5%AE%9A%E5%B7%A5%E5%85%B7%E4%BB%8B%E9%9D%A2%E4%BE%BF%E6%9C%83%E9%96%8B%E5%95%9F"><span class="nav-number">3.1.</span> <span class="nav-text">使用最高權限的Cmd輸入sconfig，然後按 ENTER 鍵。 伺服器設定工具介面便會開啟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BC%B8%E5%85%A5%E6%95%B8%E5%AD%97%E2%80%9D6%E2%80%9D%EF%BC%8C%E7%84%B6%E5%BE%8C%E6%8C%89-ENTER-%E9%8D%B5%E3%80%82%E6%9C%83%E8%B7%B3%E5%87%BA%E4%B8%80%E5%8F%A6%E5%A4%96%E4%B8%80%E5%80%8Bcmd%E9%A0%81%E9%9D%A2%E5%8F%AF%E4%BB%A5%E8%BC%B8%E5%85%A5%E2%80%9DA%E2%80%9C%E5%B0%8B%E6%89%BE%E6%89%80%E6%9C%89%E7%9A%84%E6%9B%B4%E6%96%B0-or-%E2%80%9CR%E2%80%9C%E5%B0%8B%E6%89%BE%E5%BB%BA%E8%AD%B0%E7%9A%84%E6%9B%B4%E6%96%B0%EF%BC%8C%E7%84%B6%E5%BE%8C%E6%8C%89-ENTER-%E9%8D%B5%E3%80%82"><span class="nav-number">3.2.</span> <span class="nav-text">輸入數字”6”，然後按 ENTER 鍵。會跳出一另外一個cmd頁面可以輸入”A“尋找所有的更新 or “R“尋找建議的更新，然後按 ENTER 鍵。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E9%81%B8%E6%93%87%E6%98%AF%E5%85%A8%E9%83%A8%E6%9B%B4%E6%96%B0%EF%BC%88A-or-%E5%96%AE%E4%B8%80%E6%9B%B4%E6%96%B0-S-%EF%BC%8C%E8%BC%B8%E5%85%A5%E5%AE%8C%E5%BE%8C%E5%B0%B1%E6%9C%83%E9%96%8B%E5%A7%8B%E6%9B%B4%E6%96%B0%E6%9B%B4%E6%96%B0%E5%AE%8C%E6%88%90%E5%BE%8C%E6%9C%83%E8%B7%B3%E5%87%BA%E4%B8%80%E5%80%8B%E8%A6%96%E7%AA%97%EF%BC%8C%E8%A9%A2%E5%95%8F%E4%BD%A0%E6%98%AF%E5%90%A6%E8%A6%81%E9%87%8D%E5%95%9F%E9%9B%BB%E8%85%A6%EF%BC%8C%E9%80%99%E6%A8%A3%E5%B0%B1%E4%BB%A3%E8%A1%A8%E6%9B%B4%E6%96%B0%E5%AE%8C%E6%88%90%E4%BA%86"><span class="nav-number">3.3.</span> <span class="nav-text">可以選擇是全部更新（A) or 單一更新(S)，輸入完後就會開始更新更新完成後會跳出一個視窗，詢問你是否要重啟電腦，這樣就代表更新完成了</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Powershell-PSWindowsUpdate"><span class="nav-number">4.</span> <span class="nav-text">Powershell - PSWindowsUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">5.</span> <span class="nav-text">結論</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,13 +164,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -276,6 +277,7 @@
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
       <span>1 分鐘</span>
     </span>
+  
 </div>
 
         </div>
@@ -284,16 +286,15 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><div class="note default"><p>紀錄有幾種方式可以幫Windows 主機更新</p>
-</div>
+    <div class="post-body" itemprop="articleBody"><div class="note default">紀錄有幾種方式可以幫Windows </div>
 <span id="more"></span>
 
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>無法使用用控制台 (control) 進行windows update的狀態下<br>還有那些辦法可以進行windows 更新</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在無法透過控制台進行 Windows Update 的情況下，還有什麼替代方法可以完成系統更新？</p>
 <h3 id="下載離線更新包安裝"><a href="#下載離線更新包安裝" class="headerlink" title="下載離線更新包安裝"></a>下載離線更新包安裝</h3><p>下載離線包前會需要知道OS patch號碼，可以在下面連結查詢</p>
-<p><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2016-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-4acfbc84-a290-1b54-536a-1c0430e9f3fd">Windows 2016</a><br><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2019-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-725fc2e1-4443-6831-a5ca-51ff5cbcb059">Windows 2019</a><br><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-server-2022-%E6%9B%B4%E6%96%B0%E6%AD%B7%E7%A8%8B%E8%A8%98%E9%8C%84-e1caa597-00c5-4ab9-9f3e-8212fe80b2ee">Windows 2022</a></p>
+<p><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2016-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-4acfbc84-a290-1b54-536a-1c0430e9f3fd">Windows 2016</a><br><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-10-%E5%92%8C-windows-server-2019-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-725fc2e1-4443-6831-a5ca-51ff5cbcb059">Windows 2019</a><br><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-server-2022-%E6%9B%B4%E6%96%B0%E6%AD%B7%E7%A8%8B%E8%A8%98%E9%8C%84-e1caa597-00c5-4ab9-9f3e-8212fe80b2ee">Windows 2022</a><br><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/topic/windows-server-2025-%E6%9B%B4%E6%96%B0%E8%A8%98%E9%8C%84-10f58da7-e57b-4a9d-9c16-9f1dcd72d7d7">Windows 2025</a></p>
 <p>找到後可以需要Patch號碼後可以去下方連結下載</p>
 <p><a target="_blank" rel="noopener" href="https://www.catalog.update.microsoft.com/Home.aspx">Microsoft Update Catalog</a></p>
-<h3 id="sconfig"><a href="#sconfig" class="headerlink" title="sconfig"></a>sconfig</h3><div class="note default"><p>該方法限定於伺服器版本的OS</p>
+<h3 id="Sconfig"><a href="#Sconfig" class="headerlink" title="Sconfig"></a>Sconfig</h3><div class="note default"><p>該方法限定於伺服器版本的OS</p>
 </div>
 
 <p>伺服器設定工具 (Sconfig.cmd) 是一個很厲害的工具，可以透過此工具來設定與管理伺服器的常用功能部分<br>當然一定要有administrator的權限才可以使用此工具。</p>
@@ -306,7 +307,7 @@
 <h3 id="Powershell-PSWindowsUpdate"><a href="#Powershell-PSWindowsUpdate" class="headerlink" title="Powershell - PSWindowsUpdate"></a>Powershell - PSWindowsUpdate</h3><p>要使用 PSWindowsUpdate 套件來執行 Windows 更新 ，必須要先在 PowerShell 進行安裝套件</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">使用系統管理員的權限打開 PowerShell</span><br><span class="line">輸入指令 install-Module PSWindowsUpdate </span><br><span class="line"></span><br><span class="line">系統會詢問你下面兩個問題</span><br><span class="line"><span class="keyword">if</span> you <span class="keyword">get</span> the message “<span class="keyword">Do</span> you want Powershell <span class="keyword">to</span> install <span class="keyword">and</span> <span class="keyword">import</span> the NuGet provider now”? 輸入Y，按enter</span><br><span class="line"><span class="keyword">if</span> you are prompted again <span class="keyword">with</span> a message “Are you sure you want <span class="keyword">to</span> install the module <span class="keyword">from</span> PSGallery” 輸入Y，按enter</span><br><span class="line"></span><br><span class="line">輸入 [<span class="keyword">Get</span>-WindowsUpdate] 來檢查現在windows 更新</span><br><span class="line">輸入[ Install-WindowsUpdate] 來選擇你要安裝windows 更新</span><br><span class="line">會顯示出“Confirm Are you sure you want <span class="keyword">to</span> <span class="keyword">perform</span> this action?” 輸入Y，按enter 就會開始更新了</span><br></pre></td></tr></table></figure>
 
-<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>其實 Windows 主機更新有很多方式，不只有去控制台按更新鍵的那一種<br>要不是因為一些原因主機經常沒有顯示自動更新按鈕，然而主機又一定要更新才讓我知道原來Windows 主機更新有好多種方法</p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>事實上，Windows 主機的更新方式有很多種，不僅限於在控制台中點選更新按鈕。<br>因為某些原因，我的主機經常無法顯示自動更新選項，也因此我才了解到，原來還有其他多種方法可以完成系統更新。</p>
 <br>
 
 <div class="note primary"><p>該文章同時發布於<a target="_blank" rel="noopener" href="https://medium.com/@hanelin/%E7%B4%80%E9%8C%84-windows-update-%E6%96%B9%E6%B3%95-1365ca69ade1">medium</a> </p>
@@ -371,13 +372,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="總字數">30k</span>
+    <span title="總字數">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">27 分鐘</span>
+    <span title="所需總閱讀時間">28 分鐘</span>
   </span>
 </div>
 <div class="busuanzi-count">

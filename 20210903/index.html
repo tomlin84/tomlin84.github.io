@@ -20,18 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tomlintw.cc","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定">
+    <meta name="description" content="紀錄要如何在windows安裝與設定SNMP 服務，以便於監控軟體後續的設定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SNMP] 安裝與設定 for Windows ">
 <meta property="og:url" content="https://tomlintw.cc/20210903/index.html">
 <meta property="og:site_name" content="it&#39;s Note">
-<meta property="og:description" content="紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定">
+<meta property="og:description" content="紀錄要如何在windows安裝與設定SNMP 服務，以便於監控軟體後續的設定">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png">
 <meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/2021-09-03/snmp-2_hhmr34.png">
 <meta property="og:image" content="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png">
 <meta property="article:published_time" content="2021-09-02T16:11:01.000Z">
-<meta property="article:modified_time" content="2021-09-02T16:11:01.000Z">
+<meta property="article:modified_time" content="2021-09-02T16:00:00.000Z">
 <meta property="article:author" content="tomlin">
 <meta property="article:tag" content="SNMP">
 <meta name="twitter:card" content="summary">
@@ -58,6 +58,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+  
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -81,7 +82,7 @@
       <p class="site-title">it's Note</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">一個存放學習筆記的地方</p>
+      <p class="site-subtitle" itemprop="description">一個存放筆記的地方</p>
   </div>
 
   <div class="site-nav-right">
@@ -145,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%AE%A1%E7%90%86%E5%93%A1-%E6%96%B0%E5%A2%9E%E8%A7%92%E8%89%B2%E8%88%87%E5%8A%9F%E8%83%BD-%E5%8A%9F%E8%83%BD-%E5%AE%89%E8%A3%9DSNMP-Service"><span class="nav-number">1.</span> <span class="nav-text">伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%AE%8C%E6%88%90%EF%BC%8C%E5%89%8D%E5%BE%80%E2%80%9D%E6%9C%8D%E5%8B%99%E2%80%9D%E8%A8%AD%E5%AE%9A-snmp-service"><span class="nav-number">2.</span> <span class="nav-text">安裝完成，前往”服務”設定  snmp service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%AE%89%E5%85%A8%E6%80%A7%E6%96%B0%E5%A2%9E%E9%80%9A%E9%97%9C%E5%AF%86%E7%A2%BC%E8%88%87%E9%81%B8%E6%93%87%E6%89%80%E6%9C%89%E4%B8%BB%E6%A9%9F%E6%8E%A5%E5%8F%97snmp%E5%B0%81%E5%8C%85%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">在安全性新增通關密碼與選擇所有主機接受snmp封包。</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%AE%8C%E6%88%90%EF%BC%8C%E5%89%8D%E5%BE%80%E2%80%9D%E6%9C%8D%E5%8B%99%E2%80%9D%E8%A8%AD%E5%AE%9A-SNMP-service"><span class="nav-number">1.</span> <span class="nav-text">安裝完成，前往”服務”設定  SNMP service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%AE%89%E5%85%A8%E6%80%A7%E6%96%B0%E5%A2%9E%E9%80%9A%E9%97%9C%E5%AF%86%E7%A2%BC%E8%88%87%E9%81%B8%E6%93%87%E6%89%80%E6%9C%89%E4%B8%BB%E6%A9%9F%E6%8E%A5%E5%8F%97SNMP%E5%B0%81%E5%8C%85%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">在安全性新增通關密碼與選擇所有主機接受SNMP封包。</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,13 +161,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -230,8 +231,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2021-09-03 00:11:01" itemprop="dateCreated datePublished" datetime="2021-09-03T00:11:01+08:00">2021-09-03</time>
+      <time title="創建時間：2021-09-03 00:11:01 / 修改時間：00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-03T00:11:01+08:00">2021-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,7 +259,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>154</span>
+      <span>148</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
@@ -266,6 +268,7 @@
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
       <span>1 分鐘</span>
     </span>
+  
 </div>
 
         </div>
@@ -274,16 +277,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote>
-<p>紀錄要如何在windows安裝與設定snmp 服務，以便於監控軟體後續的設定</p>
-</blockquote>
+    <div class="post-body" itemprop="articleBody"><div class="note default">
+紀錄要如何在windows安裝與設定SNMP 服務，以便於監控軟體後續的設定
+</div>
 <span id="more"></span>
-<h3 id="伺服器管理員-新增角色與功能-功能-安裝SNMP-Service"><a href="#伺服器管理員-新增角色與功能-功能-安裝SNMP-Service" class="headerlink" title="伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service"></a>伺服器管理員&gt;新增角色與功能&gt;功能&gt;安裝SNMP  Service</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png" width="70%" />
+###  伺服器管理員>新增角色與功能>功能>安裝SNMP  Service 
 
-<h3 id="安裝完成，前往”服務”設定-snmp-service"><a href="#安裝完成，前往”服務”設定-snmp-service" class="headerlink" title="安裝完成，前往”服務”設定  snmp service"></a>安裝完成，前往”服務”設定  snmp service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
+<img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070467/2021-09-03/snmp-1_lm50ho.png" width="70%" />
+
+<h3 id="安裝完成，前往”服務”設定-SNMP-service"><a href="#安裝完成，前往”服務”設定-SNMP-service" class="headerlink" title="安裝完成，前往”服務”設定  SNMP service"></a>安裝完成，前往”服務”設定  SNMP service</h3><p>  備註:安裝完不用重新開機，沒有看到這個服務代表安裝失敗</p>
 <img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070757/2021-09-03/snmp-2_hhmr34.png" width="70%" />
 
-<h3 id="在安全性新增通關密碼與選擇所有主機接受snmp封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受snmp封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受snmp封包。"></a>在安全性新增通關密碼與選擇所有主機接受snmp封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png" width="70%" />
+<h3 id="在安全性新增通關密碼與選擇所有主機接受SNMP封包。"><a href="#在安全性新增通關密碼與選擇所有主機接受SNMP封包。" class="headerlink" title="在安全性新增通關密碼與選擇所有主機接受SNMP封包。"></a>在安全性新增通關密碼與選擇所有主機接受SNMP封包。</h3><img src="https://res.cloudinary.com/dkqqwoda5/image/upload/v1632070877/2021-09-03/snmp-3_o0gkmo.png" width="70%" />
     </div>
 
     
@@ -338,13 +343,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="總字數">30k</span>
+    <span title="總字數">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">27 分鐘</span>
+    <span title="所需總閱讀時間">28 分鐘</span>
   </span>
 </div>
 <div class="busuanzi-count">
